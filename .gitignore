@@ -1,0 +1,24 @@
+# OS metadata
+.DS_Store
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# HDL simulator output
+*.vvp
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.wlf
+*.log
+transcript
+work/
+
+# Generated solver dumps
+rtl/sim/u_dyn.txt
+rtl/sim/u_fix.txt
+
+# MATLAB editor backups
+*.asv

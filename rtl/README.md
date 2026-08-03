@@ -1,0 +1,78 @@
+# Folded Red/Black Bit-Serial PDE Accelerator (RTL)
+
+20x20 logical grid on 20x10 physical PEs. Residue-based FDM, checkerboard
+update, 4/8/12/16-bit dynamic precision, first-order DSM.
+
+Deltas vs Mu & Kim, JSSC'23:
+1. Red/Black folded into one PE sharing a bit-serial ALU (utilisation 50%->100%)
+2. Precision switching self-triggered by per-PE range flags (no offline schedule)
+3. DSM implemented in RTL and combined with dynamic precision (paper: proposal only)
+
+The core arithmetic follows Fig. 8: N clocks at N-bit precision, four carry
+DFFs, and parallel `Sum/MSB1/MSB0` outputs into the residue shift register.
+
+## Run
+
+From the repository root:
+
+    make -C rtl/sim pe
+    make -C rtl/sim top8
+    make -C rtl/sim top8neg
+    make -C rtl/sim top8mixed
+    make -C rtl/sim top20
+    make -C rtl/sim dsm
+
+Or change into the simulation directory first:
+
+    cd rtl/sim
+    make pe         # single-PE arithmetic, reproduces Fig.10
+    make top8       # 8x8, positive uniform boundary
+    make top8neg    # 8x8, negative uniform boundary
+    make top8mixed  # 8x8, nonuniform mixed-sign boundaries
+    make top20      # 20x20 (slow under iverilog)
+    make dsm        # DSM accuracy sweep
+
+## Verified results (8x8, uniform boundary 4096)
+    converged, max|u-exact| = 17 (0.4%)
+    dynamic precision : 53 updates, 1039 cycles
+    fixed 16-bit      : 53 updates, 1855 cycles   -> 1.78x
+    golden comparison : 64/64 points bit-exact
+    scan-chain check  : 64/64 words exact
+
+Additional signed regressions:
+    boundary -4096    : 53 updates, max error 2, 64/64 bit-exact
+    mixed boundaries  : 17 updates, 64/64 bit-exact
+
+## Files
+    src/common/    counter_ce pipeline_delay_bit
+    src/pe/        pde_q8p7_pkg r_alu r_reg r_dsm r_status sol_acc
+                   r_state_ctrl pe_top
+    src/pe_array/  pde_memcontrol pde_tcu pde_top
+    tb/            tb_pe tb_pde_top
+    sim/           Makefile check_golden.py
+    reference/     golden_model.py dsm_sweep.py
+    docs/          design_notes.md / design_notes_zh.md   <-- read this first
+
+The standalone MATLAB model used as the algorithm-level source of truth is
+`../model/demo_golden_model.m`.
+
+## Key parameters
+    USE_DSM        delta-sigma on/off
+    DYN_PREC       dynamic vs pinned 16-bit (A/B baseline)
+    CONV_ON_SMALL  |r|<=1 vs r==0 convergence test
+
+Control/datapath split:
+
+    pde_tcu        global FSM, precision and convergence control
+    r_state_ctrl   local bank/Mode/write-enable decode, one per PE
+    pe_top         wires up the PE leaves (r_reg x2, r_alu, r_dsm, sol_acc,
+                   r_status)
+    pde_top        owns the PE lattice directly (neighbour routing, scan chain)
+
+The folded PE keeps two residue-register banks because source serialization and
+destination loading happen on the same CK_A.  One shared full-width precision
+MUX sits after the Red/Black bank select.
+
+`start` launches one solve after reset. Assert `rst_n` before loading and
+starting another independent problem; solution, residue and DSM state are all
+stateful and are intentionally not silently cleared from `S_DONE`.

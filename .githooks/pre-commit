@@ -35,6 +35,18 @@ while IFS= read -r -d '' file; do
   esac
 done < <(git diff --cached --name-only --diff-filter=ACMR -z)
 
+if git diff --cached --name-only --diff-filter=ACMR -- CLAUDE.md | grep -q .; then
+  claude_content=$(git show :CLAUDE.md)
+  claude_first=$(printf '%s\n' "$claude_content" | sed -n '1p')
+  claude_lines=$(printf '%s\n' "$claude_content" | wc -l)
+  if [[ "$claude_first" != "@AGENTS.md" ]]; then
+    fail "CLAUDE.md must start with @AGENTS.md"
+  fi
+  if [[ "$claude_lines" -gt 20 ]]; then
+    fail "CLAUDE.md must remain a thin import bridge (maximum 20 lines; got $claude_lines)"
+  fi
+fi
+
 DIFF_PATHS=(
   .
   ':(exclude)AGENTS.md'

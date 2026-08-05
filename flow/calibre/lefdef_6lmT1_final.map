@@ -1,0 +1,49 @@
+# Canonical Calibre FDI map for tcbn65lp_6lmT1 (SP6M4x1z).
+# This exact minimal map was validated with the full 20x20 CTS DEF using
+# Calibre 2023.2_16.9.  Standard-cell geometry is supplied with -cellGDS.
+
+PO      NET              17   0
+CO      VIA              30   0
+
+M1      NET,SPNET,VIA    31   0
+M2      NET,SPNET,VIA    32   0
+M3      NET,SPNET,VIA    33   0
+M4      NET,SPNET,VIA    34   0
+M5      NET,SPNET,VIA    35   0
+M6      NET,SPNET,VIA    36  40
+
+VIA1    VIA              51   0
+VIA2    VIA              52   0
+VIA3    VIA              53   0
+VIA4    VIA              54   0
+VIA5    VIA              55  40
+
+M1      PIN              31   0
+M2      PIN              32   0
+M3      PIN              33   0
+M4      PIN              34   0
+M5      PIN              35   0
+M6      PIN              36  40
+
+M1      FILL             31   1
+M2      FILL             32   1
+M3      FILL             33   1
+M4      FILL             34   1
+M5      FILL             35   1
+M6      FILL             36  41
+
+VIA1    VIAFILL          51   1
+VIA2    VIAFILL          52   1
+VIA3    VIAFILL          53   1
+VIA4    VIAFILL          54   1
+VIA5    VIAFILL          55   1
+
+DIEAREA ALL             108   0
+COMP    ALL             127   0
+
+NAME M1/PIN             131   0
+NAME M2/PIN             132   0
+NAME M3/PIN             133   0
+NAME M4/PIN             134   0
+NAME M5/PIN             135   0
+NAME M6/PIN             136   0

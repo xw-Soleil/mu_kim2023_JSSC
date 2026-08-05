@@ -1,0 +1,24 @@
+# CANONICAL Calibre FDI map for the TSMC SP6M4x1z routing stack.
+# Only object types accepted for each LEF/DEF layer are listed.  Real standard
+# cell geometry is merged from tcbn65lp.gds after this abstract conversion.
+
+M1       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  31  0
+M2       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  32  0
+M3       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  33  0
+M4       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  34  0
+M5       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  35  0
+M6       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  36  40
+VIA1     VIA,LEFOBS                        51  0
+VIA2     VIA,LEFOBS                        52  0
+VIA3     VIA,LEFOBS                        53  0
+VIA4     VIA,LEFOBS                        54  0
+VIA5     VIA,LEFOBS                        55  40
+DIEAREA  ALL                              108  0
+COMP     ALL                              107  0
+
+NAME M1/PIN  131  0
+NAME M2/PIN  132  0
+NAME M3/PIN  133  0
+NAME M4/PIN  134  0
+NAME M5/PIN  135  0
+NAME M6/PIN  136  0

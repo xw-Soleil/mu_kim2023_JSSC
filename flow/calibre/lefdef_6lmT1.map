@@ -1,0 +1,30 @@
+# Calibre FDI LEF/DEF -> GDS map for the installed TSMC65 6M 3X1Z1U stack.
+# Stream numbers are taken from the installed TSMC Virtuoso mapping file:
+# Vir65nm_6M_3X1Z1U_v1.4b.042508.map.
+
+PO       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  17  0
+CO       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  30  0
+M1       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  31  0
+M2       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  32  0
+M3       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  33  0
+M4       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  34  0
+M5       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  35  40
+M6       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  36  60
+VIA1     VIA,LEFOBS                        51  0
+VIA2     VIA,LEFOBS                        52  0
+VIA3     VIA,LEFOBS                        53  0
+VIA4     VIA,LEFOBS                        54  40
+VIA5     VIA,LEFOBS                        55  40
+AP       PIN,NET,SPNET,VIA,LEFPIN,LEFOBS  74  0
+RV       VIA,LEFOBS                        85  0
+OVERLAP  ALL                              107  0
+DIEAREA  ALL                              108  0
+COMP     ALL                              107  0
+
+# Preserve top-level DEF pin labels on the TSMC pin-purpose stream layers.
+NAME M1/PIN  131  0
+NAME M2/PIN  132  0
+NAME M3/PIN  133  0
+NAME M4/PIN  134  0
+NAME M5/PIN  135  0
+NAME M6/PIN  136  0

@@ -1,0 +1,29 @@
+# CANONICAL Calibre FDI map for tsmcn65_6lmT1.tf.
+# The technology header identifies this stack as SP6M4x1z.  Values are checked
+# against the installed TSMC 6M_4X1Z Virtuoso mapping and gds2map.sh output.
+
+PO       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  17  0
+CO       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  30  0
+M1       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  31  0
+M2       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  32  0
+M3       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  33  0
+M4       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  34  0
+M5       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  35  0
+M6       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  36  40
+VIA1     VIA,BLKG,LEFOBS                        51  0
+VIA2     VIA,BLKG,LEFOBS                        52  0
+VIA3     VIA,BLKG,LEFOBS                        53  0
+VIA4     VIA,BLKG,LEFOBS                        54  0
+VIA5     VIA,BLKG,LEFOBS                        55  40
+AP       PIN,NET,SPNET,BLKG,VIA,LEFPIN,LEFOBS  74  0
+RV       VIA,BLKG,LEFOBS                        85  0
+OVERLAP  ALL                                   107  0
+DIEAREA  ALL                                   108  0
+COMP     ALL                                   107  0
+
+NAME M1/PIN  131  0
+NAME M2/PIN  132  0
+NAME M3/PIN  133  0
+NAME M4/PIN  134  0
+NAME M5/PIN  135  0
+NAME M6/PIN  136  0

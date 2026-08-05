@@ -1,0 +1,43 @@
+# Local EDA/tool state. Keep these paths in place; do not version them.
+/.cadence/
+/PreFrameCheck/
+/alib-*/
+/flow/local/env_local.sh
+
+# Generated implementation databases, reports, and deliverables.
+/flow/local_runs/
+/flow/work/
+/flow/results/
+/flow/reports/
+/flow/innovus/*.tgz
+
+# Local root-session archive. Only its policy README is versioned.
+/local_artifacts/*
+!/local_artifacts/README.md
+
+# Prevent Synopsys/Cadence session debris from repopulating the repository root.
+/check_design*.log
+/check_design*.ems
+/check_workspace.ems
+/default-*.svf
+/command.log
+/icc2_command.log
+/icc2_output.txt
+/lm_command.log
+/lm_output.txt
+/crte_*.txt
+/Synopsys_stack_trace_*.txt
+/libManager.log
+/.graph_data.txt
+
+# Simulation, editor, MATLAB, and Python transient files.
+*.vcd
+*.fst
+*.vvp
+*.wlf
+*.asv
+*.swp
+*~
+.nfs*
+__pycache__/
+*.py[cod]

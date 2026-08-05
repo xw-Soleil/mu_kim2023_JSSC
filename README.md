@@ -61,3 +61,22 @@ MUX sits after the Red/Black bank select.
 `start` launches one solve after reset. Assert `rst_n` before loading and
 starting another independent problem; solution, residue and DSM state are all
 stateful and are intentionally not silently cleared from `S_DONE`.
+
+## Local Git safety
+
+This working repository is local-only and its existing history is not a publication-ready export. Source-management rules are in `AGENTS.md`; Claude Code imports the same rules through `CLAUDE.md`.
+
+Enable the tracked pre-commit policy after cloning or recreating `.git`:
+
+```bash
+git config core.hooksPath .githooks
+git config --get core.hooksPath
+```
+
+The hook rejects files over 50 MiB, common PDK/vendor/implementation file types, newly added machine/license/internal-host strings, and obvious credential patterns. A staged change under `flow/` is intentionally blocked until its paths and candidate cell/layer/corner tokens have been shown to the user. After explicit review approval, retry that commit with:
+
+```bash
+PDE_FLOW_DISCLOSURE_REVIEWED=1 git commit
+```
+
+Do not use `--no-verify` without explicit approval for the exact commit. `gitleaks` is additionally required before any remote or public-release work; the hook reports when it is unavailable.

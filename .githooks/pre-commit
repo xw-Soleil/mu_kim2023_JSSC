@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MAX_BYTES=$((50 * 1024 * 1024))
+FAIL=0
+FLOW_CHANGED=0
+STAGED_FILES=()
+
+fail() {
+  printf 'ERROR: %s\n' "$*" >&2
+  FAIL=1
+}
+
+while IFS= read -r -d '' file; do
+  STAGED_FILES+=("$file")
+
+  size=$(git cat-file -s ":$file" 2>/dev/null || printf '0')
+  if [[ "$size" -gt "$MAX_BYTES" ]]; then
+    fail "file exceeds 50 MiB: $file ($((size / 1024 / 1024)) MiB)"
+  fi
+
+  lower=${file,,}
+  case "$lower" in
+    *.gds|*.gds.gz|*.gdsii|*.oas|*.oas.gz|*.def|*.def.gz|*.spef|*.spef.gz|*.sdf|*.sdf.gz|\
+    *.ndm|*.ndm/*|*.dlib|*.dlib/*|*.nlib|*.nlib/*|*.db|*.lib|*.lef|*.cdl|*.tf|*.itf|\
+    *.tluplus|*pdk*|*process_design_kit*|*tcbn*)
+      fail "suspected PDK/vendor/implementation artifact: $file"
+      ;;
+  esac
+
+  case "$file" in
+    flow/*)
+      FLOW_CHANGED=1
+      ;;
+  esac
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+
+DIFF_PATHS=(
+  .
+  ':(exclude)AGENTS.md'
+  ':(exclude)CLAUDE.md'
+  ':(exclude).githooks/pre-commit'
+)
+
+if git diff --cached --no-ext-diff --unified=0 -- "${DIFF_PATHS[@]}" |
+   grep -E '^\+[^+]' |
+   grep -qE '/home/(soleil|sxw)(/|[[:space:]]|$)|LM_LICENSE_FILE|SNPSLMD_LICENSE_FILE|MGLS_LICENSE_FILE|CDS_LIC_FILE|soleilUbuntu|EDAServer'; then
+  fail "added content contains a machine path, license variable/server, or internal hostname"
+fi
+
+if git diff --cached --no-ext-diff --unified=0 -- "${DIFF_PATHS[@]}" |
+   grep -E '^\+[^+]' |
+   grep -qE 'BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|github_pat_|ghp_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9_-]{20,}'; then
+  fail "added content matches a private-key or credential pattern"
+fi
+
+if [[ "$FLOW_CHANGED" -eq 1 && "${PDE_FLOW_DISCLOSURE_REVIEWED:-0}" != "1" ]]; then
+  printf 'FLOW DISCLOSURE REVIEW REQUIRED\n' >&2
+  printf 'Staged flow paths:\n' >&2
+  printf '  %s\n' "${STAGED_FILES[@]}" | sed -n '\|  flow/|p' >&2
+
+  tokens=$(
+    git diff --cached --no-ext-diff --unified=0 -- flow/ |
+      sed -n '/^+++ /d; s/^+//p' |
+      grep -Eo '\b([A-Z][A-Z0-9_]*D[0-9]+|M[0-9]+|VIA[0-9]+|PO|OD|NWELL|FUNC_(WC|BC)|WC|BC|SS|FF|TT)\b' |
+      sort -u || true
+  )
+  if [[ -n "$tokens" ]]; then
+    printf 'Candidate cell/layer/corner tokens:\n%s\n' "$tokens" >&2
+  else
+    printf 'Candidate cell/layer/corner tokens: none found by heuristic scan\n' >&2
+  fi
+
+  fail "show this inventory to the user; after approval retry with PDE_FLOW_DISCLOSURE_REVIEWED=1"
+fi
+
+if command -v gitleaks >/dev/null 2>&1; then
+  if ! gitleaks detect --staged --no-banner; then
+    fail "gitleaks staged scan failed"
+  fi
+else
+  printf 'WARN: gitleaks is not installed; remote/publication work is not cleared\n' >&2
+fi
+
+if [[ "$FAIL" -ne 0 ]]; then
+  printf 'Commit blocked by repository policy. Do not use --no-verify without explicit user approval.\n' >&2
+  exit 1
+fi
+
+printf 'pre-commit policy: PASS (%d staged paths)\n' "${#STAGED_FILES[@]}"

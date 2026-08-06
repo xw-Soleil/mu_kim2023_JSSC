@@ -8,7 +8,10 @@
 : "${PDE_LICENSE_FILE:=/ssd0/mentor/license/license.dat}"
 
 : "${PDE_TOP:=pde_chip_top_safe}"
-: "${PDE_GDS:=${PDE_REPO_ROOT}/flow/results/openroad/pde_chip_top_safe.gds}"
+# 2026-08-06: default retargeted from the removed OpenROAD path to the
+# full_clean_20260804 ICC2 deliverable (1 nm/dbu rescaled copy; the raw
+# 0.1 nm ICC2 stream-out is pde_chip_top_safe.gds in the same directory).
+: "${PDE_GDS:=/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/local_runs/full_clean_20260804/icc2/results/icc2/pde_chip_top_safe.clean_20260804.dbu1000.gds}"
 
 # The extracted /tmp tree is intentionally not used as the canonical input.
 # These two members are reconstructed from the persistent local PDK archive.

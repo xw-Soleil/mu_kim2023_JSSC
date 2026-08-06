@@ -305,3 +305,46 @@ EDAServer 上全部存在,archive sha256
    (记录在案);以 08-03 成功运行日志替代版本证据,未再深查 wrapper。
 
 **时间预算内完成;基线目录零写入,全部结论附命令与原始输出(本报告 + manifest)。**
+
+---
+
+## 附录(2026-08-06 追加):HVT 库完整性核查 + 站内备选工艺库调查
+
+### A1. tcbn65lphvt(HVT)库级交付:**齐全,且是 65nm 三个 VT 变体里唯一齐全的**
+
+核查对象:`/home/sxw/PDK/tcbn65lphvt_200b/AN61001_20100906/TSMCHOME/digital/`(EDAServer)。
+
+| 交付项 | 实测 | 备注 |
+|---|---|---|
+| Liberty | NLDM + CCS + ECSM 三套齐;**文本 `.lib` ×127,`.db` ×2,738**,NLDM 每角 .lib/.db 成对 | RVT 全量交付(`/ssd0/…/tcbn65lp_200b`)`.lib` 仅 1 个且是 `cds.lib` 配置文件,timing 只有 CCS `.db` ×2,657 —— "RVT 无文本 Liberty"在完整交付上再次证实 |
+| LEF | ×7(5~9 层金属方案,含 6lmT1) | 855 macro |
+| GDS | `tcbn65lphvt.gds` | ✓ |
+| 仿真模型 | `tcbn65lphvt.v` + `tcbn65lphvt_pwr.v`(Front_End/verilog),另有 vital | ✓ 门级仿真可用 |
+| SPICE/CDL | `tcbn65lphvt_200a.spi` + `_lpe.spi` | LVS 用的单元级网表在 |
+| Milkyway | tf ×7 + tluplus 全角 + captable 全角 | ✓ |
+| **天线规则** | `Back_End/milkyway/tcbn65lphvt_200a/clf/antennaRule_n65_{5..9}lm.tcl/.scm` + `antenna_tcbn65lphvt.clf` **就在 HVT 自己的交付树里**;`antennaRule_n65_6lm.tcl` sha256 `409ad799…5ba8ffe` 与 RVT 版**逐字节一致**(工艺级规则,VT 无关) | 任务 2 的主候选文件 HVT 线本来就有 |
+| 二极管/filler | ANTENNAHVT、FILL*HVT(Innovus 线已实际使用) | ✓ |
+| 文档 | databook 全角 PDF ×21(DB_TCBN65LPHVT_*.pdf) | ✓ |
+
+**但三个工艺级缺口 HVT 同样存在(换 VT 不解决)**:
+1. tap/endcap:HVT LEF 855 macro 的 CLASS 语句 861 条**全部 `CLASS CORE`**(实测,与 RVT 完全一样)——没有 WELLTAP/ENDCAP master,是这代库的架构而非 HVT 缺项;
+2. **Calibre LVS deck(CN65S)全站没有** —— RVT/HVT/LVT 共同缺;
+3. latch-up 间距数值仍需人工查 TN65CLDR001 第 10.1 节。
+Calibre DRC/ANT deck 是工艺级(CN65S),对 HVT 同样适用,已被 08-03 运行验证。
+
+另:**LVT(`tcbn65lplvt_200b`)在 /ssd0 树里只有 Documentation,库本体为空**(.lib/.lef/.gds 全 0)——不可用。
+
+### A2. 站内其他工艺库调查(/ssd0/PDKs 全目录)
+
+| 节点 | 性质 | 数字 std cell | Calibre LVS | 结论 |
+|---|---|---|---|---|
+| tsmc40(CRN40ULP) | Virtuoso RF/混合信号 iPDK(models/iDeck/CCI) | **无** | 仅 Assura auLvs(器件级) | 做不了数字 RTL→GDS |
+| tsmc28 / tsmc28_mm(CLN28HPC+) | 同上 iPDK | **无** | CCI 用 calibre_cci.lvs,非逻辑全 deck | 同上 |
+| local_tsmc28(CRN28HPC+ RF) | 同上 iPDK | **无** | PyCell 教学配置 | 同上 |
+| simc40 | SMIC40LL(非 TSMC) | 无 | auLvs | 不适用 |
+| HJTC110 | 目录为空 | — | — | — |
+| otherPDK | "工艺库大全.rar" 未解压 | 未知 | 未知 | 未探查(压缩包) |
+| **UMC40**(非 TSMC) | **完整数字链**:fsh0l_ers GENERIC_CORE(synthesis `.db` 多角 + verilog + LEF ×多金属方案 + 全 GDS + milkyway LM)| ✓ | **✓ 真 Calibre LVS deck**:`RuleDecks/Calibre/LVS/macro/macro.cal.lvs` + 应用笔记/QA 报告;另有 DRC、LPE deck | 站内唯一能 DRC+LVS+LPE 闭环的数字库,但要换厂商换节点 |
+| /home/sxw/stdlib/tsmc40_std | 是**表征课程项目**(CSV/教程/图),不是库交付 | — | — | 与本项目无关 |
+
+**结论:没有任何其他 TSMC 节点具备数字标准单元库;65nm(RVT .db 线 / HVT .lib+.db 线)仍是唯一可行的 TSMC 选择。LVS 闭环若为硬要求,站内唯一出路是 UMC40(换厂商)或外部获取 CN65S LVS deck。**

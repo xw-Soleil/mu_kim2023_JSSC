@@ -68,6 +68,16 @@ set_app_var search_path [concat [list $REPO_ROOT $LIB_DIR] $search_path]
 set_app_var target_library [list $TARGET_DB]
 set_app_var link_library [concat "*" $target_library]
 
+# DC ignores library recovery/removal arcs by default (var default: false).
+# Without this, no reset-release check is ever performed regardless of SDC.
+# [28nm-portable] process independent; keep enabled.
+set_app_var enable_recovery_removal_arcs true
+
+# [28nm hook] AOCV derate attach point. The 28nm 1P9M_4X2Y2R libraries ship
+# per-library sbocv tables; load them here (read_aocvm / set_timing_derate
+# -aocvm usage per the 28nm methodology) once that PDK is in place. tcbn65lp
+# has no OCV tables, so no derate is applied in the 65nm flow on purpose.
+
 set_svf [file join $RESULT_DIR ${TOP}.svf]
 define_design_lib WORK -path [file join $WORK_DIR WORK]
 
@@ -102,10 +112,30 @@ if {[sizeof_collection [all_outputs]] > 0} {
   set_load 0.050 [all_outputs]
 }
 
-# rst_n is an asynchronous functional reset. Ignore its assertion path during
-# synthesis optimization; recovery/removal remains a required post-CTS check.
+# Reset constraints (2026-08-06). The RTL now has a two-stage synchronizer in
+# pde_chip_top_safe (rst_sync_q_reg[0]/[1]): async assertion, sync release.
+# The former three-layer masking (ideal network + no input delay + blanket
+# false path) hid every recovery/removal check and is dismantled here:
+#
+#  1. rst_n is no longer an ideal network; only clk stays ideal pre-CTS.
+#  2. rst_n gets a real arrival window. max 1.0 ns matches the block-level
+#     budget every data input already uses (line above); min 0.2 ns is the
+#     project's earliest-arrival convention so removal sees a non-zero early
+#     bound instead of an optimistic 0.
+#  3. The false path stays limited to the truly asynchronous segment: it
+#     starts at the port, and after the synchronizer the only timing paths
+#     from the port end at the synchronizer flops' CDN pins. Downstream CDNs
+#     are launched from rst_sync_q_reg[1]/CP (rst_n_sync), which this
+#     exception cannot reach, so those checks stay live. Verified in the run
+#     report: timing_removal.rpt startpoints are rst_sync_q_reg[1], not rst_n.
+#
+# [28nm-portable] the structure (1..3) migrates as-is; re-derive only the
+# numeric input-delay budget from the 28nm IO timing plan.
+set_input_delay -max 1.000 -clock $CLOCK_NAME [get_ports rst_n]
+set_input_delay -min 0.200 -clock $CLOCK_NAME [get_ports rst_n]
+set_input_transition 0.100 [get_ports rst_n]
 set_false_path -from [get_ports rst_n]
-set_ideal_network [get_ports {clk rst_n}]
+set_ideal_network [get_ports clk]
 
 set_max_fanout 32 [current_design]
 set_max_transition 0.500 [current_design]
@@ -132,6 +162,25 @@ redirect -file [file join $REPORT_DIR timing_max.rpt] {
 }
 redirect -file [file join $REPORT_DIR timing_min.rpt] {
   report_timing -delay_type min -max_paths 20 -nworst 1 -input_pins -nets
+}
+# Reset-release checks made visible by the 2026-08-06 unmasking above. If
+# this DC build lacks report_timing -check_type, fall back to addressing the
+# async clear pins directly (same path set, CDN endpoints).
+redirect -file [file join $REPORT_DIR timing_removal.rpt] {
+  if {[catch {report_timing -delay_type min -check_type removal \
+                -max_paths 20 -nworst 1 -input_pins} msg]} {
+    puts "FALLBACK (-check_type unsupported): $msg"
+    report_timing -delay_type min -max_paths 20 -nworst 1 -input_pins \
+      -to [get_pins -hierarchical */CDN]
+  }
+}
+redirect -file [file join $REPORT_DIR timing_recovery.rpt] {
+  if {[catch {report_timing -delay_type max -check_type recovery \
+                -max_paths 20 -nworst 1 -input_pins} msg]} {
+    puts "FALLBACK (-check_type unsupported): $msg"
+    report_timing -delay_type max -max_paths 20 -nworst 1 -input_pins \
+      -to [get_pins -hierarchical */CDN]
+  }
 }
 redirect -file [file join $REPORT_DIR constraints.rpt] {
   report_constraint -all_violators

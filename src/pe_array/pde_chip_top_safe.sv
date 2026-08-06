@@ -53,6 +53,20 @@ module pde_chip_top_safe #(
   logic scan_used_q;
   logic status_read_q;
 
+  // Two-stage reset synchronizer: asynchronous assertion, synchronous
+  // release. The synchronizer flops are the only loads of the raw rst_n
+  // port; every register in this wrapper and the whole u_impl hierarchy
+  // is reset by the synchronized rst_n_sync instead.
+  logic [1:0] rst_sync_q;
+  logic       rst_n_sync;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) rst_sync_q <= 2'b00;
+    else        rst_sync_q <= {rst_sync_q[0], 1'b1};
+  end
+
+  assign rst_n_sync = rst_sync_q[1];
+
   assign control_write       = cfg_write && (cfg_addr == A_CONTROL);
   assign control_reserved_bad = |cfg_wdata[15:3];
   assign repeat_read_bad     = cfg_wdata[1] && scan_used_q;
@@ -77,7 +91,7 @@ module pde_chip_top_safe #(
     .NPE(NPE)
   ) u_impl (
     .clk(clk),
-    .rst_n(rst_n),
+    .rst_n(rst_n_sync),
     .cfg_valid(impl_cfg_valid),
     .cfg_write(cfg_write),
     .cfg_addr(cfg_addr),
@@ -92,8 +106,8 @@ module pde_chip_top_safe #(
 
   // Delay the read-address classification by exactly the implementation's
   // one-cycle response latency. Reads are never filtered by this wrapper.
-  always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n)
+  always_ff @(posedge clk or negedge rst_n_sync) begin
+    if (!rst_n_sync)
       status_read_q <= 1'b0;
     else
       status_read_q <= cfg_valid && cfg_ready && !cfg_write
@@ -102,8 +116,8 @@ module pde_chip_top_safe #(
 
   // Sticky wrapper error: a rejected transaction wins over a simultaneous
   // clear. In practice the two are mutually exclusive by construction.
-  always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
+  always_ff @(posedge clk or negedge rst_n_sync) begin
+    if (!rst_n_sync) begin
       wrapper_error_q <= 1'b0;
     end else begin
       if (wrapper_clear) wrapper_error_q <= 1'b0;
@@ -114,8 +128,8 @@ module pde_chip_top_safe #(
   // The first observed valid scan bit marks the destructive chain as used.
   // A request arriving before this flag sets is still forwarded; while a scan
   // is active, pde_chip_top rejects it using its own core_done/read_ok checks.
-  always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n)
+  always_ff @(posedge clk or negedge rst_n_sync) begin
+    if (!rst_n_sync)
       scan_used_q <= 1'b0;
     else if (impl_scan_valid)
       scan_used_q <= 1'b1;
@@ -137,7 +151,7 @@ module pde_chip_top_safe #(
 
   // synopsys translate_off
   always_ff @(posedge clk) begin
-    if (rst_n && reject_accept)
+    if (rst_n_sync && reject_accept)
       $display("[pde_chip_top_safe] rejected CONTROL write data=%h",
                cfg_wdata);
   end

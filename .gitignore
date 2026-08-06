@@ -23,6 +23,11 @@
 !/local_artifacts/vcs/pre-sync-baseline/2026-08-06/
 /local_artifacts/vcs/pre-sync-baseline/2026-08-06/*
 !/local_artifacts/vcs/pre-sync-baseline/2026-08-06/u_*.txt
+!/local_artifacts/vcs/post-sync-baseline/
+/local_artifacts/vcs/post-sync-baseline/*
+!/local_artifacts/vcs/post-sync-baseline/2026-08-06/
+/local_artifacts/vcs/post-sync-baseline/2026-08-06/*
+!/local_artifacts/vcs/post-sync-baseline/2026-08-06/u_*.txt
 
 # VCS build products under sim_restored/; only the eight restored/adapted
 # source-control files are versioned.

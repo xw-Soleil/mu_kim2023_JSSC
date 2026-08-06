@@ -1,0 +1,15 @@
+../src/common/counter_ce.sv
+../src/common/pipeline_delay_bit.sv
+../src/pe/pde_q8p7_pkg.sv
+../src/pe/r_alu.sv
+../src/pe/r_reg.sv
+../src/pe/r_dsm.sv
+../src/pe/r_status.sv
+../src/pe/sol_acc.sv
+../src/pe/r_state_ctrl.sv
+../src/pe/pe_top.sv
+../src/pe_array/pde_memcontrol.sv
+../src/pe_array/pde_tcu.sv
+../src/pe_array/pde_core.sv
+../src/pe_array/pde_top.sv
+../src/pe_array/pde_chip_top.sv

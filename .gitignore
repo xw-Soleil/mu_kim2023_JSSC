@@ -11,9 +11,35 @@
 /flow/reports/
 /flow/innovus/*.tgz
 
-# Local root-session archive. Only its policy README is versioned.
+# Local root-session archive. Only its policy README and the tiny
+# plain-integer regression baseline grids are versioned; logs and manifests
+# with machine paths stay local.
 /local_artifacts/*
 !/local_artifacts/README.md
+!/local_artifacts/vcs/
+/local_artifacts/vcs/*
+!/local_artifacts/vcs/pre-sync-baseline/
+/local_artifacts/vcs/pre-sync-baseline/*
+!/local_artifacts/vcs/pre-sync-baseline/2026-08-06/
+/local_artifacts/vcs/pre-sync-baseline/2026-08-06/*
+!/local_artifacts/vcs/pre-sync-baseline/2026-08-06/u_*.txt
+
+# VCS build products under sim_restored/; only the eight restored/adapted
+# source-control files are versioned.
+/sim_restored/csrc_*/
+/sim_restored/simv_*
+/sim_restored/*.log
+/sim_restored/u_dyn.txt
+/sim_restored/u_fix.txt
+/sim_restored/ucli.key
+/sim_restored/novas.conf
+/sim_restored/novas.rc
+/sim_restored/verdi_chip8_check/
+/sim_restored/verdiLog/
+*.fsdb
+
+# One-off pre-edit backup kept on disk only.
+/flow/calibre/block_signoff_config.sh.bak
 
 # Prevent Synopsys/Cadence session debris from repopulating the repository root.
 /check_design*.log

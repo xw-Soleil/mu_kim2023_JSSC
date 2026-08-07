@@ -348,3 +348,47 @@ Calibre DRC/ANT deck 是工艺级(CN65S),对 HVT 同样适用,已被 08-03 运�
 | /home/sxw/stdlib/tsmc40_std | 是**表征课程项目**(CSV/教程/图),不是库交付 | — | — | 与本项目无关 |
 
 **结论:没有任何其他 TSMC 节点具备数字标准单元库;65nm(RVT .db 线 / HVT .lib+.db 线)仍是唯一可行的 TSMC 选择。LVS 闭环若为硬要求,站内唯一出路是 UMC40(换厂商)或外部获取 CN65S LVS deck。**
+
+---
+
+## 第五部分勘误(2026-08-07,用户指出 ~/cadence 未覆盖后补查)
+
+昨晚工具普查漏了 `/home/soleil/cadence`,补查结果修正一条结论:
+
+1. **"soleilUbuntu 无 calibre"有误** —— 本机存在完整的 **Calibre 2015.2**
+   安装(`~/cadence/calibre2015/aoi_cal_2015.2_36.27/`,与 EDAServer 的
+   Calibre2015 同版本),且二进制在 Ubuntu 24.04 上**可执行**
+   (`calibre -version` 正常打印 v2015.2_36.27,exit=0)。
+2. 但 **本机无任何 Mentor license**:`ocad` 包(Open-CAD 打包环境,2020)
+   自带 lmgrd 框架,其 cds/syn/cli 三个 license.dat 全为 **0 字节占位**,
+   mgc(Calibre)服务行被注释、mgc.licenses 仅 1 行无 FEATURE;家目录无
+   其他 Mentor license。→ **本机 Calibre 现状 = 有安装、无授权,仍不可跑**。
+3. 其余目录:IC617(Virtuoso)、INNOVUS201(Innovus 20.10,HVT 线在用)、
+   INNOVUS20(bin 为空)、MMSIM151(Spectre);无 Tempus/PVS/Quantus,
+   时序签核(PT 仅 EDAServer 有)结论不变。
+
+签核分工维持:PT 与 Calibre 均去 EDAServer。新增一个可选项:若日后取得
+Mentor license,本机 2015.2 可承担 65nm deck(2.3a 时代);28nm 的 18a
+deck 对 2015.2 是否够新需查 deck 的 Recommended_tool_version。
+
+## 第五部分补充:EDAServer 签核工具实证(2026-08-07,真实启动+真实签 license)
+
+之前只有"二进制存在+历史运行"两级证据;应用户要求做了实签验证:
+
+**pt_shell(PrimeTime O-2018.06-SP1)** —— ✅ 可用,但有环境坑:
+- 默认登录环境下启动**失败**:`Checkout of PrimeTime license failed: No such feature exists`,
+  因为 `~/.bashrc` 把 `LM_LICENSE_FILE` 指到 Cadence license(内无 PT feature),
+  而 Synopsys 环境行是注释掉的。
+- 修正环境后启动成功(banner → `pt_shell>` 提示符 → 干净退出):
+  `export SNPSLMD_LICENSE_FILE=@localhost`(本机 snpslmd 守护进程在跑)
+  + `unset LM_LICENSE_FILE`。此配方必须写进 PT 签核脚本。
+  (另有无害告警 PT-063:Library Compiler 路径未设。)
+
+**Calibre 2023.2** —— ✅ 可用,完整实证:
+- 最小 DRC deck(65nm 单元库 GDS,PRIMARY=INVD1,1 条规则)完整跑通:
+  log 明确记录 `mgc_s license acquired (calibrehdrc requested)`,
+  `CALIBRE::DRC-H COMPLETED`,summary 落盘,REAL_EXIT=0。
+- 环境配方(与 run_block_signoff_final.sh 一致):
+  `CALIBRE_HOME=MGC_HOME=/ssd0/mentor/Calibre2023/aoj_cal_2023.2_16.9`
+  + `MGLS_LICENSE_FILE=/ssd0/mentor/license/license.dat`。
+- 注:检验用注意 `REAL_EXIT` 要在无管道截断下取;`head` 截管会 SIGPIPE 出假象。

@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Policy tiers (per user ruling 2026-08-07, personal learning repository):
+#   HARD BLOCK  - guards against actual loss: oversized files, credentials,
+#                 CLAUDE.md bridge structure.
+#   WARNING     - disclosure-class heuristics: suspected PDK/vendor artifact
+#                 filenames, machine paths/hostnames, flow/ token inventory.
+#                 Printed for awareness; do not require per-commit approval.
+# If this repository is ever prepared for publication, re-audit the ENTIRE
+# history first; these warnings are not a sanitization record.
+
 MAX_BYTES=$((50 * 1024 * 1024))
 FAIL=0
 FLOW_CHANGED=0
@@ -9,6 +18,10 @@ STAGED_FILES=()
 fail() {
   printf 'ERROR: %s\n' "$*" >&2
   FAIL=1
+}
+
+warn() {
+  printf 'WARN: %s\n' "$*" >&2
 }
 
 while IFS= read -r -d '' file; do
@@ -24,7 +37,7 @@ while IFS= read -r -d '' file; do
     *.gds|*.gds.gz|*.gdsii|*.oas|*.oas.gz|*.def|*.def.gz|*.spef|*.spef.gz|*.sdf|*.sdf.gz|\
     *.ndm|*.ndm/*|*.dlib|*.dlib/*|*.nlib|*.nlib/*|*.db|*.lib|*.lef|*.cdl|*.tf|*.itf|\
     *.tluplus|*pdk*|*process_design_kit*|*tcbn*)
-      fail "suspected PDK/vendor/implementation artifact: $file"
+      warn "suspected PDK/vendor/implementation artifact filename (heuristic, review before any publication): $file"
       ;;
   esac
 
@@ -57,7 +70,7 @@ DIFF_PATHS=(
 if git diff --cached --no-ext-diff --unified=0 -- "${DIFF_PATHS[@]}" |
    grep -E '^\+[^+]' |
    grep -qE '/home/(soleil|sxw)(/|[[:space:]]|$)|LM_LICENSE_FILE|SNPSLMD_LICENSE_FILE|MGLS_LICENSE_FILE|CDS_LIC_FILE|soleilUbuntu|EDAServer'; then
-  fail "added content contains a machine path, license variable/server, or internal hostname"
+  warn "added content contains a machine path, license variable/server, or internal hostname (disclosure-class; review before any publication)"
 fi
 
 if git diff --cached --no-ext-diff --unified=0 -- "${DIFF_PATHS[@]}" |
@@ -66,8 +79,8 @@ if git diff --cached --no-ext-diff --unified=0 -- "${DIFF_PATHS[@]}" |
   fail "added content matches a private-key or credential pattern"
 fi
 
-if [[ "$FLOW_CHANGED" -eq 1 && "${PDE_FLOW_DISCLOSURE_REVIEWED:-0}" != "1" ]]; then
-  printf 'FLOW DISCLOSURE REVIEW REQUIRED\n' >&2
+if [[ "$FLOW_CHANGED" -eq 1 ]]; then
+  printf 'FLOW DISCLOSURE NOTICE (informational, non-blocking)\n' >&2
   printf 'Staged flow paths:\n' >&2
   printf '  %s\n' "${STAGED_FILES[@]}" | sed -n '\|  flow/|p' >&2
 
@@ -82,8 +95,6 @@ if [[ "$FLOW_CHANGED" -eq 1 && "${PDE_FLOW_DISCLOSURE_REVIEWED:-0}" != "1" ]]; t
   else
     printf 'Candidate cell/layer/corner tokens: none found by heuristic scan\n' >&2
   fi
-
-  fail "show this inventory to the user; after approval retry with PDE_FLOW_DISCLOSURE_REVIEWED=1"
 fi
 
 if command -v gitleaks >/dev/null 2>&1; then

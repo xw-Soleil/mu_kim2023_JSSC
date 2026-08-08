@@ -36,7 +36,10 @@ file mkdir $RESULT_DIR
 set TOP [env_or_default PDE_TOP pde_chip_top_safe]
 set CLOCK_PORT clk
 set CLOCK_NAME core_clk
-set CLOCK_PERIOD 10.000
+# R2 (Stage L): period is env-overridable; default stays the 10 ns baseline.
+# R2 runs set PDE28_CLOCK_PERIOD=6.0 (rationale: round-1 post-route setup
+# slack +5.25 on 10 ns puts circuit capability near 4.7 ns; 6 ns keeps ~20%).
+set CLOCK_PERIOD [env_or_default PDE28_CLOCK_PERIOD 10.000]
 
 # 28nm NLDM delivery (original-structure extraction; see the PDK-root README).
 # PDK root comes from the environment; no machine paths in tracked scripts.

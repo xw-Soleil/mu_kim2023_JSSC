@@ -27,6 +27,29 @@ if {[string match "FUNC_BC*" $margin_applied]} {
 }
 save_block
 save_lib
+
+# R2 (M.5) gate: round-1's route_opt left 113 DRC + 73 shorts that surfaced
+# only at s07. Check here; repair incrementally (s07b recipe); hard-stop if
+# unconverged so the failure is diagnosed at its source.
+set drc_total -1
+for {set i 0} {$i <= 3} {incr i} {
+  if {$i > 0} {
+    route_detail -incremental true
+    save_block
+  }
+  redirect -variable chk { check_routes -open_net true -drc true -antenna true }
+  regexp {TOTAL VIOLATIONS =\s+(\d+)} $chk -> drc_total
+  puts "PDE28_S06_GATE iter=$i drc_total=$drc_total"
+  if {$drc_total == 0} break
+}
+redirect -file [file join $REPORT_DIR s06_routes.rpt] {
+  check_routes -open_net true -drc true -antenna true
+}
+if {$drc_total != 0} {
+  save_block
+  save_lib
+  error "s06 route gate failed after incremental repair: DRC=$drc_total"
+}
 catch { redirect -file [file join $REPORT_DIR s06_qor.rpt] { report_qor -nosplit } }
 catch { redirect -file [file join $REPORT_DIR s06_constraints.rpt] {
   report_constraints -all_violators -nosplit

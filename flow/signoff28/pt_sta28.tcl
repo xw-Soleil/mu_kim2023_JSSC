@@ -27,11 +27,20 @@ file mkdir $RPT
 
 switch -exact -- $CORNER {
   WC { set DB   tcbn28hpcplusbwp40p140ssg0p9vm40c.db
-       set SPEF $INPUT/$TOP.WC.spef.RC_WORST_-40.spef }
+       set SPEF $INPUT/$TOP.WC.spef.RC_WORST_-40.spef
+       set AOCVM_FILE tcbn28hpcplusbwp40p140ssg0p9vm40c_setup_P_P_ccs.aocvm }
   BC { set DB   tcbn28hpcplusbwp40p140ffg0p99vm40c.db
-       set SPEF $INPUT/$TOP.BC.spef.RC_BEST_-40.spef }
+       set SPEF $INPUT/$TOP.BC.spef.RC_BEST_-40.spef
+       set AOCVM_FILE tcbn28hpcplusbwp40p140ffg0p99vm40c_hold_P_P_ccs.aocvm }
   default { error "PDE28_PT_CORNER must be WC or BC, got: $CORNER" }
 }
+# R2 (N.3): second pass with SBOCV AOCV tables (TSMC CCS-derived .aocvm,
+# lib collateral 170a -- the only sbocv delivery in this PDK; NLDM is 180a).
+# PDE28_PT_AOCV=1 selects the AOCV pass; reports get an _aocv prefix so the
+# no-derate baseline and the AOCV pass coexist.
+set AOCV [expr {[info exists ::env(PDE28_PT_AOCV)] && $::env(PDE28_PT_AOCV) eq "1"}]
+set PFX $CORNER
+if {$AOCV} { set PFX ${CORNER}_aocv }
 foreach f [list $INPUT/$TOP.postroute.v $INPUT/$TOP.sdc $SPEF $LIBDIR/$DB] {
   if {![file isfile $f]} { error "Required input missing: $f" }
 }
@@ -64,19 +73,29 @@ if {[llength [get_ports -quiet clk]] > 0} {
 }
 set_propagated_clock [all_clocks]
 
+if {$AOCV} {
+  if {![file isfile $LIBDIR/$AOCVM_FILE]} {
+    error "AOCV table missing: $LIBDIR/$AOCVM_FILE"
+  }
+  echo "PDE28_PT pre-set timing_aocvm_enable_analysis = $timing_aocvm_enable_analysis"
+  set timing_aocvm_enable_analysis true
+  read_aocvm $LIBDIR/$AOCVM_FILE
+  redirect $RPT/${PFX}_aocvm_tables.rpt { report_aocvm }
+}
+
 update_timing -full
 
-redirect $RPT/${CORNER}_annotation.rpt { report_annotated_parasitics -check }
-redirect $RPT/${CORNER}_analysis_coverage.rpt { report_analysis_coverage -nosplit }
+redirect $RPT/${PFX}_annotation.rpt { report_annotated_parasitics -check }
+redirect $RPT/${PFX}_analysis_coverage.rpt { report_analysis_coverage -nosplit }
 # Account for every untested endpoint in the four functional check classes
 # (min_pulse_width excluded here: its untested population is reported in the
 # coverage summary and is too large to enumerate usefully).
-redirect $RPT/${CORNER}_untested.rpt {
+redirect $RPT/${PFX}_untested.rpt {
   report_analysis_coverage -status_details untested \
     -check_type {setup hold recovery removal} -nosplit
 }
-redirect $RPT/${CORNER}_constraint_summary.rpt { report_constraint -nosplit }
-redirect $RPT/${CORNER}_constraint_violators.rpt {
+redirect $RPT/${PFX}_constraint_summary.rpt { report_constraint -nosplit }
+redirect $RPT/${PFX}_constraint_violators.rpt {
   report_constraint -all_violators -nosplit
 }
 
@@ -98,24 +117,24 @@ proc pde_slack_summary {delay_type label} {
 }
 
 if {$CORNER eq "WC"} {
-  pde_slack_summary max "WC_max(setup+recovery)"
-  redirect $RPT/WC_setup_paths.rpt {
+  pde_slack_summary max "${PFX}_max(setup+recovery)"
+  redirect $RPT/${PFX}_setup_paths.rpt {
     report_timing -delay_type max -max_paths 20 -nworst 1 -slack_lesser_than 1000000 \
       -path_type full_clock_expanded -nosplit
   }
   # Recovery: max-delay checks at the async preset/clear pins.
-  redirect $RPT/WC_recovery_paths.rpt {
+  redirect $RPT/${PFX}_recovery_paths.rpt {
     report_timing -delay_type max -to [all_registers -async_pins] -slack_lesser_than 1000000 \
       -max_paths 20 -nworst 1 -path_type full_clock_expanded -nosplit
   }
 } else {
-  pde_slack_summary min "BC_min(hold+removal)"
-  redirect $RPT/BC_hold_paths.rpt {
+  pde_slack_summary min "${PFX}_min(hold+removal)"
+  redirect $RPT/${PFX}_hold_paths.rpt {
     report_timing -delay_type min -max_paths 20 -nworst 1 -slack_lesser_than 1000000 \
       -path_type full_clock_expanded -nosplit
   }
   # Removal: min-delay checks at the async preset/clear pins.
-  redirect $RPT/BC_removal_paths.rpt {
+  redirect $RPT/${PFX}_removal_paths.rpt {
     report_timing -delay_type min -to [all_registers -async_pins] -slack_lesser_than 1000000 \
       -max_paths 20 -nworst 1 -path_type full_clock_expanded -nosplit
   }

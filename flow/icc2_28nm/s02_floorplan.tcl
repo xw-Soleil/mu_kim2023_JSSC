@@ -2,12 +2,16 @@
 source [file join [file dirname [file normalize [info script]]] pnr28_common.tcl]
 open_design
 
-# E.2: square core, 55% utilization (65nm-comparable), explicit core site.
+# E.2: square core, explicit core site. Utilization is env-overridable:
+# default 0.55 = round-1 baseline; R2 targets 0.70 (M.1: interconnect
+# dominates timing here, so the smaller box is both area and timing lever).
 # -site_def is mandatory here: the NDM carries both "unit" (tf tile) and
 # "core" (LEF site); the 65nm line documented initialize_floorplan defaulting
 # to the wrong site when left implicit.
+set CORE_UTIL [env_or_default PDE28_CORE_UTIL 0.55]
 initialize_floorplan -control_type core -shape R -side_ratio {1.0 1.0} \
-  -core_utilization 0.55 -core_offset 10.0 -site_def core
+  -core_utilization $CORE_UTIL -core_offset 10.0 -site_def core
+puts "PDE28: core_utilization=$CORE_UTIL"
 # W-2024.09 takes -pin_spacing in routing tracks (integer), not um.
 set_block_pin_constraints -self -allowed_layers [get_layers {M3 M4}] \
   -corner_keepout_num_tracks 2 -pin_spacing 2 -allow_feedthroughs false
@@ -72,6 +76,42 @@ set_pg_strategy PDE_STDCELL_RAIL_STRATEGY -core \
   -extension {{stop: innermost_ring}}
 compile_pg -strategies {PDE_STDCELL_RAIL_STRATEGY}
 connect_named_pg_pins
+
+# R2: supply terminals created here instead of a late repair pass (round-1
+# s07b lesson: check_lvs counted 59/57 pins because VDD/VSS ports had no
+# physical terminal). Same proven geometry: 1.6 um window at the x-center of
+# the bottommost horizontal M9 ring segment of each PG net.
+foreach pg_port {VDD VSS} {
+  if {[sizeof_collection [get_ports -quiet $pg_port]] == 0} {
+    create_port -direction inout $pg_port
+  }
+  set existing [get_terminals -quiet -of_objects [get_ports $pg_port]]
+  if {[sizeof_collection $existing] > 0} {
+    puts "PDE28: $pg_port terminal already present, skipping"
+    continue
+  }
+  set ring_shapes [get_shapes -quiet -of_objects [get_nets $pg_port] \
+    -filter "layer_name==M9 && shape_use==ring"]
+  if {[sizeof_collection $ring_shapes] == 0} {
+    error "No M9 ring shape found for $pg_port terminal creation"
+  }
+  set term_lly ""
+  foreach_in_collection ring_shape $ring_shapes {
+    set bb [get_attribute $ring_shape bbox]
+    set llx [lindex $bb 0 0]; set lly [lindex $bb 0 1]
+    set urx [lindex $bb 1 0]; set ury [lindex $bb 1 1]
+    if {[expr {$urx - $llx}] <= [expr {$ury - $lly}]} continue
+    if {$term_lly eq "" || $lly < $term_lly} {
+      set term_lly $lly; set term_ury $ury
+      set term_cx [expr {($llx + $urx) / 2.0}]
+    }
+  }
+  if {$term_lly eq ""} { error "No horizontal M9 ring segment for $pg_port" }
+  create_terminal -port $pg_port -layer M9 -boundary \
+    [list [list [expr {$term_cx - 0.8}] $term_lly] \
+          [list [expr {$term_cx + 0.8}] $term_ury]]
+  puts "PDE28: $pg_port terminal on M9 at x=$term_cx"
+}
 
 redirect -file [file join $REPORT_DIR s02_pg.rpt] {
   puts "PG shapes: [sizeof_collection [get_shapes -quiet -of_objects [get_nets {VDD VSS}]]]"

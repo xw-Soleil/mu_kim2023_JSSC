@@ -62,7 +62,10 @@ set TLU_BEST  [file join $TLU_DIR {cln28hpc+_1p09m+ut-alrdl_4x2y2r_rcbest.tluplu
 
 set PRTF_SYN [file join $PDK28_ROOT tn28clpr002s1_1_5a N28_PRTF_Syn_v1d5a PR_tech Synopsys]
 set ANTENNA_TCL [file join $PRTF_SYN SCM antennaRule_n28_9lm.tcl]
-set GDS_MAP [file join $PRTF_SYN GdsOutMap gdsout_4X2Y2R.map]
+# R2 (K.1): env override selects the patched map that routes port TEXT to the
+# TSMC MxTXT layers (133/134/139); default stays the as-delivered PRTF map.
+set GDS_MAP [env_or_default PDE28_GDS_MAP \
+  [file join $PRTF_SYN GdsOutMap gdsout_4X2Y2R.map]]
 
 set OUTPUT_ROOT [env_or_default PDE28_ICC2_OUTPUT_ROOT \
   [file join $REPO_ROOT flow local_runs icc2_28nm_20260807]]

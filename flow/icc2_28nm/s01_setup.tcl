@@ -84,6 +84,11 @@ current_scenario FUNC_WC
 # attach via read_aocvm + set_timing_derate -aocvm once the baseline is banked.
 set_app_options -name time.remove_clock_reconvergence_pessimism -value true
 
+# R2 (K.2, user-confirmed): the round-1 fanout-40 HFS buffers came from this
+# option's system default of 40 (measured on W-2024.09), not from DC. Align
+# optimization fanout with the SDC's set_max_fanout 32; the SDC is untouched.
+set_app_options -name opt.common.max_fanout -value 32
+
 # Signal routing window M1..M6; M8/M9 (thick Mr pair) reserved for the ring.
 foreach layer_name {M1 M2 M3 M4 M5 M6 M8 M9} {
   if {[sizeof_collection [get_layers -quiet $layer_name]] == 0} {

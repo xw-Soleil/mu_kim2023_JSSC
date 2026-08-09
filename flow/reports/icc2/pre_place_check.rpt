@@ -1,0 +1,45 @@
+****************************************
+ Report : check_design 
+ Options: { pre_placement_stage }
+ Design : pde_chip_top_safe
+ Version: W-2024.09
+ Date   : Sun Aug  2 00:29:27 2026
+****************************************
+
+Running mega-check 'pre_placement_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'rp_constraints'
+    Running atomic-check 'timing'
+    Running atomic-check 'hier_pre_placement'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DFT-011      Info   1          The design has no scan chain defined in the scandef.
+  TCK-001      Warn   16226      The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   36         The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 16263 EMS messages : 0 errors, 16262 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  NDMUI-173    Info   1          There are no relative placement groups in the design.
+  PVT-030      Warn   1          Corner %s:  %d process number, %d process label, %d voltage, and...
+  PVT-031      Warn   1          %d cells affected for early, %d for late.
+  PVT-032      Info   1          Corner %s: no PVT mismatches.
+  PVT-034      Warn   1          %d port driving_cells affected for early, %d for late.
+  ----------------------------------------------------------------------------------------------------
+  Total 5 non-EMS messages : 0 errors, 3 warnings, 2 info.
+  ----------------------------------------------------------------------------------------------------
+
+Warning: EMS database "check_design.ems" already exists, over-writing it. (EMS-040)
+
+Information: EMS database is saved to file 'check_design.ems'.
+Information: Non-EMS messages are saved into file 'check_design2026Aug02002927.log'.
+1

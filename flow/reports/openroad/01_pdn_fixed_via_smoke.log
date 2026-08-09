@@ -1,0 +1,4 @@
+[INFO PDN-0101] Using VDD as power net for Core domain.
+[ERROR PDN-0181] Found multiple possible nets for GROUND net for Core domain.
+application-specific initialization failed: can't read "auto_index(::tclreadline::ScriptCompleter)": no such element in array
+% 

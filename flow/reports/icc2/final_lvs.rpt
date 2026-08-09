@@ -1,0 +1,38 @@
+Information: Using 1 threads for LVS
+[Check Short] Stage 1	Elapsed =    0:00:00, CPU =    0:00:00
+[Check Short] Stage 1-2	Elapsed =    0:00:00, CPU =    0:00:00
+[Check Short] Stage 2	Elapsed =    0:00:01, CPU =    0:00:01
+[Check Short] Stage 2-2	Elapsed =    0:00:16, CPU =    0:00:17
+[Check Short] Stage 3	Elapsed =    0:00:16, CPU =    0:00:17
+[Check Short] End	Elapsed =    0:00:16, CPU =    0:00:17
+[Check Net] Init	Elapsed =    0:00:16, CPU =    0:00:17
+Warning: Port VDD have no valid pin shapes. Skip this port. (RT-203)
+Warning: Port VSS have no valid pin shapes. Skip this port. (RT-203)
+[Check Net] 10% 	Elapsed =    0:00:21, CPU =    0:00:21
+[Check Net] 20% 	Elapsed =    0:00:22, CPU =    0:00:22
+[Check Net] 30% 	Elapsed =    0:00:23, CPU =    0:00:23
+[Check Net] 40% 	Elapsed =    0:00:23, CPU =    0:00:24
+[Check Net] 50% 	Elapsed =    0:00:24, CPU =    0:00:24
+[Check Net] 60% 	Elapsed =    0:00:24, CPU =    0:00:24
+[Check Net] 70% 	Elapsed =    0:00:25, CPU =    0:00:25
+[Check Net] 80% 	Elapsed =    0:00:25, CPU =    0:00:25
+[Check Net] 90% 	Elapsed =    0:00:25, CPU =    0:00:26
+[Check Net] All nets are submitted.
+[Check Net] 100% 	Elapsed =    0:00:26, CPU =    0:00:26
+[Check Net] 100%	Elapsed =    0:00:26, CPU =    0:00:26
+Information: Detected short violation. Cell1: u_impl/u_core/g_row_10__g_col_1__u_pe/u_r_red/U12. Net2: u_impl/u_core/g_row_10__g_col_1__u_pe/u_r_red/n30. BBox: (573.5100 123.7100)(573.6300 123.8100). Layer: M1. (RT-586)
+Information: Detected short violation. Cell1: u_impl/u_core/g_row_14__g_col_0__u_pe/u_sol/copt_h_inst_21598. Net2: u_impl/u_core/g_row_14__g_col_0__u_pe/u_sol/n60. BBox: (68.6500 478.9500)(68.6900 479.0500). Layer: M1. (RT-586)
+Information: Detected short violation. Cell1: u_impl/u_core/g_row_10__g_col_1__u_pe/u_r_red/U12. Net2: u_impl/u_core/g_row_10__g_col_1__u_pe/u_r_red/n30. BBox: (573.5550 123.7150)(573.6300 123.8050). Layer: M1. (RT-586)
+
+===============================================================
+    Maximum number of violations is set to 200
+    Abort checking when more than 200 violations are found
+    All violations might not be found.
+===============================================================
+Total number of input nets is 117290.
+Total number of short violations is 3.
+Total number of open nets is 0.
+Total number of floating route violations is 0.
+
+Elapsed =    0:00:26, CPU =    0:00:26
+1

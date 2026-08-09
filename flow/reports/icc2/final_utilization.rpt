@@ -1,0 +1,26 @@
+****************************************
+Report : report_utilization
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Sun Aug  2 01:24:14 2026
+****************************************
+Utilization Ratio:			0.6362
+Utilization options:
+ - Area calculation based on:		site_row of block pde_chip_top_safe
+ - Categories of objects excluded:	hard_macros macro_keepouts soft_macros io_cells hard_blockages 
+Total Area:				749782.8000
+Total Capacity Area:			749782.8000
+Total Area of cells:			477017.6400
+Area of excluded objects:
+ - hard_macros         :		0.0000
+ - macro_keepouts      :		0.0000
+ - soft_macros         :		0.0000
+ - io_cells            :		0.0000
+ - hard_blockages      :		0.0000
+Total Area of excluded objects:		0.0000
+Ratio of excluded objects:		0.0000
+
+Utilization of site-rows with:
+ - Site 'unit':				0.6362
+
+0.6362

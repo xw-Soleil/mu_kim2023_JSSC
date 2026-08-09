@@ -1,0 +1,683 @@
+
+# ICC2 O-2018.06-SP1 compatibility launcher.
+#
+# Keep the reviewed implementation flow immutable and substitute only the one
+# grouped check name that this release predates.  Use an isolated design
+# library so failed attempts remain inspectable and are never overwritten.
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+/home/sxw/PDE/pdeMujunjie/flow/icc2
+set REPO_ROOT [file normalize [file join $SCRIPT_DIR ../..]]
+/home/sxw/PDE/pdeMujunjie
+set ::env(PDE_ICC2_DESIGN_LIB)   [file join $REPO_ROOT flow work icc2 pde_chip_top_safe_run3.dlib]
+/home/sxw/PDE/pdeMujunjie/flow/work/icc2/pde_chip_top_safe_run3.dlib
+set flow_file [file join $SCRIPT_DIR pnr.tcl]
+/home/sxw/PDE/pdeMujunjie/flow/icc2/pnr.tcl
+set flow_fp [open $flow_file r]
+file9
+set flow_text [read $flow_fp]
+# ICC2 place-and-route flow for pde_chip_top_safe on TSMC65LP RVT 6LM-T1.
+# Run with: icc2_shell -f flow/icc2/pnr.tcl
+
+proc env_or_default {name fallback} {
+  if {[info exists ::env($name)] && [string trim $::env($name)] ne ""} {
+    return $::env($name)
+  }
+  return $fallback
+}
+
+proc require_regular_file {path description} {
+  if {![file exists $path] || ![file isfile $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_path {path description} {
+  if {![file exists $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_command {name} {
+  if {[llength [info commands $name]] == 0} {
+    error "Required ICC2 command is unavailable in this release: $name"
+  }
+}
+
+proc require_one_lib_cell {master} {
+  set matches [get_lib_cells -quiet "*/$master"]
+  if {[sizeof_collection $matches] == 0} {
+    error "Required RVT library master is absent from the NDM: $master"
+  }
+  return $matches
+}
+
+proc connect_named_pg_pins {} {
+  set vdd_pins [get_pins -hierarchical -physical_context -quiet */VDD]
+  set vss_pins [get_pins -hierarchical -physical_context -quiet */VSS]
+  if {[sizeof_collection $vdd_pins] == 0} {
+    error "No physical VDD pins were found; verify the RVT NDM and netlist link"
+  }
+  if {[sizeof_collection $vss_pins] == 0} {
+    error "No physical VSS pins were found; verify the RVT NDM and netlist link"
+  }
+  connect_pg_net -net VDD $vdd_pins
+  connect_pg_net -net VSS $vss_pins
+}
+
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+set REPO_ROOT [file normalize [env_or_default PDE_REPO_ROOT \
+  [file join $SCRIPT_DIR .. ..]]]
+set TOP [env_or_default PDE_TOP pde_chip_top_safe]
+
+set RVT_ROOT "/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b"
+set RVT_MW [file join $RVT_ROOT Back_End milkyway tcbn65lp_200a]
+
+set NETLIST [file normalize [env_or_default PDE_DC_NETLIST \
+  [file join $REPO_ROOT flow results dc ${TOP}.v]]]
+set SDC [file normalize [env_or_default PDE_DC_SDC \
+  [file join $REPO_ROOT flow results dc ${TOP}.sdc]]]
+set REF_NDM [file normalize [env_or_default PDE_REF_NDM \
+  [file join $REPO_ROOT flow work icc2 ref tcbn65lp_6lmT1.ndm]]]
+set TLU_WORST [env_or_default PDE_TLUPLUS_MAX \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcworst_top1.tluplus]]
+set TLU_BEST [env_or_default PDE_TLUPLUS_MIN \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcbest_top1.tluplus]]
+set TLU_MAP [env_or_default PDE_TLUPLUS_MAP \
+  [file join $RVT_MW techfiles tluplus star.map_6M]]
+set GDS_MAP [env_or_default PDE_GDS_MAP \
+  [file join $RVT_MW gdsout_3X1Z.map]]
+set GDS_MAP_FORMAT [env_or_default PDE_GDS_MAP_FORMAT icc_default]
+
+set WORK_DIR [file join $REPO_ROOT flow work icc2]
+set RESULT_DIR [file join $REPO_ROOT flow results icc2]
+set REPORT_DIR [file join $REPO_ROOT flow reports icc2]
+set DESIGN_LIB [file normalize [env_or_default PDE_ICC2_DESIGN_LIB \
+  [file join $WORK_DIR ${TOP}.dlib]]]
+
+foreach item [list \
+  [list $NETLIST "DC gate-level netlist"] \
+  [list $SDC "DC SDC"] \
+  [list $TLU_WORST "RC-worst TLU+"] \
+  [list $TLU_BEST "RC-best TLU+"] \
+  [list $TLU_MAP "6M TLU+ layer map"] \
+  [list $GDS_MAP "RVT stream-out map"]] {
+  require_regular_file [lindex $item 0] [lindex $item 1]
+}
+require_path $REF_NDM "RVT reference NDM"
+
+file mkdir $WORK_DIR
+file mkdir $RESULT_DIR
+file mkdir $REPORT_DIR
+if {[file exists $DESIGN_LIB]} {
+  error "Refusing to overwrite existing ICC2 design library: $DESIGN_LIB"
+}
+
+puts "PDE_ICC2: top=$TOP"
+puts "PDE_ICC2: netlist=$NETLIST"
+puts "PDE_ICC2: sdc=$SDC"
+puts "PDE_ICC2: ref_ndm=$REF_NDM"
+
+create_lib -use_technology_lib $REF_NDM -ref_libs [list $REF_NDM] $DESIGN_LIB
+read_verilog -top $TOP [list $NETLIST]
+current_block $TOP
+link_block
+
+redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design -checks {netlist unbound}
+}
+
+# Build one functional mode and explicit WC/BC timing/RC corners.  The NDM was
+# created with matching uppercase process labels in create_ndm.tcl.
+remove_scenarios -all
+remove_modes -all
+remove_corners -all
+create_mode FUNC
+create_corner WC
+create_corner BC
+create_scenario -mode FUNC -corner WC -name FUNC_WC
+create_scenario -mode FUNC -corner BC -name FUNC_BC
+
+current_mode FUNC
+read_sdc $SDC
+set_process_label WC -corners [get_corners WC]
+set_process_label BC -corners [get_corners BC]
+
+read_parasitic_tech -tlup $TLU_WORST -layermap $TLU_MAP -name RC_WORST
+read_parasitic_tech -tlup $TLU_BEST -layermap $TLU_MAP -name RC_BEST
+set_parasitic_parameters -corners [get_corners WC] \
+  -early_spec RC_WORST -late_spec RC_WORST
+set_parasitic_parameters -corners [get_corners BC] \
+  -early_spec RC_BEST -late_spec RC_BEST
+
+set_scenario_status [get_scenarios FUNC_WC] \
+  -active true -setup true -hold false \
+  -max_transition true -max_capacitance true \
+  -leakage_power true -dynamic_power true
+set_scenario_status [get_scenarios FUNC_BC] \
+  -active true -setup false -hold true \
+  -max_transition true -max_capacitance true \
+  -leakage_power false -dynamic_power false
+current_scenario FUNC_WC
+
+# Constrain signal routing to the six-layer stack.  M5 is horizontal and M6
+# vertical in the selected foundry TF/LEF.
+foreach layer_name {M1 M3 M4 M5 M6} {
+  if {[sizeof_collection [get_layers -quiet $layer_name]] == 0} {
+    error "Required routing layer is missing from 6LM-T1 technology: $layer_name"
+  }
+}
+set_ignored_layers -min_routing_layer M1 -max_routing_layer M6
+
+# Square, 55%-utilized core.  The 10 um core-to-die margin contains the two-net
+# ring with the conservative baseline widths below.
+initialize_floorplan -control_type core -shape R -side_ratio {1.0 1.0} \
+  -core_utilization 0.55 -core_offset 10.0
+set_block_pin_constraints -self -allowed_layers [get_layers {M3 M4}] \
+  -corner_keepout_num_tracks 2 -pin_spacing 0.4 -allow_feedthroughs false
+place_pins -self
+
+# This design has no pad ring or qualified supply-pin locations.  Create named
+# PG nets and connect every RVT leaf PG pin; do not invent pad cells or bumps.
+if {[sizeof_collection [get_nets -quiet VDD]] == 0} {
+  create_net -power VDD
+} else {
+  set_attribute [get_nets VDD] net_type power
+}
+if {[sizeof_collection [get_nets -quiet VSS]] == 0} {
+  create_net -ground VSS
+} else {
+  set_attribute [get_nets VSS] net_type ground
+}
+connect_named_pg_pins
+
+# Guard the ICC2 pattern API and the concrete layer/cell assumptions before PG
+# compilation.  Widths/spacing are an implementation baseline, not an IR/EM-
+# signed-off grid; update them only from a qualified power-budget analysis.
+foreach pg_command {create_pg_ring_pattern create_pg_std_cell_conn_pattern set_pg_strategy compile_pg} {
+  require_command $pg_command
+}
+if {[catch {
+  create_pg_ring_pattern PDE_CORE_RING \
+    -horizontal_layer M5 -vertical_layer M6 \
+    -horizontal_width 1.6 -vertical_width 1.6 \
+    -horizontal_spacing 0.8 -vertical_spacing 0.8
+  set_pg_strategy PDE_CORE_RING_STRATEGY -core \
+    -pattern {{name: PDE_CORE_RING} {nets: {VDD VSS}} {offset: {2.0 2.0}}}
+  compile_pg -strategies {PDE_CORE_RING_STRATEGY}
+
+  # Standard-cell rails must follow the M1 power pins; M5/M6 form the ring.
+  create_pg_std_cell_conn_pattern PDE_STDCELL_RAILS \
+    -layers {M1} -mark_as_follow_pin true
+  set_pg_strategy PDE_STDCELL_RAIL_STRATEGY -core \
+    -pattern {{name: PDE_STDCELL_RAILS} {nets: {VDD VSS}}} \
+    -extension {{stop: innermost_ring}}
+  compile_pg -strategies {PDE_STDCELL_RAIL_STRATEGY}
+} pg_error]} {
+  error "PG pattern compilation failed; verify the foundry via rules and qualified grid dimensions: $pg_error"
+}
+connect_named_pg_pins
+save_block
+
+# Do not invent tap/endcap masters: the installed library contains variants,
+# but no project/foundry-approved tap/endcap selection or spacing rule was
+# supplied.  This omission is explicit and must be resolved before tapeout.
+puts "PDE_ICC2_WARNING: tap/endcap insertion intentionally omitted pending approved masters/rules"
+
+set ANTENNA_CELLS [require_one_lib_cell ANTENNA]
+set FILLER_MASTERS {FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1}
+set filler_patterns {}
+foreach filler_master $FILLER_MASTERS {
+  require_one_lib_cell $filler_master
+  lappend filler_patterns "*/$filler_master"
+}
+set FILLER_CELLS [get_lib_cells -quiet $filler_patterns]
+set_lib_cell_purpose -include optimization $ANTENNA_CELLS
+set_lib_cell_purpose -include none $FILLER_CELLS
+
+# Enable the documented O-2018.06-SP1 antenna flow and the real RVT diode.
+set_app_options -name route.detail.antenna -value true
+set_app_options -name route.detail.diode_libcell_names -value {ANTENNA}
+set_app_options -name route.detail.insert_diodes_during_routing -value true
+set_app_options -name route.detail.antenna_fixing_preference -value use_diodes
+set_app_options -name route.detail.diode_insertion_mode -value new
+
+redirect -file [file join $REPORT_DIR pre_place_check.rpt] {
+  check_design -checks pre_placement_stage
+}
+place_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_cts_check.rpt] {
+  check_design -checks pre_clock_tree_stage
+}
+clock_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_route_check.rpt] {
+  check_design -checks pre_route_stage
+}
+route_auto
+route_opt
+save_block
+
+# Fill every legal row gap using only the explicitly verified RVT FILL family.
+create_stdcell_fillers -lib_cells $FILLER_CELLS -prefix PDE_FILLER_
+connect_named_pg_pins
+save_block
+
+redirect -file [file join $REPORT_DIR final_design.rpt] {
+  report_design -all
+}
+redirect -file [file join $REPORT_DIR final_qor.rpt] {
+  report_qor -nosplit
+}
+redirect -file [file join $REPORT_DIR final_setup_timing.rpt] {
+  report_timing -delay_type max -scenarios [get_scenarios FUNC_WC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_hold_timing.rpt] {
+  report_timing -delay_type min -scenarios [get_scenarios FUNC_BC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_constraints.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $REPORT_DIR final_power.rpt] {
+  report_power -scenarios [get_scenarios FUNC_WC] -verbose -nosplit
+}
+redirect -file [file join $REPORT_DIR final_utilization.rpt] {
+  report_utilization -verbose
+}
+redirect -file [file join $REPORT_DIR final_congestion.rpt] {
+  report_congestion -mode summary -nosplit
+}
+redirect -file [file join $REPORT_DIR final_clock_qor.rpt] {
+  report_clock_qor -all -nosplit
+}
+redirect -file [file join $REPORT_DIR final_legality.rpt] {
+  check_legality -verbose
+}
+redirect -file [file join $REPORT_DIR final_pg_connectivity.rpt] {
+  check_pg_connectivity -nets [get_nets {VDD VSS}] \
+    -check_std_cell_pins all -check_block_pins none -check_pad_pins none
+}
+redirect -file [file join $REPORT_DIR final_routes.rpt] {
+  check_routes -open_net true -drc true -antenna true
+}
+redirect -file [file join $REPORT_DIR final_lvs.rpt] {
+  check_lvs -checks all -max_errors 200
+}
+
+set FINAL_GDS [file join $RESULT_DIR ${TOP}.gds]
+set FINAL_DEF [file join $RESULT_DIR ${TOP}.def]
+set FINAL_NETLIST [file join $RESULT_DIR ${TOP}.postroute.v]
+set FINAL_WC_SPEF [file join $RESULT_DIR ${TOP}.WC.spef]
+set FINAL_BC_SPEF [file join $RESULT_DIR ${TOP}.BC.spef]
+
+write_verilog -include all $FINAL_NETLIST
+write_def $FINAL_DEF
+write_parasitics -format spef -corner WC -output $FINAL_WC_SPEF
+write_parasitics -format spef -corner BC -output $FINAL_BC_SPEF
+write_gds -hierarchy all -lib_cell_view layout -long_names \
+  -output_pin all -fill include -layer_map $GDS_MAP \
+  -layer_map_format $GDS_MAP_FORMAT $FINAL_GDS
+
+save_block
+save_lib
+puts "PDE_ICC2_DONE gds=$FINAL_GDS def=$FINAL_DEF netlist=$FINAL_NETLIST"
+
+close $flow_fp
+set unsupported {check_design -checks {netlist unbound}}
+check_design -checks {netlist unbound}
+if {[string first $unsupported $flow_text] < 0} {
+  error "Expected compatibility target is absent from $flow_file"
+}
+set flow_text [string map [list $unsupported {check_design}] $flow_text]
+# ICC2 place-and-route flow for pde_chip_top_safe on TSMC65LP RVT 6LM-T1.
+# Run with: icc2_shell -f flow/icc2/pnr.tcl
+
+proc env_or_default {name fallback} {
+  if {[info exists ::env($name)] && [string trim $::env($name)] ne ""} {
+    return $::env($name)
+  }
+  return $fallback
+}
+
+proc require_regular_file {path description} {
+  if {![file exists $path] || ![file isfile $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_path {path description} {
+  if {![file exists $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_command {name} {
+  if {[llength [info commands $name]] == 0} {
+    error "Required ICC2 command is unavailable in this release: $name"
+  }
+}
+
+proc require_one_lib_cell {master} {
+  set matches [get_lib_cells -quiet "*/$master"]
+  if {[sizeof_collection $matches] == 0} {
+    error "Required RVT library master is absent from the NDM: $master"
+  }
+  return $matches
+}
+
+proc connect_named_pg_pins {} {
+  set vdd_pins [get_pins -hierarchical -physical_context -quiet */VDD]
+  set vss_pins [get_pins -hierarchical -physical_context -quiet */VSS]
+  if {[sizeof_collection $vdd_pins] == 0} {
+    error "No physical VDD pins were found; verify the RVT NDM and netlist link"
+  }
+  if {[sizeof_collection $vss_pins] == 0} {
+    error "No physical VSS pins were found; verify the RVT NDM and netlist link"
+  }
+  connect_pg_net -net VDD $vdd_pins
+  connect_pg_net -net VSS $vss_pins
+}
+
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+set REPO_ROOT [file normalize [env_or_default PDE_REPO_ROOT \
+  [file join $SCRIPT_DIR .. ..]]]
+set TOP [env_or_default PDE_TOP pde_chip_top_safe]
+
+set RVT_ROOT "/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b"
+set RVT_MW [file join $RVT_ROOT Back_End milkyway tcbn65lp_200a]
+
+set NETLIST [file normalize [env_or_default PDE_DC_NETLIST \
+  [file join $REPO_ROOT flow results dc ${TOP}.v]]]
+set SDC [file normalize [env_or_default PDE_DC_SDC \
+  [file join $REPO_ROOT flow results dc ${TOP}.sdc]]]
+set REF_NDM [file normalize [env_or_default PDE_REF_NDM \
+  [file join $REPO_ROOT flow work icc2 ref tcbn65lp_6lmT1.ndm]]]
+set TLU_WORST [env_or_default PDE_TLUPLUS_MAX \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcworst_top1.tluplus]]
+set TLU_BEST [env_or_default PDE_TLUPLUS_MIN \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcbest_top1.tluplus]]
+set TLU_MAP [env_or_default PDE_TLUPLUS_MAP \
+  [file join $RVT_MW techfiles tluplus star.map_6M]]
+set GDS_MAP [env_or_default PDE_GDS_MAP \
+  [file join $RVT_MW gdsout_3X1Z.map]]
+set GDS_MAP_FORMAT [env_or_default PDE_GDS_MAP_FORMAT icc_default]
+
+set WORK_DIR [file join $REPO_ROOT flow work icc2]
+set RESULT_DIR [file join $REPO_ROOT flow results icc2]
+set REPORT_DIR [file join $REPO_ROOT flow reports icc2]
+set DESIGN_LIB [file normalize [env_or_default PDE_ICC2_DESIGN_LIB \
+  [file join $WORK_DIR ${TOP}.dlib]]]
+
+foreach item [list \
+  [list $NETLIST "DC gate-level netlist"] \
+  [list $SDC "DC SDC"] \
+  [list $TLU_WORST "RC-worst TLU+"] \
+  [list $TLU_BEST "RC-best TLU+"] \
+  [list $TLU_MAP "6M TLU+ layer map"] \
+  [list $GDS_MAP "RVT stream-out map"]] {
+  require_regular_file [lindex $item 0] [lindex $item 1]
+}
+require_path $REF_NDM "RVT reference NDM"
+
+file mkdir $WORK_DIR
+file mkdir $RESULT_DIR
+file mkdir $REPORT_DIR
+if {[file exists $DESIGN_LIB]} {
+  error "Refusing to overwrite existing ICC2 design library: $DESIGN_LIB"
+}
+
+puts "PDE_ICC2: top=$TOP"
+puts "PDE_ICC2: netlist=$NETLIST"
+puts "PDE_ICC2: sdc=$SDC"
+puts "PDE_ICC2: ref_ndm=$REF_NDM"
+
+create_lib -use_technology_lib $REF_NDM -ref_libs [list $REF_NDM] $DESIGN_LIB
+read_verilog -top $TOP [list $NETLIST]
+current_block $TOP
+link_block
+
+redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design
+}
+
+# Build one functional mode and explicit WC/BC timing/RC corners.  The NDM was
+# created with matching uppercase process labels in create_ndm.tcl.
+remove_scenarios -all
+remove_modes -all
+remove_corners -all
+create_mode FUNC
+create_corner WC
+create_corner BC
+create_scenario -mode FUNC -corner WC -name FUNC_WC
+create_scenario -mode FUNC -corner BC -name FUNC_BC
+
+current_mode FUNC
+read_sdc $SDC
+set_process_label WC -corners [get_corners WC]
+set_process_label BC -corners [get_corners BC]
+
+read_parasitic_tech -tlup $TLU_WORST -layermap $TLU_MAP -name RC_WORST
+read_parasitic_tech -tlup $TLU_BEST -layermap $TLU_MAP -name RC_BEST
+set_parasitic_parameters -corners [get_corners WC] \
+  -early_spec RC_WORST -late_spec RC_WORST
+set_parasitic_parameters -corners [get_corners BC] \
+  -early_spec RC_BEST -late_spec RC_BEST
+
+set_scenario_status [get_scenarios FUNC_WC] \
+  -active true -setup true -hold false \
+  -max_transition true -max_capacitance true \
+  -leakage_power true -dynamic_power true
+set_scenario_status [get_scenarios FUNC_BC] \
+  -active true -setup false -hold true \
+  -max_transition true -max_capacitance true \
+  -leakage_power false -dynamic_power false
+current_scenario FUNC_WC
+
+# Constrain signal routing to the six-layer stack.  M5 is horizontal and M6
+# vertical in the selected foundry TF/LEF.
+foreach layer_name {M1 M3 M4 M5 M6} {
+  if {[sizeof_collection [get_layers -quiet $layer_name]] == 0} {
+    error "Required routing layer is missing from 6LM-T1 technology: $layer_name"
+  }
+}
+set_ignored_layers -min_routing_layer M1 -max_routing_layer M6
+
+# Square, 55%-utilized core.  The 10 um core-to-die margin contains the two-net
+# ring with the conservative baseline widths below.
+initialize_floorplan -control_type core -shape R -side_ratio {1.0 1.0} \
+  -core_utilization 0.55 -core_offset 10.0
+set_block_pin_constraints -self -allowed_layers [get_layers {M3 M4}] \
+  -corner_keepout_num_tracks 2 -pin_spacing 0.4 -allow_feedthroughs false
+place_pins -self
+
+# This design has no pad ring or qualified supply-pin locations.  Create named
+# PG nets and connect every RVT leaf PG pin; do not invent pad cells or bumps.
+if {[sizeof_collection [get_nets -quiet VDD]] == 0} {
+  create_net -power VDD
+} else {
+  set_attribute [get_nets VDD] net_type power
+}
+if {[sizeof_collection [get_nets -quiet VSS]] == 0} {
+  create_net -ground VSS
+} else {
+  set_attribute [get_nets VSS] net_type ground
+}
+connect_named_pg_pins
+
+# Guard the ICC2 pattern API and the concrete layer/cell assumptions before PG
+# compilation.  Widths/spacing are an implementation baseline, not an IR/EM-
+# signed-off grid; update them only from a qualified power-budget analysis.
+foreach pg_command {create_pg_ring_pattern create_pg_std_cell_conn_pattern set_pg_strategy compile_pg} {
+  require_command $pg_command
+}
+if {[catch {
+  create_pg_ring_pattern PDE_CORE_RING \
+    -horizontal_layer M5 -vertical_layer M6 \
+    -horizontal_width 1.6 -vertical_width 1.6 \
+    -horizontal_spacing 0.8 -vertical_spacing 0.8
+  set_pg_strategy PDE_CORE_RING_STRATEGY -core \
+    -pattern {{name: PDE_CORE_RING} {nets: {VDD VSS}} {offset: {2.0 2.0}}}
+  compile_pg -strategies {PDE_CORE_RING_STRATEGY}
+
+  # Standard-cell rails must follow the M1 power pins; M5/M6 form the ring.
+  create_pg_std_cell_conn_pattern PDE_STDCELL_RAILS \
+    -layers {M1} -mark_as_follow_pin true
+  set_pg_strategy PDE_STDCELL_RAIL_STRATEGY -core \
+    -pattern {{name: PDE_STDCELL_RAILS} {nets: {VDD VSS}}} \
+    -extension {{stop: innermost_ring}}
+  compile_pg -strategies {PDE_STDCELL_RAIL_STRATEGY}
+} pg_error]} {
+  error "PG pattern compilation failed; verify the foundry via rules and qualified grid dimensions: $pg_error"
+}
+connect_named_pg_pins
+save_block
+
+# Do not invent tap/endcap masters: the installed library contains variants,
+# but no project/foundry-approved tap/endcap selection or spacing rule was
+# supplied.  This omission is explicit and must be resolved before tapeout.
+puts "PDE_ICC2_WARNING: tap/endcap insertion intentionally omitted pending approved masters/rules"
+
+set ANTENNA_CELLS [require_one_lib_cell ANTENNA]
+set FILLER_MASTERS {FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1}
+set filler_patterns {}
+foreach filler_master $FILLER_MASTERS {
+  require_one_lib_cell $filler_master
+  lappend filler_patterns "*/$filler_master"
+}
+set FILLER_CELLS [get_lib_cells -quiet $filler_patterns]
+set_lib_cell_purpose -include optimization $ANTENNA_CELLS
+set_lib_cell_purpose -include none $FILLER_CELLS
+
+# Enable the documented O-2018.06-SP1 antenna flow and the real RVT diode.
+set_app_options -name route.detail.antenna -value true
+set_app_options -name route.detail.diode_libcell_names -value {ANTENNA}
+set_app_options -name route.detail.insert_diodes_during_routing -value true
+set_app_options -name route.detail.antenna_fixing_preference -value use_diodes
+set_app_options -name route.detail.diode_insertion_mode -value new
+
+redirect -file [file join $REPORT_DIR pre_place_check.rpt] {
+  check_design -checks pre_placement_stage
+}
+place_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_cts_check.rpt] {
+  check_design -checks pre_clock_tree_stage
+}
+clock_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_route_check.rpt] {
+  check_design -checks pre_route_stage
+}
+route_auto
+route_opt
+save_block
+
+# Fill every legal row gap using only the explicitly verified RVT FILL family.
+create_stdcell_fillers -lib_cells $FILLER_CELLS -prefix PDE_FILLER_
+connect_named_pg_pins
+save_block
+
+redirect -file [file join $REPORT_DIR final_design.rpt] {
+  report_design -all
+}
+redirect -file [file join $REPORT_DIR final_qor.rpt] {
+  report_qor -nosplit
+}
+redirect -file [file join $REPORT_DIR final_setup_timing.rpt] {
+  report_timing -delay_type max -scenarios [get_scenarios FUNC_WC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_hold_timing.rpt] {
+  report_timing -delay_type min -scenarios [get_scenarios FUNC_BC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_constraints.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $REPORT_DIR final_power.rpt] {
+  report_power -scenarios [get_scenarios FUNC_WC] -verbose -nosplit
+}
+redirect -file [file join $REPORT_DIR final_utilization.rpt] {
+  report_utilization -verbose
+}
+redirect -file [file join $REPORT_DIR final_congestion.rpt] {
+  report_congestion -mode summary -nosplit
+}
+redirect -file [file join $REPORT_DIR final_clock_qor.rpt] {
+  report_clock_qor -all -nosplit
+}
+redirect -file [file join $REPORT_DIR final_legality.rpt] {
+  check_legality -verbose
+}
+redirect -file [file join $REPORT_DIR final_pg_connectivity.rpt] {
+  check_pg_connectivity -nets [get_nets {VDD VSS}] \
+    -check_std_cell_pins all -check_block_pins none -check_pad_pins none
+}
+redirect -file [file join $REPORT_DIR final_routes.rpt] {
+  check_routes -open_net true -drc true -antenna true
+}
+redirect -file [file join $REPORT_DIR final_lvs.rpt] {
+  check_lvs -checks all -max_errors 200
+}
+
+set FINAL_GDS [file join $RESULT_DIR ${TOP}.gds]
+set FINAL_DEF [file join $RESULT_DIR ${TOP}.def]
+set FINAL_NETLIST [file join $RESULT_DIR ${TOP}.postroute.v]
+set FINAL_WC_SPEF [file join $RESULT_DIR ${TOP}.WC.spef]
+set FINAL_BC_SPEF [file join $RESULT_DIR ${TOP}.BC.spef]
+
+write_verilog -include all $FINAL_NETLIST
+write_def $FINAL_DEF
+write_parasitics -format spef -corner WC -output $FINAL_WC_SPEF
+write_parasitics -format spef -corner BC -output $FINAL_BC_SPEF
+write_gds -hierarchy all -lib_cell_view layout -long_names \
+  -output_pin all -fill include -layer_map $GDS_MAP \
+  -layer_map_format $GDS_MAP_FORMAT $FINAL_GDS
+
+save_block
+save_lib
+puts "PDE_ICC2_DONE gds=$FINAL_GDS def=$FINAL_DEF netlist=$FINAL_NETLIST"
+
+uplevel #0 $flow_text
+PDE_ICC2: top=pde_chip_top_safe
+PDE_ICC2: netlist=/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v
+PDE_ICC2: sdc=/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.sdc
+PDE_ICC2: ref_ndm=/home/sxw/PDE/pdeMujunjie/flow/work/icc2/ref/tcbn65lp_6lmT1.ndm
+Information: Reading Verilog into new design 'pde_chip_top_safe' in library 'pde_chip_top_safe_run3.dlib'. (VR-012)
+Loading verilog file '/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v'
+Number of modules read: 1606
+Top level ports: 57
+Total ports in all modules: 76356
+Total nets in all modules: 193526
+Total instances in all modules: 94963
+Elapsed = 00:00:01.29, CPU = 00:00:01.21
+Using libraries: pde_chip_top_safe_run3.dlib tcbn65lp_6lmT1
+Linking block pde_chip_top_safe_run3.dlib:pde_chip_top_safe.design
+Information: User units loaded from library 'tcbn65lp_6lmT1' (LNK-040)
+Design 'pde_chip_top_safe' was successfully linked.
+Error: Errors detected during redirect
+        Use error_info for more info. (CMD-013)
+Information: script '/home/sxw/PDE/pdeMujunjie/flow/icc2/pnr_compat_v2.tcl'
+        stopped at line 23 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"check_design"
+    invoked from within
+"redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design
+}"
+    ("uplevel" body line 108)
+    invoked from within
+"uplevel #0 $flow_text"
+ -- End Extended Error Info
+icc2_shell> Maximum memory usage for this session: 347.43 MB
+CPU usage for this session:      9 seconds (  0.00 hours)
+Elapsed time for this session:      9 seconds (  0.00 hours)
+Thank you for using IC Compiler II.

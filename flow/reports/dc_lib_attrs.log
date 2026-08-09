@@ -1,0 +1,641 @@
+Initializing gui preferences from file  /home/sxw/.synopsys_dv_prefs.tcl
+# Inspect the small set of library attributes needed to build an OpenROAD-only
+# physical implementation view from the installed Synopsys CCS .db.
+set db /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+read_db $db
+Loading db file '/ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Loading db file '/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loaded 0 designs.
+set lib tcbn65lpwc_ccs
+tcbn65lpwc_ccs
+foreach cell_name {CKBD0 CKBD1 CKBD2 CKBD4 CKBD8 DFCNQD1 DFCNQD2 DFQD1 DFSNQD1 EDFCNQD1 EDFCNQD2 INVD0 BUFFD1 TIEL} {
+  set cell [get_lib_cells -quiet ${lib}/${cell_name}]
+  puts "PDE_CELL_BEGIN $cell_name"
+  foreach attr {area is_sequential cell_footprint dont_use} {
+    if {[catch {get_attribute $cell $attr} value]} {
+      set value <absent>
+    }
+    puts "PDE_CELL_ATTR $attr {$value}"
+  }
+  foreach_in_collection pin [get_lib_pins -of_objects $cell] {
+    set pin_name [get_object_name $pin]
+    puts "PDE_PIN_BEGIN $pin_name"
+    foreach attr {direction capacitance max_capacitance function clock clock_gate_clock_pin clock_gate_enable_pin} {
+      if {[catch {get_attribute $pin $attr} value]} {
+        set value <absent>
+      }
+      puts "PDE_PIN_ATTR $attr {$value}"
+    }
+  }
+  puts "PDE_CELL_END $cell_name"
+}
+PDE_CELL_BEGIN CKBD0
+PDE_CELL_ATTR area {1.440000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {ckbd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/CKBD0'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD0/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000818}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD0/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.029550}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD0/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END CKBD0
+PDE_CELL_BEGIN CKBD1
+PDE_CELL_ATTR area {1.440000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {ckbd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/CKBD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD1/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001201}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD1/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.059100}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD1/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END CKBD1
+PDE_CELL_BEGIN CKBD2
+PDE_CELL_ATTR area {2.160000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {ckbd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/CKBD2'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD2/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001161}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD2/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.118200}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD2/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END CKBD2
+PDE_CELL_BEGIN CKBD4
+PDE_CELL_ATTR area {3.240000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {ckbd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/CKBD4'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD4/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.002130}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD4/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.236400}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD4/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END CKBD4
+PDE_CELL_BEGIN CKBD8
+PDE_CELL_ATTR area {5.760000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {ckbd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/CKBD8'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD8/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.003121}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/CKBD8/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.472800}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/CKBD8/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END CKBD8
+PDE_CELL_BEGIN DFCNQD1
+PDE_CELL_ATTR area {7.920000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {dfcnqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/DFCNQD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD1/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001134}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD1/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000746}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD1/CDN
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001841}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD1/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.059100}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END DFCNQD1
+PDE_CELL_BEGIN DFCNQD2
+PDE_CELL_ATTR area {9.000000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {dfcnqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/DFCNQD2'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD2/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001134}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD2/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000798}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD2/CDN
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.002595}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFCNQD2/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.118200}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END DFCNQD2
+PDE_CELL_BEGIN DFQD1
+PDE_CELL_ATTR area {6.840000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {dfqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/DFQD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFQD1/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001109}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFQD1/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000777}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFQD1/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.059040}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END DFQD1
+PDE_CELL_BEGIN DFSNQD1
+PDE_CELL_ATTR area {8.280000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {dfsnqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/DFSNQD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFSNQD1/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001194}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFSNQD1/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000811}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFSNQD1/SDN
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001902}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/SDN'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/SDN'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/SDN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/SDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/SDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/DFSNQD1/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.059100}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/DFSNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END DFSNQD1
+PDE_CELL_BEGIN EDFCNQD1
+PDE_CELL_ATTR area {10.800000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {edfcnqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/EDFCNQD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD1/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000843}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD1/E
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001811}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/E'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/E'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/E'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/E'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/E'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD1/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000787}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD1/CDN
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001791}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD1/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.058040}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD1/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END EDFCNQD1
+PDE_CELL_BEGIN EDFCNQD2
+PDE_CELL_ATTR area {11.880000}
+PDE_CELL_ATTR is_sequential {true}
+PDE_CELL_ATTR cell_footprint {edfcnqd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/EDFCNQD2'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD2/D
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000843}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/D'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD2/E
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.001731}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/E'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/E'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/E'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/E'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/E'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD2/CP
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000786}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR function {}
+PDE_PIN_ATTR clock {true}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CP'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD2/CDN
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.002758}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/CDN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/EDFCNQD2/Q
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.118200}
+PDE_PIN_ATTR function {IQ}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/EDFCNQD2/Q'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END EDFCNQD2
+PDE_CELL_BEGIN INVD0
+PDE_CELL_ATTR area {1.080000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {invd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/INVD0'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/INVD0/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000756}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/INVD0/ZN
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/ZN'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.026970}
+PDE_PIN_ATTR function {!I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/ZN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/ZN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/INVD0/ZN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END INVD0
+PDE_CELL_BEGIN BUFFD1
+PDE_CELL_ATTR area {1.440000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {buffd1}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/BUFFD1'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/BUFFD1/I
+PDE_PIN_ATTR direction {in}
+PDE_PIN_ATTR capacitance {0.000890}
+Warning: Attribute 'max_capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/I'. (UID-101)
+PDE_PIN_ATTR max_capacitance {}
+Warning: Attribute 'function' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/I'. (UID-101)
+PDE_PIN_ATTR function {}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/I'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/I'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/BUFFD1/Z
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/Z'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.058680}
+PDE_PIN_ATTR function {I}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/Z'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/BUFFD1/Z'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END BUFFD1
+PDE_CELL_BEGIN TIEL
+PDE_CELL_ATTR area {1.080000}
+PDE_CELL_ATTR is_sequential {false}
+PDE_CELL_ATTR cell_footprint {TIEL}
+Warning: Attribute 'dont_use' does not exist on lib_cell 'tcbn65lpwc_ccs/TIEL'. (UID-101)
+PDE_CELL_ATTR dont_use {}
+PDE_PIN_BEGIN tcbn65lpwc_ccs/TIEL/ZN
+PDE_PIN_ATTR direction {out}
+Warning: Attribute 'capacitance' does not exist on lib_pin 'tcbn65lpwc_ccs/TIEL/ZN'. (UID-101)
+PDE_PIN_ATTR capacitance {}
+PDE_PIN_ATTR max_capacitance {0.033920}
+PDE_PIN_ATTR function {0}
+Warning: Attribute 'clock' does not exist on lib_pin 'tcbn65lpwc_ccs/TIEL/ZN'. (UID-101)
+PDE_PIN_ATTR clock {}
+Warning: Attribute 'clock_gate_clock_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/TIEL/ZN'. (UID-101)
+PDE_PIN_ATTR clock_gate_clock_pin {}
+Warning: Attribute 'clock_gate_enable_pin' does not exist on lib_pin 'tcbn65lpwc_ccs/TIEL/ZN'. (UID-101)
+PDE_PIN_ATTR clock_gate_enable_pin {}
+PDE_CELL_END TIEL
+exit
+
+Memory usage for main task 1425 Mbytes.
+Memory usage for this session 1425 Mbytes.
+CPU usage for this session 10 seconds ( 0.00 hours ).
+
+Thank you...
+

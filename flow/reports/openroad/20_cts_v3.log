@@ -1,0 +1,108 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO CTS-0050] Root buffer is CKBD8.
+[INFO CTS-0051] Sink buffer is CKBD8.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CKBD2
+                    CKBD4
+                    CKBD8
+[INFO CTS-0049] Characterization buffer is CKBD8.
+[INFO CTS-0007] Net "clk" found for clock "core_clk".
+[INFO CTS-0010]  Clock net "clk" has 23905 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 3 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 23905.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18000  dbu (9 um).
+[INFO CTS-0023]  Original sink region: [(58825, 51850), (2135225, 2079350)].
+[INFO CTS-0024]  Normalized sink region: [(3.26806, 2.88056), (118.624, 115.519)].
+[INFO CTS-0025]     Width:  115.3556.
+[INFO CTS-0026]     Height: 112.6389.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 11953
+    Sub-region size: 57.6778 X 112.6389
+[INFO CTS-0034]     Segment length (rounded): 28.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 5977
+    Sub-region size: 57.6778 X 56.3194
+[INFO CTS-0034]     Segment length (rounded): 28.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 2989
+    Sub-region size: 28.8389 X 56.3194
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 1495
+    Sub-region size: 28.8389 X 28.1597
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 748
+    Sub-region size: 14.4194 X 28.1597
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 374
+    Sub-region size: 14.4194 X 14.0799
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 187
+    Sub-region size: 7.2097 X 14.0799
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 94
+    Sub-region size: 7.2097 X 7.0399
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 9
+    Direction: Horizontal
+    Sinks per sub-region: 47
+    Sub-region size: 3.6049 X 7.0399
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 10
+    Direction: Vertical
+    Sinks per sub-region: 24
+    Sub-region size: 3.6049 X 3.5200
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 11
+    Direction: Horizontal
+    Sinks per sub-region: 12
+    Sub-region size: 1.8024 X 3.5200
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 23905.
+[INFO CTS-0018]     Created 3169 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 9.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 9.
+[INFO CTS-0015]     Created 3169 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:20, 5:35, 6:70, 7:108, 8:172, 9:200, 10:220, 11:220, 12:213, 13:207, 14:147, 15:139, 16:97, 17:69, 18:47, 19:34, 20:21, 21:14, 22:5, 23:1, 24:2, 25:1, 26:2, 28:1, 31:1, 37:1..
+[INFO CTS-0017]     Max level of the clock tree: 11.
+[INFO CTS-0202] Non-default rule CTS_NDR_0 for double spacing has been applied to 1122 clock nets
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 24881
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 1454.59 um
+[INFO CTS-0102]  Path depth 9 - 9
+[INFO CTS-0207]  Leaf load cells 976
+Placement Analysis
+---------------------------------
+total displacement      10448.3 u
+average displacement        0.1 u
+max displacement            6.6 u
+original HPWL         4051692.4 u
+legalized HPWL        4057091.0 u
+delta HPWL                    0 %
+
+PDE_CTS_UNCONNECTED_PG_ITERMS=0
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0040] All shapes on net VSS are connected.
+PDE_OPENROAD_CTS_V3_PASS

@@ -1,0 +1,3 @@
+[WARNING GRT-0115] Global routing finished with congestion. Check the congestion regions in the DRC Viewer.
+[INFO RCX-0134] Can't execute write_spef command. There's no extraction data.
+PDE_OPENROAD_GLOBAL_ROUTE_PASS

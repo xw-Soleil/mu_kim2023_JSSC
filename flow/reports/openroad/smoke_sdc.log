@@ -1,0 +1,7 @@
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M1 :"SPACING 0.11 ENDOFLINE 0.11 WITHIN 0.035 PARALLELEDGE 0.11 WITHIN 0.11 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M2 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M3 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M4 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M5 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0227] LEF file: /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef, created 16 layers, 72 vias, 855 library cells
+application-specific initialization failed: can't read "auto_index(::tclreadline::ScriptCompleter)": no such element in array

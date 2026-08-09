@@ -1,0 +1,278 @@
+Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_red_q_reg_15_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)
+   0.05    0.05 v u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)
+   0.05    0.10 ^ u_impl/u_core/u_tcu/U10/ZN (CKND1)
+   0.05    0.15 v u_impl/u_core/u_tcu/U31/Z (OR2D0)
+   0.05    0.20 ^ u_impl/u_core/u_tcu/U19/ZN (INVD1)
+   0.20    0.40 ^ u_impl/u_core/U30/Z (BUFFD1)
+   0.70    1.11 v u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U6/ZN (INVD0)
+   0.05    1.16 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U7/ZN (INVD0)
+   0.05    1.21 v u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U1/ZN (AOI22D0)
+   0.05    1.26 v u_impl/u_core/g_row_11__g_col_8__u_pe/U17/Z (BUFFD1)
+   0.05    1.31 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U8/ZN (INVD0)
+   0.05    1.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U27/ZN (CKND2D0)
+   0.05    1.41 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U29/ZN (OAI222D0)
+   0.05    1.46 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U30/Z (OA22D0)
+   0.05    1.51 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U31/ZN (CKND2D0)
+   0.05    1.56 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U60/CO (HA1D0)
+   0.05    1.61 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U63/CO (FA1D0)
+   0.05    1.66 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U7/CO (FA1D0)
+   0.05    1.71 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U12/CO (FA1D0)
+   0.05    1.76 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U16/CO (FA1D0)
+   0.05    1.81 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U20/CO (FA1D0)
+   0.05    1.86 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U24/CO (FA1D0)
+   0.05    1.91 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U28/CO (FA1D0)
+   0.05    1.96 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U32/CO (FA1D0)
+   0.05    2.01 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U36/CO (FA1D0)
+   0.05    2.06 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U40/CO (FA1D0)
+   0.05    2.11 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U44/CO (FA1D0)
+   0.05    2.16 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U48/CO (FA1D0)
+   0.05    2.21 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U52/CO (FA1D0)
+   0.05    2.26 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U56/CO (FA1D0)
+   0.05    2.31 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U57/Z (XOR3D0)
+   0.05    2.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U58/Z (MUX2D0)
+   0.00    2.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_red_q_reg_15_/D (EDFCNQD1)
+           2.36   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_red_q_reg_15_/CP (EDFCNQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -2.36   data arrival time
+---------------------------------------------------------
+           7.34   slack (MET)
+
+
+Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_black_q_reg_15_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)
+   0.05    0.05 v u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)
+   0.05    0.10 ^ u_impl/u_core/u_tcu/U10/ZN (CKND1)
+   0.05    0.15 v u_impl/u_core/u_tcu/U31/Z (OR2D0)
+   0.05    0.20 ^ u_impl/u_core/u_tcu/U19/ZN (INVD1)
+   0.20    0.40 ^ u_impl/u_core/U30/Z (BUFFD1)
+   0.70    1.11 v u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U6/ZN (INVD0)
+   0.05    1.16 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U7/ZN (INVD0)
+   0.05    1.21 v u_impl/u_core/g_row_11__g_col_8__u_pe/u_ctrl/U1/ZN (AOI22D0)
+   0.05    1.26 v u_impl/u_core/g_row_11__g_col_8__u_pe/U17/Z (BUFFD1)
+   0.05    1.31 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U8/ZN (INVD0)
+   0.05    1.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U27/ZN (CKND2D0)
+   0.05    1.41 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U29/ZN (OAI222D0)
+   0.05    1.46 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U30/Z (OA22D0)
+   0.05    1.51 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/U31/ZN (CKND2D0)
+   0.05    1.56 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U60/CO (HA1D0)
+   0.05    1.61 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U63/CO (FA1D0)
+   0.05    1.66 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U7/CO (FA1D0)
+   0.05    1.71 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U12/CO (FA1D0)
+   0.05    1.76 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U16/CO (FA1D0)
+   0.05    1.81 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U20/CO (FA1D0)
+   0.05    1.86 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U24/CO (FA1D0)
+   0.05    1.91 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U28/CO (FA1D0)
+   0.05    1.96 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U32/CO (FA1D0)
+   0.05    2.01 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U36/CO (FA1D0)
+   0.05    2.06 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U40/CO (FA1D0)
+   0.05    2.11 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U44/CO (FA1D0)
+   0.05    2.16 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U48/CO (FA1D0)
+   0.05    2.21 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U52/CO (FA1D0)
+   0.05    2.26 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U56/CO (FA1D0)
+   0.05    2.31 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U57/Z (XOR3D0)
+   0.05    2.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/U59/Z (MUX2D0)
+   0.00    2.36 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_black_q_reg_15_/D (EDFCNQD1)
+           2.36   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/u_core/g_row_11__g_col_8__u_pe/u_sol/u_black_q_reg_15_/CP (EDFCNQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -2.36   data arrival time
+---------------------------------------------------------
+           7.34   slack (MET)
+
+
+Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_black_q_reg_15_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)
+   0.05    0.05 v u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)
+   0.05    0.10 ^ u_impl/u_core/u_tcu/U10/ZN (CKND1)
+   0.05    0.15 v u_impl/u_core/u_tcu/U31/Z (OR2D0)
+   0.05    0.20 ^ u_impl/u_core/u_tcu/U19/ZN (INVD1)
+   0.20    0.40 ^ u_impl/u_core/U30/Z (BUFFD1)
+   0.70    1.11 v u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U8/ZN (INVD0)
+   0.05    1.16 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U9/ZN (INVD0)
+   0.05    1.21 v u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U1/ZN (AOI22D0)
+   0.05    1.26 v u_impl/u_core/g_row_11__g_col_0__u_pe/U18/Z (BUFFD1)
+   0.05    1.31 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U23/ZN (INVD0)
+   0.05    1.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U28/ZN (CKND2D0)
+   0.05    1.41 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U30/ZN (OAI222D0)
+   0.05    1.46 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U31/Z (OA22D0)
+   0.05    1.51 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U32/ZN (CKND2D0)
+   0.05    1.56 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U64/CO (HA1D0)
+   0.05    1.61 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U8/CO (FA1D0)
+   0.05    1.66 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U12/CO (FA1D0)
+   0.05    1.71 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U16/CO (FA1D0)
+   0.05    1.76 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U20/CO (FA1D0)
+   0.05    1.81 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U24/CO (FA1D0)
+   0.05    1.86 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U28/CO (FA1D0)
+   0.05    1.91 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U32/CO (FA1D0)
+   0.05    1.96 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U36/CO (FA1D0)
+   0.05    2.01 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U40/CO (FA1D0)
+   0.05    2.06 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U44/CO (FA1D0)
+   0.05    2.11 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U48/CO (FA1D0)
+   0.05    2.16 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U52/CO (FA1D0)
+   0.05    2.21 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U56/CO (FA1D0)
+   0.05    2.26 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U60/CO (FA1D0)
+   0.05    2.31 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U61/Z (XOR3D0)
+   0.05    2.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U63/Z (MUX2D0)
+   0.00    2.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_black_q_reg_15_/D (EDFCNQD1)
+           2.36   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_black_q_reg_15_/CP (EDFCNQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -2.36   data arrival time
+---------------------------------------------------------
+           7.34   slack (MET)
+
+
+Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_red_q_reg_15_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)
+   0.05    0.05 v u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)
+   0.05    0.10 ^ u_impl/u_core/u_tcu/U10/ZN (CKND1)
+   0.05    0.15 v u_impl/u_core/u_tcu/U31/Z (OR2D0)
+   0.05    0.20 ^ u_impl/u_core/u_tcu/U19/ZN (INVD1)
+   0.20    0.40 ^ u_impl/u_core/U30/Z (BUFFD1)
+   0.70    1.11 v u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U8/ZN (INVD0)
+   0.05    1.16 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U9/ZN (INVD0)
+   0.05    1.21 v u_impl/u_core/g_row_11__g_col_0__u_pe/u_ctrl/U1/ZN (AOI22D0)
+   0.05    1.26 v u_impl/u_core/g_row_11__g_col_0__u_pe/U18/Z (BUFFD1)
+   0.05    1.31 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U23/ZN (INVD0)
+   0.05    1.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U28/ZN (CKND2D0)
+   0.05    1.41 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U30/ZN (OAI222D0)
+   0.05    1.46 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U31/Z (OA22D0)
+   0.05    1.51 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/U32/ZN (CKND2D0)
+   0.05    1.56 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U64/CO (HA1D0)
+   0.05    1.61 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U8/CO (FA1D0)
+   0.05    1.66 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U12/CO (FA1D0)
+   0.05    1.71 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U16/CO (FA1D0)
+   0.05    1.76 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U20/CO (FA1D0)
+   0.05    1.81 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U24/CO (FA1D0)
+   0.05    1.86 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U28/CO (FA1D0)
+   0.05    1.91 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U32/CO (FA1D0)
+   0.05    1.96 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U36/CO (FA1D0)
+   0.05    2.01 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U40/CO (FA1D0)
+   0.05    2.06 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U44/CO (FA1D0)
+   0.05    2.11 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U48/CO (FA1D0)
+   0.05    2.16 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U52/CO (FA1D0)
+   0.05    2.21 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U56/CO (FA1D0)
+   0.05    2.26 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U60/CO (FA1D0)
+   0.05    2.31 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U61/Z (XOR3D0)
+   0.05    2.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/U62/Z (MUX2D0)
+   0.00    2.36 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_red_q_reg_15_/D (EDFCNQD1)
+           2.36   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/u_core/g_row_11__g_col_0__u_pe/u_sol/u_red_q_reg_15_/CP (EDFCNQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -2.36   data arrival time
+---------------------------------------------------------
+           7.34   slack (MET)
+
+
+Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_
+            (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/u_black_q_reg_15_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)
+   0.05    0.05 v u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)
+   0.05    0.10 ^ u_impl/u_core/u_tcu/U10/ZN (CKND1)
+   0.05    0.15 v u_impl/u_core/u_tcu/U31/Z (OR2D0)
+   0.05    0.20 ^ u_impl/u_core/u_tcu/U19/ZN (INVD1)
+   0.20    0.40 ^ u_impl/u_core/U30/Z (BUFFD1)
+   0.70    1.11 v u_impl/u_core/g_row_11__g_col_6__u_pe/u_ctrl/U8/ZN (INVD0)
+   0.05    1.16 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_ctrl/U9/ZN (INVD0)
+   0.05    1.21 v u_impl/u_core/g_row_11__g_col_6__u_pe/u_ctrl/U1/ZN (AOI22D0)
+   0.05    1.26 v u_impl/u_core/g_row_11__g_col_6__u_pe/U16/Z (BUFFD1)
+   0.05    1.31 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/U12/ZN (INVD0)
+   0.05    1.36 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/U26/ZN (CKND2D0)
+   0.05    1.41 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/U28/ZN (OAI222D0)
+   0.05    1.46 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/U29/Z (OA22D0)
+   0.05    1.51 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/U30/ZN (CKND2D0)
+   0.05    1.56 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U61/CO (HA1D0)
+   0.05    1.61 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U64/CO (FA1D0)
+   0.05    1.66 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U9/CO (FA1D0)
+   0.05    1.71 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U13/CO (FA1D0)
+   0.05    1.76 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U17/CO (FA1D0)
+   0.05    1.81 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U21/CO (FA1D0)
+   0.05    1.86 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U25/CO (FA1D0)
+   0.05    1.91 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U29/CO (FA1D0)
+   0.05    1.96 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U33/CO (FA1D0)
+   0.05    2.01 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U37/CO (FA1D0)
+   0.05    2.06 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U41/CO (FA1D0)
+   0.05    2.11 ^ u_impl/u_core/g_row_11__g_col_6__u_pe/u_sol/U45/CO (FA1D0)

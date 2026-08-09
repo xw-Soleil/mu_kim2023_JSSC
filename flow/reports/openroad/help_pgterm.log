@@ -1,0 +1,27 @@
+===== HELP place_pin =====
+place_pin [-pin_name pin_name] [-layer layer] [-location location]
+   [-pin_size pin_size] [-force_to_die_boundary] [-placed_status] 
+
+===== HELP create_voltage_domain =====
+create_voltage_domain domain_name -area  {llx lly urx ury}
+===== HELP add_global_connection =====
+add_global_connection [-net net_name] [-inst_pattern inst_name_pattern]
+   [-pin_pattern pin_name_pattern] [(-power|-ground)] [-region region_name]
+   [-defer_connection] 
+
+===== HELP global_connect =====
+global_connect 
+===== HELP check_power_grid =====
+check_power_grid -net power_net [-error_file error_file] [-floorplanning] 
+
+===== HELP analyze_power_grid =====
+analyze_power_grid -net net_name [-corner corner] [-error_file error_file]
+   [-voltage_file voltage_file] [-enable_em] [-em_outfile em_file]
+   [-vsrc voltage_source_file] [-source_type FULL|BUMPS|STRAPS] 
+
+===== HELP create_port =====
+[WARNING STA-0160] no commands match 'create_port'.
+===== HELP make_io_bump_array =====
+make_io_bump_array -bump master -origin  {x y}  -rows rows  -columns columns  -pitch {x y}  [-prefix prefix]
+===== HELP assign_io_bump =====
+assign_io_bump -net net [-terminal terminal] [-dont_route] inst 

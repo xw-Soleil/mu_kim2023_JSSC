@@ -1,0 +1,208 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+PDE_PRECTS_BUFFD2_COUNT=4
+[INFO CTS-0050] Root buffer is BUFFD2.
+[INFO CTS-0051] Sink buffer is BUFFD2.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    BUFFD2
+[INFO CTS-0049] Characterization buffer is BUFFD2.
+[INFO CTS-0007] Net "clk" found for clock "core_clk".
+[INFO CTS-0010]  Clock net "clk" has 23905 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 23905.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18000  dbu (9 um).
+[INFO CTS-0023]  Original sink region: [(55225, 145450), (2326825, 2334250)].
+[INFO CTS-0024]  Normalized sink region: [(3.06806, 8.08056), (129.268, 129.681)].
+[INFO CTS-0025]     Width:  126.2000.
+[INFO CTS-0026]     Height: 121.6000.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 11953
+    Sub-region size: 63.1000 X 121.6000
+[INFO CTS-0034]     Segment length (rounded): 32.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 5977
+    Sub-region size: 63.1000 X 60.8000
+[INFO CTS-0034]     Segment length (rounded): 30.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 2989
+    Sub-region size: 31.5500 X 60.8000
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 1495
+    Sub-region size: 31.5500 X 30.4000
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 748
+    Sub-region size: 15.7750 X 30.4000
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 374
+    Sub-region size: 15.7750 X 15.2000
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 187
+    Sub-region size: 7.8875 X 15.2000
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 94
+    Sub-region size: 7.8875 X 7.6000
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 9
+    Direction: Horizontal
+    Sinks per sub-region: 47
+    Sub-region size: 3.9437 X 7.6000
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 10
+    Direction: Vertical
+    Sinks per sub-region: 24
+    Sub-region size: 3.9437 X 3.8000
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 11
+    Direction: Horizontal
+    Sinks per sub-region: 12
+    Sub-region size: 1.9719 X 3.8000
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 23905.
+[INFO CTS-0018]     Created 2657 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 9.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 9.
+[INFO CTS-0015]     Created 2657 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 4:7, 5:18, 6:56, 7:97, 8:161, 9:219, 10:254, 11:229, 12:232, 13:214, 14:167, 15:134, 16:112, 17:64, 18:32, 19:20, 20:11, 21:6, 22:5, 23:3, 24:4, 26:2, 31:1..
+[INFO CTS-0017]     Max level of the clock tree: 11.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 25399
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 1554.90 um
+[INFO CTS-0102]  Path depth 9 - 9
+[INFO CTS-0207]  Leaf load cells 1494
+Placement Analysis
+---------------------------------
+total displacement      40376.6 u
+average displacement        0.3 u
+max displacement            5.4 u
+original HPWL         5553899.8 u
+legalized HPWL        5578727.8 u
+delta HPWL                    0 %
+
+PDE_CTS_BUFFD2_UNCONNECTED_PG_ITERMS=0
+PDE_CTS_BUFFD2_INSERTED=3807
+PDE_POSTCTS_CKBD8_COUNT=0
+PDE_CTS_PIN_ACCESS_GUARDED=203
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     15
+Number of macros:     855
+Number of vias:       79
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+
+Design:                   pde_chip_top_safe
+Die area:                 ( 0 0 ) ( 2385280 2385280 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     123317
+Number of terminals:      57
+Number of snets:          205
+Number of nets:           145489
+
+[INFO DRT-0167] List of default vias:
+  Layer VIA1
+    default via: VIA12_1cut
+  Layer VIA2
+    default via: VIA23_1cut
+  Layer VIA3
+    default via: VIA34_1cut
+  Layer VIA4
+    default via: VIA45_1cut
+  Layer VIA5
+    default via: VIA56_1cut
+  Layer RV
+    default via: VIA6AP_1cut
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+  Complete 100000 instances.
+[INFO DRT-0164] Number of unique instances = 143.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0018]   Complete 100000 insts.
+[INFO DRT-0024]   Complete PO.
+[INFO DRT-0024]   Complete CO.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete VIA1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete VIA2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete VIA3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete VIA4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete VIA5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete RV.
+[INFO DRT-0024]   Complete AP.
+[INFO DRT-0033] PO shape region query size = 0.
+[INFO DRT-0033] CO shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 3677669.
+[INFO DRT-0033] VIA1 shape region query size = 76936.
+[INFO DRT-0033] M2 shape region query size = 45548.
+[INFO DRT-0033] VIA2 shape region query size = 27848.
+[INFO DRT-0033] M3 shape region query size = 10620.
+[INFO DRT-0033] VIA3 shape region query size = 7080.
+[INFO DRT-0033] M4 shape region query size = 5709.
+[INFO DRT-0033] VIA4 shape region query size = 13328.
+[INFO DRT-0033] M5 shape region query size = 2112.
+[INFO DRT-0033] VIA5 shape region query size = 0.
+[INFO DRT-0033] M6 shape region query size = 0.
+[INFO DRT-0033] RV shape region query size = 0.
+[INFO DRT-0033] AP shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 867 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 143 unique inst patterns.
+[INFO DRT-0082]   Complete 10000 groups.
+[INFO DRT-0082]   Complete 20000 groups.
+[INFO DRT-0082]   Complete 30000 groups.
+[INFO DRT-0082]   Complete 40000 groups.
+[INFO DRT-0082]   Complete 50000 groups.
+[INFO DRT-0082]   Complete 60000 groups.
+[INFO DRT-0082]   Complete 70000 groups.
+[INFO DRT-0082]   Complete 80000 groups.
+[INFO DRT-0082]   Complete 90000 groups.
+[INFO DRT-0082]   Complete 100000 groups.
+[INFO DRT-0084]   Complete 123317 groups.
+#scanned instances     = 123317
+#unique  instances     = 143
+#stdCellGenAp          = 2840
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 2218
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 454027
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:16, elapsed time = 00:00:01, memory = 1887.96 (MB), peak = 2002.97 (MB)
+PDE_CTS_PIN_ACCESS_RESTORED=203
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0040] All shapes on net VSS are connected.
+PDE_OPENROAD_CTS_BUFFD2_V12_PASS

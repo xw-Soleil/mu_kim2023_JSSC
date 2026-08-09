@@ -1,0 +1,19 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+PDE_MOVE_clkbuf_0_clk_FROM=1184400 1339200 TO=1188400 1339200
+PDE_MOVE_clkbuf_2_0_0_clk_FROM=702400 1177200 TO=706400 1177200
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     15
+Number of macros:     855
+Number of vias:       79
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net rst_n has 16227 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_impl/n1127 has 330 pins which may impact routing performance. Consider optimization.
+[ERROR DRT-0305] Net u_impl/zero_ of signal type GROUND is not routable by TritonRoute. Move to special nets.

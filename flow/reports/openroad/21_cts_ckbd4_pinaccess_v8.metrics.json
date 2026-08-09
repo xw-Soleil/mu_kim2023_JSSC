@@ -1,0 +1,11 @@
+{
+	"design__instance__displacement__total": 27008,
+	"design__instance__displacement__mean": 0.2765,
+	"design__instance__displacement__max": 5.8,
+	"route__wirelength__estimated": 4.30696e+06,
+	"design__violations": 0,
+	"route__net": 120193,
+	"route__net__special": 205,
+	"flow__warnings__count": 2,
+	"flow__errors__count": 2
+}

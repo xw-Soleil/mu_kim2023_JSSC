@@ -1,0 +1,59 @@
+Successfully read the arguments
+Summary of Options:
+
+Library      	 OAFILE_4392
+Cell         	 pde_chip_top_safe
+View         	 layout
+Cell Case    	 PRESERVE
+Cell Map     	 NO
+Layer Map    	 NO
+Object Map    	 NO
+Property Map    	 NO
+Log File     	 flow/reports/openroad/20_cts_fdi_smoke_v3.log
+Template File     	 NO
+mapInfo File      	 NO
+mapOnly    	 NO
+annotateRowSiteID      TEXT	 NO
+annotateRowSiteID      PROPERTY	 NO
+annotateRowOrient      TEXT	 NO
+annotateRowOrient      PROPERTY	 NO
+annotateNets      TEXT	 NO
+annotateNets      TEXT SINGLE	 NO
+annotateNets      PROPERTY	 NO
+annotateNets      ALL	 YES
+annotateNetType      PROPERTY	 NO
+InstAsProp      	 NO
+annotatePins      TEXT	 NO
+annotatePins      PROPERTY	 NO
+bboxlayer   	 NO
+prboundarylayer   	 NO
+overlapAsBoundary      	 NO
+noText      	 NO
+noPinShape      	 NO
+outputFills      	 NO
+flattenVias      	 NO
+convertOddWidthPaths      	 NO
+viewList          	 NO
+cblock          	 NO
+cellGDS     	 NO
+cellOASIS   	 NO
+waiverGDS     	 NO
+netProp     	 NO
+Lef files:  /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef 
+Def files:  flow/results/openroad/20_cts.def 
+
+Messages from lef file: /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef
+Messages from def file: flow/results/openroad/20_cts.def
+
+
+************** Summary Report ************************
+
+
+Command Line executed   :: fdi2gds  -system LEFDEF -lef /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef -def flow/results/openroad/20_cts.def -outFile flow/results/openroad/20_cts_abstract_smoke_v3.gds -map flow/calibre/lefdef_6lmT1_v3.map -logFile flow/reports/openroad/20_cts_fdi_smoke_v3.log -outformat GDS
+
+
+
+
+Total Elapsed Time      :: 1 Seconds
+Peak Virtual Memory     :: 30.51 MB
+

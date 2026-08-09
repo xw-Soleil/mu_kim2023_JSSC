@@ -1,0 +1,86 @@
+
+
+
+                              IC Compiler II (TM)
+
+                  Version W-2024.09 for linux64 - Aug 26, 2024
+  This release has significant feature enhancements. Please review the Release
+                       Notes associated with this release.
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+proc require_env {name} {
+  if {![info exists ::env($name)] || [string trim $::env($name)] eq ""} {
+    error "Missing required environment variable: $name"
+  }
+  return [file normalize $::env($name)]
+}
+set design_lib [require_env PDE_AUDIT_DESIGN_LIB]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/local_runs/icc2_signoff_eco06/work/icc2/pde_chip_top_safe.dlib
+set report_dir [require_env PDE_AUDIT_REPORT_DIR]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/reports/icc2/history_audit_20260803/eco06
+set label $::env(PDE_AUDIT_LABEL)
+eco06
+file mkdir $report_dir
+set_host_options -max_cores 8
+1
+open_lib $design_lib
+Information: Loading library file '/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/local_runs/icc2_signoff_eco06/work/icc2/pde_chip_top_safe.dlib' (FILE-007)
+Information: Loading library file '/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/work/icc2/ref_rebuilt/tcbn65lp_6lmT1.ndm' (FILE-007)
+{pde_chip_top_safe.dlib}
+open_block pde_chip_top_safe.design
+Information: User units loaded from library 'tcbn65lp_6lmT1' (LNK-040)
+Opening block 'pde_chip_top_safe.dlib:pde_chip_top_safe.design' in edit mode
+{pde_chip_top_safe.dlib:pde_chip_top_safe.design}
+link_block
+Using libraries: pde_chip_top_safe.dlib tcbn65lp_6lmT1
+Visiting block pde_chip_top_safe.dlib:pde_chip_top_safe.design
+Design 'pde_chip_top_safe' was successfully linked.
+1
+puts "PDE_EXACT_AUDIT_BEGIN label=$label design_lib=$design_lib"
+PDE_EXACT_AUDIT_BEGIN label=eco06 design_lib=/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/local_runs/icc2_signoff_eco06/work/icc2/pde_chip_top_safe.dlib
+redirect -file [file join $report_dir qor.rpt] {
+  report_qor -nosplit
+}
+current_scenario FUNC_WC
+{FUNC_WC}
+redirect -file [file join $report_dir constraints_FUNC_WC.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $report_dir setup_violations_4d.rpt] {
+  report_timing -delay_type max -scenarios [get_scenarios FUNC_WC] \
+    -max_paths 10000 -slack_lesser_than 0 \
+    -significant_digits 4 -physical -nosplit
+}
+current_scenario FUNC_BC
+{FUNC_BC}
+redirect -file [file join $report_dir constraints_FUNC_BC.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $report_dir hold_violations_4d.rpt] {
+  report_timing -delay_type min -scenarios [get_scenarios FUNC_BC] \
+    -max_paths 10000 -slack_lesser_than 0 \
+    -significant_digits 4 -physical -nosplit
+}
+puts "PDE_EXACT_AUDIT_DONE label=$label"
+PDE_EXACT_AUDIT_DONE label=eco06
+exit
+Maximum memory usage for this session: 2100.96 MB
+Maximum memory usage for this session including child processes: 2100.96 MB
+CPU usage for this session:     73 seconds (  0.02 hours)
+Elapsed time for this session:     24 seconds (  0.01 hours)
+Thank you for using IC Compiler II.

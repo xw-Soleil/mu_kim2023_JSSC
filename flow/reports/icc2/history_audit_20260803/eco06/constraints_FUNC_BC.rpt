@@ -1,0 +1,74 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:34:49 2026
+****************************************
+
+   late_timing
+   -----------
+
+Warning: Scenario FUNC_BC is not configured for setup analysis: skipping. (UIC-058)
+Error: None of the specified scenarios are active for setup analysis. (UIC-057)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   early_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_5_/D (DFCNQD1)   0.48 f   0.48   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_13__g_col_7__u_pe/u_r_red/q_reg_5_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_13__g_col_8__u_pe/u_sol/u_red_q_reg_0_/D (DFCNQD1)   0.53 f   0.53   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_6__g_col_8__u_pe/u_r_red/q_reg_13_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/black_shadow_reg_185__11_/D (DFQD2)   0.48 f   0.48       0.00    -0.00   core_clk FUNC_BC
+u_impl/u_core/g_row_14__g_col_6__u_pe/u_sol/u_black_q_reg_1_/D (DFCNQD1)   0.50 f   0.50   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_3__g_col_8__u_pe/u_r_red/q_reg_9_/D (DFCNQD1)   0.58 f   0.58   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_14__g_col_5__u_pe/u_sol/u_black_q_reg_14_/D (DFCNQD1)   0.57 f   0.57   0.00  -0.00 core_clk FUNC_BC
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/u_core/g_row_6__g_col_4__u_pe/u_r_black/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_6__g_col_4__u_pe/u_r_black/U3/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/n470_CDR1             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : u_impl/U686/ZN       0.03           0.03          -0.00  (VIOLATED) 
+
+   u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_15__g_col_1__u_pe/u_r_black/n9     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_15__g_col_1__u_pe/u_r_black/U7/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_red/n9     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_red/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 5
+
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+  ---------------------------------------------------------------------------
+   Number of min_capacitance violation(s): 0
+
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 5
+1

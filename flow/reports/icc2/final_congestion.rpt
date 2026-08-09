@@ -1,0 +1,15 @@
+****************************************
+Report : congestion
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Sun Aug  2 01:24:14 2026
+****************************************
+
+Layer     |    overflow     |              # GRCs has
+Name      |  total  |  max  | overflow (%)      | max overflow
+---------------------------------------------------------------
+Both Dirs |    8029 |     6 |    6769  ( 1.39%) |       5
+H routing |    5460 |     4 |    4572  ( 1.88%) |      13
+V routing |    2569 |     6 |    2197  ( 0.90%) |       5
+
+1

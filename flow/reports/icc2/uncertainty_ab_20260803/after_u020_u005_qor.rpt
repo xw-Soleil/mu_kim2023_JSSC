@@ -1,0 +1,99 @@
+****************************************
+Report : qor
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:37:12 2026
+****************************************
+
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_WC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Levels of Logic:                     27
+Critical Path Length:             10.14
+Critical Path Slack:              -0.21
+Critical Path Clk Period:         10.00
+Total Negative Slack:             -2.45
+No. of Violating Paths:              27
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:           1605
+Hierarchical Port Count:          89648
+Leaf Cell Count:                 128263
+Buf/Inv Cell Count:               38856
+Buf Cell Count:                   26514
+Inv Cell Count:                   12342
+Combinational Cell Count:        104358
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:            23905
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       23905
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           297480.24
+Noncombinational Area:        182122.56
+Buf/Inv Area:                  94676.76
+Total Buffer Area:             80580.60
+Total Inverter Area:           14096.16
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                 3895503.55
+Net YLength:                 3507416.09
+----------------------------------------
+Cell Area (netlist):                         479602.80
+Cell Area (netlist and physical only):       731025.00
+Net Length:                  7402919.64
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:            131371
+Nets with Violations:                 6
+Max Trans Violations:                 3
+Max Cap Violations:                   6
+----------------------------------------
+
+1

@@ -1,0 +1,96 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:32:35 2026
+****************************************
+
+   late_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/u_red_q_reg_12_/D (DFCNQD1)  10.75 r  10.74   0.00  -0.01 core_clk FUNC_WC
+u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/u_red_q_reg_11_/D (DFCNQD1)  10.76 r  10.75   0.00  -0.01 core_clk FUNC_WC
+
+   early_timing
+   -----------
+
+Warning: Scenario FUNC_WC is not configured for hold analysis: skipping. (UIC-058)
+Error: None of the specified scenarios are active for hold analysis. (UIC-057)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   Mode: FUNC Corner: WC
+   Scenario: FUNC_WC
+   max_transition                                                              
+                             Required        Actual                            
+   Net                      Transition     Transition        Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/u_core/n469_CDR1      0.77           0.79          -0.02  (VIOLATED) 
+     PIN : u_impl/u_core/U219/ZN     0.77      0.79          -0.02  (VIOLATED) 
+     PIN : u_impl/u_core/ropt_mt_inst_50406/I     0.77     0.79    -0.02 (VIOLATED)
+
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 1
+
+   Mode: FUNC Corner: WC
+   Scenario: FUNC_WC
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/u_core/n469_CDR1      0.01           0.01          -0.00  (VIOLATED) 
+     PIN : u_impl/u_core/U219/ZN     0.01      0.01          -0.00  (VIOLATED) 
+
+   u_impl/u_core/g_row_15__g_col_8__u_pe/u_sol/n50     0.02     0.02    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_15__g_col_8__u_pe/u_sol/U13/ZN     0.02     0.02    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_2__g_col_6__u_pe/read_value[1]     0.01     0.01    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_2__g_col_6__u_pe/ctmTdsLR_1_23629/ZN     0.01     0.01    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_10__g_col_3__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_10__g_col_3__u_pe/u_r_red/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_7__g_col_7__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_7__g_col_7__u_pe/u_r_red/U5/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_16__g_col_8__u_pe/u_r_black/n7     0.01     0.01    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_16__g_col_8__u_pe/u_r_black/U5/ZN     0.01     0.01    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_2__g_col_3__u_pe/read_value[4]     0.01     0.01    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_2__g_col_3__u_pe/U13/ZN     0.01     0.01    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_16__g_col_1__u_pe/u_r_black/n9     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_16__g_col_1__u_pe/u_r_black/U7/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/n4324_CDR1            0.02           0.02          -0.00  (VIOLATED) 
+     PIN : u_impl/U6153/ZN      0.02           0.02          -0.00  (VIOLATED) 
+
+   u_impl/n15469_CDR1           0.01           0.01          -0.00  (VIOLATED) 
+     PIN : u_impl/U14886/ZN     0.01           0.01          -0.00  (VIOLATED) 
+
+   u_impl/u_core/g_row_5__g_col_2__u_pe/read_value[1]     0.01     0.01    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_5__g_col_2__u_pe/ctmTdsLR_1_23946/ZN     0.01     0.01    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_10__g_col_5__u_pe/u_r_black/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_10__g_col_5__u_pe/u_r_black/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/n500_CDR1      0.02           0.02          -0.00  (VIOLATED) 
+     PIN : u_impl/u_core/U255/ZN     0.02      0.02          -0.00  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 13
+
+
+
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 14
+1

@@ -1,5 +1,7 @@
 # Folded Red/Black Bit-Serial PDE Accelerator (RTL)
 
+> **Disclaimer:** This project is for academic learning and demonstration purposes only. Library files and Synopsys tool scripts cannot be distributed publicly.
+
 20x20 logical grid on 20x10 physical PEs. Residue-based FDM, checkerboard
 update, 4/8/12/16-bit dynamic precision, first-order DSM.
 

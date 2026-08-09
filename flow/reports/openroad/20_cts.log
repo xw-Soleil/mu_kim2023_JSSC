@@ -1,0 +1,101 @@
+[INFO CTS-0050] Root buffer is CKBD8.
+[INFO CTS-0051] Sink buffer is CKBD8.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CKBD2
+                    CKBD4
+                    CKBD8
+[INFO CTS-0049] Characterization buffer is CKBD8.
+[INFO CTS-0007] Net "clk" found for clock "core_clk".
+[INFO CTS-0010]  Clock net "clk" has 23905 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 3 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 23905.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 18000  dbu (9 um).
+[INFO CTS-0023]  Original sink region: [(51625, 63350), (2150025, 2129750)].
+[INFO CTS-0024]  Normalized sink region: [(2.86806, 3.51944), (119.446, 118.319)].
+[INFO CTS-0025]     Width:  116.5778.
+[INFO CTS-0026]     Height: 114.8000.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 11953
+    Sub-region size: 58.2889 X 114.8000
+[INFO CTS-0034]     Segment length (rounded): 30.
+ Level 2
+    Direction: Vertical
+    Sinks per sub-region: 5977
+    Sub-region size: 58.2889 X 57.4000
+[INFO CTS-0034]     Segment length (rounded): 28.
+ Level 3
+    Direction: Horizontal
+    Sinks per sub-region: 2989
+    Sub-region size: 29.1444 X 57.4000
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 4
+    Direction: Vertical
+    Sinks per sub-region: 1495
+    Sub-region size: 29.1444 X 28.7000
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 5
+    Direction: Horizontal
+    Sinks per sub-region: 748
+    Sub-region size: 14.5722 X 28.7000
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 6
+    Direction: Vertical
+    Sinks per sub-region: 374
+    Sub-region size: 14.5722 X 14.3500
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 7
+    Direction: Horizontal
+    Sinks per sub-region: 187
+    Sub-region size: 7.2861 X 14.3500
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 8
+    Direction: Vertical
+    Sinks per sub-region: 94
+    Sub-region size: 7.2861 X 7.1750
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 9
+    Direction: Horizontal
+    Sinks per sub-region: 47
+    Sub-region size: 3.6431 X 7.1750
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 10
+    Direction: Vertical
+    Sinks per sub-region: 24
+    Sub-region size: 3.6431 X 3.5875
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 11
+    Direction: Horizontal
+    Sinks per sub-region: 12
+    Sub-region size: 1.8215 X 3.5875
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 23905.
+[INFO CTS-0018]     Created 3169 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 9.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 9.
+[INFO CTS-0015]     Created 3169 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:4, 4:35, 5:43, 6:111, 7:120, 8:184, 9:191, 10:202, 11:179, 12:201, 13:175, 14:146, 15:100, 16:95, 17:71, 18:59, 19:44, 20:31, 21:13, 22:10, 23:10, 24:7, 25:7, 26:2, 27:1, 29:1, 31:2, 33:1, 34:1, 36:1, 37:1..
+[INFO CTS-0017]     Max level of the clock tree: 11.
+[INFO CTS-0202] Non-default rule CTS_NDR_0 for double spacing has been applied to 1122 clock nets
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 24904
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 1468.37 um
+[INFO CTS-0102]  Path depth 9 - 9
+[INFO CTS-0207]  Leaf load cells 999
+Placement Analysis
+---------------------------------
+total displacement      13732.3 u
+average displacement        0.1 u
+max displacement            6.6 u
+original HPWL         4422412.1 u
+legalized HPWL        4431488.5 u
+delta HPWL                    0 %
+
+PDE_OPENROAD_CTS_PASS

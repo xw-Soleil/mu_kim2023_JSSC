@@ -1,0 +1,45 @@
+****************************************
+ Report : check_design 
+ Options: { pre_clock_tree_stage }
+ Design : pde_chip_top_safe
+ Version: W-2024.09
+ Date   : Sun Aug  2 00:42:19 2026
+****************************************
+
+Running mega-check 'pre_clock_tree_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'legality'
+    Running atomic-check 'timing'
+    Running atomic-check 'clock_trees'
+    Running atomic-check 'hier_pre_clock_tree'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DFT-011      Info   1          The design has no scan chain defined in the scandef.
+  TCK-001      Warn   16226      The reported endpoint '%endpoint' is unconstrained. Reason: '%re...
+  TCK-012      Warn   36         The input port '%port' has no clock_relative delay specified. Mo...
+  ----------------------------------------------------------------------------------------------------
+  Total 16263 EMS messages : 0 errors, 16262 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  CTS-101      Info   1          %s will work on the following scenarios.
+  CTS-107      Info   1          %s will work on all clocks in active scenarios, including %d mas...
+  CTS-973      Info   1          The value of option cts.compile.enable_cell_relocation has been ...
+  PDC-003      Warn   2          Routing direction of metal layer %s is neither "horizontal" nor ...
+  ----------------------------------------------------------------------------------------------------
+  Total 5 non-EMS messages : 0 errors, 2 warnings, 3 info.
+  ----------------------------------------------------------------------------------------------------
+
+Warning: EMS database "check_design.ems" already exists, over-writing it. (EMS-040)
+
+Information: EMS database is saved to file 'check_design.ems'.
+Information: Non-EMS messages are saved into file 'check_design2026Aug02004219.log'.
+1

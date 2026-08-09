@@ -1,0 +1,143 @@
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M1 :"SPACING 0.11 ENDOFLINE 0.11 WITHIN 0.035 PARALLELEDGE 0.11 WITHIN 0.11 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M2 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M3 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M4 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0388] unsupported LEF57_SPACING property for layer M5 :"SPACING 0.12 ENDOFLINE 0.12 WITHIN 0.035 PARALLELEDGE 0.12 WITHIN 0.12 ;"
+[INFO ODB-0227] LEF file: /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef, created 16 layers, 72 vias, 855 library cells
+Startpoint: cfg_addr[14] (input port clocked by core_clk)
+Endpoint: u_impl/u_core/u_tcu/upd_q_reg_31_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   1.00    1.00 ^ input external delay
+   0.00    1.00 ^ cfg_addr[14] (in)
+   0.05    1.05 ^ U40/ZN (NR4D0)
+   0.05    1.10 ^ U33/ZN (ND3D0)
+   0.05    1.15 ^ U41/ZN (NR4D0)
+   0.05    1.20 ^ U43/ZN (INR3D0)
+   0.05    1.25 ^ U29/ZN (AOI21D0)
+   0.05    1.30 v u_impl/U189/ZN (CKND2D0)
+   0.05    1.35 ^ u_impl/U217/ZN (INVD0)
+   0.05    1.40 ^ u_impl/U218/ZN (IND2D0)
+   0.05    1.45 ^ u_impl/U1507/ZN (INR3D0)
+   0.05    1.50 ^ u_impl/U69/Z (BUFFD1)
+   0.05    1.55 ^ u_impl/u_core/u_tcu/U73/ZN (CKND2D0)
+   0.05    1.60 v u_impl/u_core/u_tcu/U74/ZN (CKND2D0)
+   0.05    1.65 ^ u_impl/u_core/u_tcu/U233/ZN (INVD0)
+   0.05    1.70 ^ u_impl/u_core/u_tcu/U363/ZN (AOI21D0)
+   0.05    1.75 ^ u_impl/u_core/u_tcu/U374/ZN (OAI21D0)
+   0.05    1.80 ^ u_impl/u_core/u_tcu/U381/ZN (AOI21D0)
+   0.05    1.85 ^ u_impl/u_core/u_tcu/U383/ZN (OAI32D0)
+   0.00    1.85 ^ u_impl/u_core/u_tcu/upd_q_reg_31_/D (DFCNQD1)
+           1.85   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/u_core/u_tcu/upd_q_reg_31_/CP (DFCNQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -1.85   data arrival time
+---------------------------------------------------------
+           7.85   slack (MET)
+
+
+Startpoint: cfg_addr[10] (input port clocked by core_clk)
+Endpoint: u_impl/black_shadow_reg_10__10_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   1.00    1.00 ^ input external delay
+   0.00    1.00 ^ cfg_addr[10] (in)
+   0.05    1.05 ^ u_impl/U756/ZN (NR2D0)
+   0.05    1.10 ^ u_impl/U187/ZN (CKND2D0)
+   0.05    1.15 ^ u_impl/U180/Z (OA32D0)
+   0.05    1.20 v u_impl/U2124/ZN (INR3D0)
+   0.05    1.25 ^ u_impl/U211/ZN (INVD0)
+   0.05    1.30 ^ u_impl/U213/ZN (ND3D0)
+   0.05    1.35 ^ u_impl/U214/ZN (CKND2D0)
+   0.05    1.40 ^ u_impl/U71/ZN (NR2XD0)
+   0.05    1.45 v u_impl/U25/ZN (CKND2D0)
+   0.05    1.50 ^ u_impl/U65/ZN (CKND1)
+   0.05    1.55 ^ u_impl/U53/Z (BUFFD0)
+   0.05    1.60 ^ u_impl/U44/ZN (CKND2D2)
+   0.05    1.65 ^ u_impl/U14/Z (BUFFD2)
+   0.05    1.70 v u_impl/U27/ZN (NR2XD0)
+   0.05    1.75 ^ u_impl/U13586/ZN (INVD0)
+   0.05    1.80 ^ u_impl/U13593/Z (OA22D0)
+   0.00    1.80 ^ u_impl/black_shadow_reg_10__10_/D (DFQD1)
+           1.80   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/black_shadow_reg_10__10_/CP (DFQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -1.80   data arrival time
+---------------------------------------------------------
+           7.90   slack (MET)
+
+
+Startpoint: cfg_addr[10] (input port clocked by core_clk)
+Endpoint: u_impl/black_shadow_reg_10__12_
+          (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   1.00    1.00 ^ input external delay
+   0.00    1.00 ^ cfg_addr[10] (in)
+   0.05    1.05 ^ u_impl/U756/ZN (NR2D0)
+   0.05    1.10 ^ u_impl/U187/ZN (CKND2D0)
+   0.05    1.15 ^ u_impl/U180/Z (OA32D0)
+   0.05    1.20 v u_impl/U2124/ZN (INR3D0)
+   0.05    1.25 ^ u_impl/U211/ZN (INVD0)
+   0.05    1.30 ^ u_impl/U213/ZN (ND3D0)
+   0.05    1.35 ^ u_impl/U214/ZN (CKND2D0)
+   0.05    1.40 ^ u_impl/U71/ZN (NR2XD0)
+   0.05    1.45 v u_impl/U25/ZN (CKND2D0)
+   0.05    1.50 ^ u_impl/U65/ZN (CKND1)
+   0.05    1.55 ^ u_impl/U53/Z (BUFFD0)
+   0.05    1.60 ^ u_impl/U44/ZN (CKND2D2)
+   0.05    1.65 ^ u_impl/U14/Z (BUFFD2)
+   0.05    1.70 v u_impl/U27/ZN (NR2XD0)
+   0.05    1.75 ^ u_impl/U13586/ZN (INVD0)
+   0.05    1.80 ^ u_impl/U13594/Z (OA22D0)
+   0.00    1.80 ^ u_impl/black_shadow_reg_10__12_/D (DFQD1)
+           1.80   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+  -0.20    9.80   clock uncertainty
+   0.00    9.80   clock reconvergence pessimism
+           9.80 ^ u_impl/black_shadow_reg_10__12_/CP (DFQD1)
+  -0.10    9.70   library setup time
+           9.70   data required time
+---------------------------------------------------------
+           9.70   data required time
+          -1.80   data arrival time
+---------------------------------------------------------
+           7.90   slack (MET)
+
+
+PDE_OPENROAD_SDC_PASS

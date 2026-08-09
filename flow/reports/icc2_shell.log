@@ -1,0 +1,135 @@
+
+# ICC2 place-and-route flow for pde_chip_top_safe on TSMC65LP RVT 6LM-T1.
+# Run with: icc2_shell -f flow/icc2/pnr.tcl
+proc env_or_default {name fallback} {
+  if {[info exists ::env($name)] && [string trim $::env($name)] ne ""} {
+    return $::env($name)
+  }
+  return $fallback
+}
+proc require_regular_file {path description} {
+  if {![file exists $path] || ![file isfile $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+proc require_path {path description} {
+  if {![file exists $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+proc require_command {name} {
+  if {[llength [info commands $name]] == 0} {
+    error "Required ICC2 command is unavailable in this release: $name"
+  }
+}
+proc require_one_lib_cell {master} {
+  set matches [get_lib_cells -quiet "*/$master"]
+  if {[sizeof_collection $matches] == 0} {
+    error "Required RVT library master is absent from the NDM: $master"
+  }
+  return $matches
+}
+proc connect_named_pg_pins {} {
+  set vdd_pins [get_pins -hierarchical -physical_context -quiet */VDD]
+  set vss_pins [get_pins -hierarchical -physical_context -quiet */VSS]
+  if {[sizeof_collection $vdd_pins] == 0} {
+    error "No physical VDD pins were found; verify the RVT NDM and netlist link"
+  }
+  if {[sizeof_collection $vss_pins] == 0} {
+    error "No physical VSS pins were found; verify the RVT NDM and netlist link"
+  }
+  connect_pg_net -net VDD $vdd_pins
+  connect_pg_net -net VSS $vss_pins
+}
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+/home/sxw/PDE/pdeMujunjie/flow/icc2
+set REPO_ROOT [file normalize [env_or_default PDE_REPO_ROOT   [file join $SCRIPT_DIR .. ..]]]
+/home/sxw/PDE/pdeMujunjie
+set TOP [env_or_default PDE_TOP pde_chip_top_safe]
+pde_chip_top_safe
+set RVT_ROOT "/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b"
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b
+set RVT_MW [file join $RVT_ROOT Back_End milkyway tcbn65lp_200a]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a
+set NETLIST [file normalize [env_or_default PDE_DC_NETLIST   [file join $REPO_ROOT flow results dc ${TOP}.v]]]
+/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v
+set SDC [file normalize [env_or_default PDE_DC_SDC   [file join $REPO_ROOT flow results dc ${TOP}.sdc]]]
+/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.sdc
+set REF_NDM [file normalize [env_or_default PDE_REF_NDM   [file join $REPO_ROOT flow work icc2 ref tcbn65lp_6lmT1.ndm]]]
+/home/sxw/PDE/pdeMujunjie/flow/work/icc2/ref/tcbn65lp_6lmT1.ndm
+set TLU_WORST [env_or_default PDE_TLUPLUS_MAX   [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcworst_top1.tluplus]]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a/techfiles/tluplus/cln65lp_1p06m+alrdl_rcworst_top1.tluplus
+set TLU_BEST [env_or_default PDE_TLUPLUS_MIN   [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcbest_top1.tluplus]]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a/techfiles/tluplus/cln65lp_1p06m+alrdl_rcbest_top1.tluplus
+set TLU_MAP [env_or_default PDE_TLUPLUS_MAP   [file join $RVT_MW techfiles tluplus star.map_6M]]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a/techfiles/tluplus/star.map_6M
+set GDS_MAP [env_or_default PDE_GDS_MAP   [file join $RVT_MW gdsout_3X1Z.map]]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a/gdsout_3X1Z.map
+set GDS_MAP_FORMAT [env_or_default PDE_GDS_MAP_FORMAT icc_default]
+icc_default
+set WORK_DIR [file join $REPO_ROOT flow work icc2]
+/home/sxw/PDE/pdeMujunjie/flow/work/icc2
+set RESULT_DIR [file join $REPO_ROOT flow results icc2]
+/home/sxw/PDE/pdeMujunjie/flow/results/icc2
+set REPORT_DIR [file join $REPO_ROOT flow reports icc2]
+/home/sxw/PDE/pdeMujunjie/flow/reports/icc2
+set DESIGN_LIB [file normalize [env_or_default PDE_ICC2_DESIGN_LIB   [file join $WORK_DIR ${TOP}.dlib]]]
+/home/sxw/PDE/pdeMujunjie/flow/work/icc2/pde_chip_top_safe.dlib
+foreach item [list   [list $NETLIST "DC gate-level netlist"]   [list $SDC "DC SDC"]   [list $TLU_WORST "RC-worst TLU+"]   [list $TLU_BEST "RC-best TLU+"]   [list $TLU_MAP "6M TLU+ layer map"]   [list $GDS_MAP "RVT stream-out map"]] {
+  require_regular_file [lindex $item 0] [lindex $item 1]
+}
+require_path $REF_NDM "RVT reference NDM"
+file mkdir $WORK_DIR
+file mkdir $RESULT_DIR
+file mkdir $REPORT_DIR
+if {[file exists $DESIGN_LIB]} {
+  error "Refusing to overwrite existing ICC2 design library: $DESIGN_LIB"
+}
+puts "PDE_ICC2: top=$TOP"
+PDE_ICC2: top=pde_chip_top_safe
+puts "PDE_ICC2: netlist=$NETLIST"
+PDE_ICC2: netlist=/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v
+puts "PDE_ICC2: sdc=$SDC"
+PDE_ICC2: sdc=/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.sdc
+puts "PDE_ICC2: ref_ndm=$REF_NDM"
+PDE_ICC2: ref_ndm=/home/sxw/PDE/pdeMujunjie/flow/work/icc2/ref/tcbn65lp_6lmT1.ndm
+create_lib -use_technology_lib $REF_NDM -ref_libs [list $REF_NDM] $DESIGN_LIB
+{pde_chip_top_safe.dlib}
+read_verilog -top $TOP [list $NETLIST]
+Information: Reading Verilog into new design 'pde_chip_top_safe' in library 'pde_chip_top_safe.dlib'. (VR-012)
+Loading verilog file '/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v'
+Number of modules read: 1606
+Top level ports: 57
+Total ports in all modules: 76356
+Total nets in all modules: 193526
+Total instances in all modules: 94963
+Elapsed = 00:00:01.29, CPU = 00:00:01.23
+1
+current_block $TOP
+{pde_chip_top_safe.dlib:pde_chip_top_safe.design}
+link_block
+Using libraries: pde_chip_top_safe.dlib tcbn65lp_6lmT1
+Linking block pde_chip_top_safe.dlib:pde_chip_top_safe.design
+Information: User units loaded from library 'tcbn65lp_6lmT1' (LNK-040)
+Design 'pde_chip_top_safe' was successfully linked.
+1
+redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design -checks {netlist unbound}
+}
+Error: Errors detected during redirect
+        Use error_info for more info. (CMD-013)
+Information: script '/home/sxw/PDE/pdeMujunjie/flow/icc2/pnr.tcl'
+        stopped at line 110 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"check_design -checks {netlist unbound}"
+    invoked from within
+"redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design -checks {netlist unbound}
+}"
+ -- End Extended Error Info
+icc2_shell> Maximum memory usage for this session: 347.36 MB
+CPU usage for this session:      9 seconds (  0.00 hours)
+Elapsed time for this session:      9 seconds (  0.00 hours)
+Thank you for using IC Compiler II.

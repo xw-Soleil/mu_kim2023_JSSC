@@ -1,0 +1,170 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:33:56 2026
+****************************************
+
+   late_timing
+   -----------
+
+Warning: Scenario FUNC_BC is not configured for setup analysis: skipping. (UIC-058)
+Error: None of the specified scenarios are active for setup analysis. (UIC-057)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   early_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+u_impl/black_shadow_reg_72__4_/D (DFQD1)   0.54 f   0.55         0.00    -0.01   core_clk FUNC_BC
+u_impl/red_shadow_reg_80__13_/D (DFQD1)   0.55 f   0.56          0.00    -0.01   core_clk FUNC_BC
+u_impl/black_shadow_reg_66__6_/D (DFQD1)   0.56 f   0.56         0.00    -0.01   core_clk FUNC_BC
+u_impl/black_shadow_reg_4__0_/D (DFQD1)   0.52 f   0.53          0.00    -0.01   core_clk FUNC_BC
+u_impl/black_shadow_reg_145__10_/D (DFQD1)   0.50 f   0.51       0.00    -0.01   core_clk FUNC_BC
+u_impl/black_shadow_reg_115__4_/D (DFQD1)   0.53 f   0.54        0.00    -0.01   core_clk FUNC_BC
+u_impl/red_shadow_reg_30__6_/D (DFQD1)   0.52 f   0.52           0.00    -0.00   core_clk FUNC_BC
+u_impl/u_core/g_row_12__g_col_3__u_pe/u_r_black/q_reg_10_/D (DFCNQD1)   0.48 f   0.48   0.00  -0.00 core_clk FUNC_BC
+u_impl/red_shadow_reg_163__10_/D (DFQD1)   0.51 f   0.51         0.00    -0.00   core_clk FUNC_BC
+u_impl/black_shadow_reg_32__4_/D (DFQD1)   0.59 f   0.59         0.00    -0.00   core_clk FUNC_BC
+u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/u_black_q_reg_13_/D (DFCNQD1)   0.56 f   0.56   0.00  -0.00 core_clk FUNC_BC
+u_impl/red_shadow_reg_96__15_/D (DFQD4)   0.51 f   0.51          0.00    -0.00   core_clk FUNC_BC
+u_impl/u_core/g_row_19__g_col_1__u_pe/u_r_red/q_reg_7_/D (DFCNQD1)   0.58 f   0.58   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_1__g_col_8__u_pe/u_sol/u_red_q_reg_15_/D (DFCNQD1)   0.53 f   0.53   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_5__g_col_8__u_pe/u_r_black/q_reg_5_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_18__g_col_6__u_pe/u_sol/u_red_q_reg_15_/D (DFCNQD1)   0.57 f   0.57   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_15__g_col_8__u_pe/u_sol/u_black_q_reg_10_/D (DFCNQD1)   0.57 f   0.57   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_9__g_col_2__u_pe/u_r_black/q_reg_10_/D (DFCNQD1)   0.56 f   0.56   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_8__g_col_4__u_pe/u_r_red/q_reg_7_/D (DFCNQD1)   0.49 f   0.49   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_5__g_col_0__u_pe/u_r_black/q_reg_10_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_13__g_col_7__u_pe/u_r_red/q_reg_5_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_13__g_col_8__u_pe/u_sol/u_red_q_reg_0_/D (DFCNQD1)   0.53 f   0.53   0.00  -0.00 core_clk FUNC_BC
+u_impl/black_shadow_reg_185__11_/D (DFQD2)   0.48 f   0.48       0.00    -0.00   core_clk FUNC_BC
+u_impl/u_core/g_row_14__g_col_6__u_pe/u_sol/u_black_q_reg_1_/D (DFCNQD1)   0.50 f   0.50   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_8__g_col_9__u_pe/u_sol/u_black_q_reg_0_/D (DFCNQD1)   0.54 f   0.54   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_6__g_col_4__u_pe/u_r_black/q_reg_11_/D (DFCNQD1)   0.55 f   0.55   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_3__g_col_8__u_pe/u_r_red/q_reg_9_/D (DFCNQD1)   0.58 f   0.58   0.00  -0.00 core_clk FUNC_BC
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+   max_transition                                                              
+                             Required        Actual                            
+   Net                      Transition     Transition        Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/u_core/g_row_3__g_col_5__u_pe/HFSNET_11     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U12/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U16/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U8/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U7/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U19/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U18/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U23/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U29/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U6/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U14/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U5/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U3/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U6/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U7/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U9/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U17/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U15/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U29/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U21/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U20/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U19/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U18/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U10/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U16/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U15/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U14/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U13/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U12/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_black/U11/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U3/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U10/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/u_r_red/U11/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_3__g_col_5__u_pe/HFSBUF_36356_20567/Z     0.36     0.36    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_14__g_col_7__u_pe/HFSNET_9     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U9/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U4/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U7/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U9/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U13/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U17/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U20/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U24/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U29/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U3/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U5/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U6/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U7/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U8/C1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_red/U3/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U10/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U11/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U12/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U13/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U14/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U15/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U16/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U17/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U18/B1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U19/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U23/A1     0.36     0.36    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_14__g_col_7__u_pe/u_r_black/U29/A1     0.36     0.36    -0.00 (VIOLATED)
+
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 2
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/u_core/g_row_12__g_col_5__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_12__g_col_5__u_pe/u_r_red/U5/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_10__g_col_7__u_pe/u_r_red/ropt_net_25476     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_10__g_col_7__u_pe/u_r_red/ropt_mt_inst_50866/Z     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_7__g_col_3__u_pe/HFSNET_13     0.06     0.06    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_7__g_col_3__u_pe/HFSBUF_53220_20618/Z     0.06     0.06    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_5__g_col_4__u_pe/ropt_net_25474     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_5__g_col_4__u_pe/ropt_mt_inst_50863/Z     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/n470_CDR1             0.03           0.03          -0.00  (VIOLATED) 
+     PIN : u_impl/U686/ZN       0.03           0.03          -0.00  (VIOLATED) 
+
+   u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_15__g_col_1__u_pe/u_r_black/n9     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_15__g_col_1__u_pe/u_r_black/U7/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+   u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_red/n9     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_red/U6/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 8
+
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+  ---------------------------------------------------------------------------
+   Number of min_capacitance violation(s): 0
+
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 10
+1

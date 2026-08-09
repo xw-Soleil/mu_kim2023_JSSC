@@ -1,0 +1,146 @@
+Information: Timer using 1 threads
+****************************************
+Report : qor
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Sun Aug  2 01:23:24 2026
+****************************************
+Warning: Corner BC:  0 process number, 0 process label, 1 voltage, and 1 temperature mismatches. (PVT-030)
+Warning: 112970 cells affected for early, 112970 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+Information: Corner WC: no PVT mismatches. (PVT-032)
+Information: The stitching and editing of coupling caps is turned OFF for design 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'. (TIM-125)
+Information: Design pde_chip_top_safe has 117285 nets, 0 global routed, 117283 detail routed. (NEX-024)
+Information: The RC mode used is DR for design 'pde_chip_top_safe'. (NEX-022)
+---extraction options---
+Corner: WC
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: BC
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Global options:
+ reference_direction       : use_from_tluplus
+ real_metalfill_extraction : none
+ virtual_shield_extraction : true
+---app options---
+ host.max_cores                   : 1
+ extract.connect_open           : true
+ extract.enable_coupling_cap    : false
+Extracting design: pde_chip_top_safe 
+Warning: Net 'rst_n' is exceeding threshold (over 1000 pins) and will be skipped. (NEX-020)
+Information: coupling capacitance is lumped to ground. (NEX-030)
+Information: 117282 nets are successfully extracted. (NEX-028)
+Warning: Advanced receiver model has not been enabled for detailed routed design. (TIM-204)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 117283, routed nets = 117280, across physical hierarchy nets = 0, parasitics cached nets = 117280, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 56. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Worst Hold Violation:             -0.01
+Total Hold Violation:             -0.28
+No. of Hold Violations:             151
+----------------------------------------
+
+Scenario           'FUNC_WC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Levels of Logic:                     25
+Critical Path Length:             10.11
+Critical Path Slack:              -0.02
+Critical Path Clk Period:         10.00
+Total Negative Slack:             -0.03
+No. of Violating Paths:               3
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:           1605
+Hierarchical Port Count:          89142
+Leaf Cell Count:                 112970
+Buf/Inv Cell Count:               28545
+Buf Cell Count:                   24982
+Inv Cell Count:                    3563
+Combinational Cell Count:         89065
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:            23905
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       23905
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           274210.20
+Noncombinational Area:        202807.44
+Buf/Inv Area:                  73245.24
+Total Buffer Area:             68245.56
+Total Inverter Area:            4999.68
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                 3773611.87
+Net YLength:                 3520255.10
+----------------------------------------
+Cell Area (netlist):                         477017.64
+Cell Area (netlist and physical only):       477017.64
+Net Length:                  7293866.97
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:            117290
+Nets with Violations:               118
+Max Trans Violations:                11
+Max Cap Violations:                 113
+----------------------------------------
+
+1

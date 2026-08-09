@@ -1,0 +1,35 @@
+****************************************
+ Report : check_design 
+ Options: { netlist unbound }
+ Design : pde_chip_top_safe
+ Version: W-2024.09
+ Date   : Sun Aug  2 00:29:23 2026
+****************************************
+
+Running atomic-check 'netlist'
+Running atomic-check 'unbound'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DCHK-004     Warn   640        In design '%design', input pin '%object' of hierarchical cell '%...
+  DCHK-005     Warn   640        In design '%design', a pin '%object' on submodule '%parentObject...
+  DCHK-009     Warn   19840      In design '%design', '%object' net '%parentObject' driven by %ex...
+  DCHK-010     Warn   19801      In design '%design', '%object' net '%parentObject' has no drivers.
+  DCHK-017     Warn   640        In design '%design', input port '%object' is unloaded.
+  DCHK-021     Warn   19801      In design '%design', net connected to output port '%object' is n...
+  DCHK-045     Warn   601        In design '%design', the output pin '%object' of hierarchical ce...
+  ----------------------------------------------------------------------------------------------------
+  Total 61963 EMS messages : 0 errors, 61963 warnings, 0 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Total 0 non-EMS messages : 0 errors, 0 warnings, 0 info.
+  ----------------------------------------------------------------------------------------------------
+
+Warning: EMS database "check_design.ems" already exists, over-writing it. (EMS-040)
+
+Information: EMS database is saved to file 'check_design.ems'.
+1

@@ -1,0 +1,70 @@
+****************************************
+Report : power
+        -significant_digits 2
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Sun Aug  2 01:24:00 2026
+****************************************
+Information: Activity propagation will be performed for scenario FUNC_WC.
+Warning: Mapping to scan cell 'GSDFCNQD1' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Information: Doing activity propagation for mode 'FUNC' and corner 'WC' with effort level 'medium'. (POW-024)
+Information: Timer-derived activity data is cached on scenario FUNC_WC (POW-052)
+Infomation: Fast mode activity propagation power.rtl_activity_annotation setup is ignored. Always use accurate mode.
+Information: Running switching activity propagation in scalar mode!
+
+ **** Information : No. of simulation cycles = 6 ****
+Mode: FUNC
+Corner: WC
+Scenario: FUNC_WC
+Voltage: 1.08
+Temperature: 125.00
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1pF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1nW
+Leakage Power Unit   : 1nW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.00 (default)
+VSS (ground) probability 1.00 (default)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_1_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_2_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_3_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_4_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_0_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/state_q_reg_0_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/state_q_reg_1_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/state_q_reg_2_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/prec_q_reg_0_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Warning: Power table extrapolation (extrapolation mode) for port CDN on cell u_impl/u_core/u_tcu/prec_q_reg_1_ for parameter Tinp. Lowest table value = 0.007500, highest table value = 0.765700, value = 0.000000 (POW-046)
+Note - message 'POW-046' limit (10) exceeded. Remainder will be suppressed.
+
+  Cell Internal Power    = 1.84e+07 nW ( 78.0%)
+  Net Switching Power    = 5.17e+06 nW ( 22.0%)
+Total Dynamic Power      = 2.35e+07 nW (100.0%)
+
+Cell Leakage Power       = 9.64e+04 nW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+      i  -  Includes clock pin internal power
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+memory                    0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+black_box                 0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+clock_network             1.84e+07               5.01e+06               1.61e+03               2.34e+07    ( 98.9%)        i
+register                  4.54e+03               4.41e+01               3.91e+04               4.37e+04    (  0.2%)         
+sequential                0.00e+00               0.00e+00               0.00e+00               0.00e+00    (  0.0%)         
+combinational             1.42e+04               1.54e+05               5.56e+04               2.24e+05    (  0.9%)         
+-----------------------------------------------------------------------------------------------------------------------------
+Total                     1.84e+07 nW            5.17e+06 nW            9.64e+04 nW            2.36e+07 nW
+1

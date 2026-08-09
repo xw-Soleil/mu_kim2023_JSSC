@@ -1,0 +1,944 @@
+Initializing gui preferences from file  /home/sxw/.synopsys_dv_prefs.tcl
+# DC synthesis flow for the narrow-interface PDE accelerator chip top.
+# The 10 ns clock and simple block-level I/O budgets are provisional.
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+/home/sxw/PDE/pdeMujunjie/flow/dc
+set REPO_ROOT  [file normalize [file join $SCRIPT_DIR ../..]]
+/home/sxw/PDE/pdeMujunjie
+set WORK_DIR   [file join $REPO_ROOT flow work dc]
+/home/sxw/PDE/pdeMujunjie/flow/work/dc
+set REPORT_DIR [file join $REPO_ROOT flow reports dc]
+/home/sxw/PDE/pdeMujunjie/flow/reports/dc
+set RESULT_DIR [file join $REPO_ROOT flow results dc]
+/home/sxw/PDE/pdeMujunjie/flow/results/dc
+file mkdir $WORK_DIR
+file mkdir $REPORT_DIR
+file mkdir $RESULT_DIR
+set TOP pde_chip_top_safe
+pde_chip_top_safe
+set CLOCK_PORT clk
+clk
+set CLOCK_NAME core_clk
+core_clk
+set CLOCK_PERIOD 10.000
+10.000
+set PDK_ROOT /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b
+set LIB_DIR  [file join $PDK_ROOT Front_End timing_power_noise CCS]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS
+set TARGET_DB [file join $LIB_DIR tcbn65lpwc_ccs.db]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+if {![file exists $TARGET_DB]} {
+  error "Missing target library: $TARGET_DB"
+}
+set RTL_FILES [list   [file join $REPO_ROOT src common counter_ce.sv]   [file join $REPO_ROOT src common pipeline_delay_bit.sv]   [file join $REPO_ROOT src pe pde_q8p7_pkg.sv]   [file join $REPO_ROOT src pe r_alu.sv]   [file join $REPO_ROOT src pe r_reg.sv]   [file join $REPO_ROOT src pe r_dsm.sv]   [file join $REPO_ROOT src pe r_status.sv]   [file join $REPO_ROOT src pe sol_acc.sv]   [file join $REPO_ROOT src pe r_state_ctrl.sv]   [file join $REPO_ROOT src pe pe_top.sv]   [file join $REPO_ROOT src pe_array pde_memcontrol.sv]   [file join $REPO_ROOT src pe_array pde_tcu.sv]   [file join $REPO_ROOT src pe_array pde_core.sv]   [file join $REPO_ROOT src pe_array pde_chip_top.sv]   [file join $REPO_ROOT src pe_array pde_chip_top_safe.sv]]
+/home/sxw/PDE/pdeMujunjie/src/common/counter_ce.sv /home/sxw/PDE/pdeMujunjie/src/common/pipeline_delay_bit.sv /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv /home/sxw/PDE/pdeMujunjie/src/pe/r_alu.sv /home/sxw/PDE/pdeMujunjie/src/pe/r_reg.sv /home/sxw/PDE/pdeMujunjie/src/pe/r_dsm.sv /home/sxw/PDE/pdeMujunjie/src/pe/r_status.sv /home/sxw/PDE/pdeMujunjie/src/pe/sol_acc.sv /home/sxw/PDE/pdeMujunjie/src/pe/r_state_ctrl.sv /home/sxw/PDE/pdeMujunjie/src/pe/pe_top.sv /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_core.sv /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top.sv /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top_safe.sv
+foreach RTL_FILE $RTL_FILES {
+  if {![file exists $RTL_FILE]} {
+    error "Missing RTL source: $RTL_FILE"
+  }
+}
+set_app_var search_path [concat [list $REPO_ROOT $LIB_DIR] $search_path]
+/home/sxw/PDE/pdeMujunjie /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS . /ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn /ssd0/synopsys/install_place/syn/O-2018.06-SP1/minpower/syn /ssd0/synopsys/install_place/syn/O-2018.06-SP1/dw/syn_ver /ssd0/synopsys/install_place/syn/O-2018.06-SP1/dw/sim_ver
+set_app_var target_library [list $TARGET_DB]
+/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+set_app_var link_library [concat "*" $target_library]
+* /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+set_svf [file join $RESULT_DIR ${TOP}.svf]
+1
+define_design_lib WORK -path [file join $WORK_DIR WORK]
+1
+catch {set_host_options -max_cores 4}
+0
+analyze -format sverilog -library WORK $RTL_FILES
+Running PRESTO HDLC
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/common/counter_ce.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/common/pipeline_delay_bit.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/r_alu.sv
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv:51: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv:72: signed to unsigned assignment occurs. (VER-318)
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/r_reg.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/r_dsm.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/r_status.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/sol_acc.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/r_state_ctrl.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe/pe_top.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_core.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top.sv
+Compiling source file /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top_safe.sv
+Presto compilation completed successfully.
+Loading db file '/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+elaborate $TOP -library WORK
+Loading db file '/ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn/gtech.db'
+Loading db file '/ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'tcbn65lpwc_ccs'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+        in routine pde_chip_top_safe line 95 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top_safe.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  status_read_q_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine pde_chip_top_safe line 105 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top_safe.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| wrapper_error_q_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine pde_chip_top_safe line 117 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top_safe.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   scan_used_q_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'pde_chip_top_safe'.
+Information: Building the design 'pde_chip_top' instantiated from design 'pde_chip_top_safe' with
+        the parameters "NROW=20,NCOL_LOG=20,USE_DSM=1'h1,CONV_ON_SMALL=1'h1,DYN_PREC=1'h1,MAX_UPDATES=4096,NPE=10". (HDL-193)
+
+Inferred memory devices in process
+        in routine pde_chip_top_20_20_1_1_1_4096_10 line 196 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   west_shadow_reg   | Flip-flop |  320  |  Y  | N  | N  | N  | N  | N  | N  |
+|   red_valid_q_reg   | Flip-flop |  200  |  Y  | N  | Y  | N  | N  | N  | N  |
+|  black_valid_q_reg  | Flip-flop |  200  |  Y  | N  | Y  | N  | N  | N  | N  |
+|  north_valid_q_reg  | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  south_valid_q_reg  | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  west_valid_q_reg   | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  east_valid_q_reg   | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   east_shadow_reg   | Flip-flop |  320  |  Y  | N  | N  | N  | N  | N  | N  |
+|   red_shadow_reg    | Flip-flop | 3200  |  Y  | N  | N  | N  | N  | N  | N  |
+|  black_shadow_reg   | Flip-flop | 3200  |  Y  | N  | N  | N  | N  | N  | N  |
+|  north_shadow_reg   | Flip-flop |  320  |  Y  | N  | N  | N  | N  | N  | N  |
+|  south_shadow_reg   | Flip-flop |  320  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine pde_chip_top_20_20_1_1_1_4096_10 line 227 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    cfg_rdata_reg    | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   cfg_error_q_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   cfg_rvalid_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine pde_chip_top_20_20_1_1_1_4096_10 line 240 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_chip_top.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  scan_count_q_reg   | Flip-flop |  13   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  scan_active_q_reg  | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'pde_core' instantiated from design 'pde_chip_top_20_20_1_1_1_4096_10' with
+        the parameters "NROW=20,NCOL_LOG=20,USE_DSM=1'h1,CONV_ON_SMALL=1'h1,DYN_PREC=1'h1,MAX_UPDATES=4096,NPE=10". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'pde_tcu' instantiated from design 'pde_core_20_20_1_1_1_4096_10' with
+        the parameters "CONV_ON_SMALL=1'h1,DYN_PREC=1'h1,MAX_UPDATES=4096". (HDL-193)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv:80: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv:145: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv:139: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 80 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 137 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           139            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine pde_tcu_1_1_4096 line 153 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_tcu.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     first_q_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     state_q_reg     | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     prec_q_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   prec_prev_q_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      upd_q_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      cyc_q_reg      | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      rd_q_reg       | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     conv_q_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'pde_memcontrol' instantiated from design 'pde_core_20_20_1_1_1_4096_10' with
+        the parameters "NROW=20,NCOL_LOG=20". (HDL-193)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv:45: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv:61: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv:62: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 65 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe_array/pde_memcontrol.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Statistics for MUX_OPs
+=========================================================================
+|          block name/line            | Inputs | Outputs | # sel inputs |
+=========================================================================
+| pde_memcontrol_NROW20_NCOL_LOG20/45 |   16   |   60    |      4       |
+=========================================================================
+Presto compilation completed successfully.
+Information: Building the design 'pe_top' instantiated from design 'pde_core_20_20_1_1_1_4096_10' with
+        the parameters "ROW_ODD=1'h0,USE_DSM=1'h1". (HDL-193)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv:72: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 142 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe/pe_top.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'pe_top' instantiated from design 'pde_core_20_20_1_1_1_4096_10' with
+        the parameters "ROW_ODD=1'h1,USE_DSM=1'h1". (HDL-193)
+Warning:  /home/sxw/PDE/pdeMujunjie/src/pe/pde_q8p7_pkg.sv:72: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 142 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe/pe_top.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'counter_ce' instantiated from design 'pde_tcu_1_1_4096' with
+        the parameters "WIDTH=5". (HDL-193)
+
+Inferred memory devices in process
+        in routine counter_ce_WIDTH5 line 16 in file
+                '/home/sxw/PDE/pdeMujunjie/src/common/counter_ce.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     count_o_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'r_state_ctrl' instantiated from design 'pe_top_0_1' with
+        the parameters "ROW_ODD=1'h0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'r_reg'. (HDL-193)
+
+Statistics for case statements in always block at line 37 in file
+        '/home/sxw/PDE/pdeMujunjie/src/pe/r_reg.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+        in routine r_reg line 43 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/r_reg.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        q_reg        | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'r_dsm' instantiated from design 'pe_top_0_1' with
+        the parameters "USE_DSM=1'h1". (HDL-193)
+
+Inferred memory devices in process
+        in routine r_dsm_1 line 44 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/r_dsm.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      rem_q_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine r_dsm_1 line 49 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/r_dsm.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   err_black_q_reg   | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    err_red_q_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'r_alu'. (HDL-193)
+
+Inferred memory devices in process
+        in routine r_alu line 75 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/r_alu.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     carry_q_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'sol_acc' instantiated from design 'pe_top_0_1' with
+        the parameters "HEAD_IS_RED=1'h1". (HDL-193)
+
+Inferred memory devices in process
+        in routine sol_acc_1 line 60 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/sol_acc.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    u_black_q_reg    | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     u_red_q_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'r_status'. (HDL-193)
+
+Inferred memory devices in process
+        in routine r_status line 42 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/r_status.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    nonzero_q_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     fit12_q_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     fit8_q_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     fit4_q_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     small_q_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'r_state_ctrl' instantiated from design 'pe_top_1_1' with
+        the parameters "ROW_ODD=1'h1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'sol_acc' instantiated from design 'pe_top_1_1' with
+        the parameters "HEAD_IS_RED=1'h0". (HDL-193)
+
+Inferred memory devices in process
+        in routine sol_acc_0 line 60 in file
+                '/home/sxw/PDE/pdeMujunjie/src/pe/sol_acc.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    u_black_q_reg    | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     u_red_q_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design $TOP
+Current design is 'pde_chip_top_safe'.
+{pde_chip_top_safe}
+link
+
+  Linking design 'pde_chip_top_safe'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (16 designs)              /home/sxw/PDE/pdeMujunjie/pde_chip_top_safe.db, etc
+  tcbn65lpwc_ccs (library)    /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db
+
+1
+uniquify
+Information: Uniquified 100 instances of design 'pe_top_0_1'. (OPT-1056)
+Information: Uniquified 100 instances of design 'pe_top_1_1'. (OPT-1056)
+Information: Uniquified 100 instances of design 'r_state_ctrl_0'. (OPT-1056)
+Information: Uniquified 400 instances of design 'r_reg'. (OPT-1056)
+Information: Uniquified 200 instances of design 'r_dsm_1'. (OPT-1056)
+Information: Uniquified 200 instances of design 'r_alu'. (OPT-1056)
+Information: Uniquified 100 instances of design 'sol_acc_1'. (OPT-1056)
+Information: Uniquified 200 instances of design 'r_status'. (OPT-1056)
+Information: Uniquified 100 instances of design 'r_state_ctrl_1'. (OPT-1056)
+Information: Uniquified 100 instances of design 'sol_acc_0'. (OPT-1056)
+1
+redirect -file [file join $REPORT_DIR check_design_precompile.rpt] {
+  check_design
+}
+create_clock -name $CLOCK_NAME -period $CLOCK_PERIOD [get_ports $CLOCK_PORT]
+1
+set_clock_uncertainty 0.200 [get_clocks $CLOCK_NAME]
+1
+set_clock_transition 0.100 [get_clocks $CLOCK_NAME]
+1
+set DATA_INPUTS [remove_from_collection [all_inputs] [get_ports {clk rst_n}]]
+{cfg_valid cfg_write cfg_addr[15] cfg_addr[14] cfg_addr[13] cfg_addr[12] cfg_addr[11] cfg_addr[10] cfg_addr[9] cfg_addr[8] cfg_addr[7] cfg_addr[6] cfg_addr[5] cfg_addr[4] cfg_addr[3] cfg_addr[2] cfg_addr[1] cfg_addr[0] cfg_wdata[15] cfg_wdata[14] cfg_wdata[13] cfg_wdata[12] cfg_wdata[11] cfg_wdata[10] cfg_wdata[9] cfg_wdata[8] cfg_wdata[7] cfg_wdata[6] cfg_wdata[5] cfg_wdata[4] cfg_wdata[3] cfg_wdata[2] cfg_wdata[1] cfg_wdata[0]}
+if {[sizeof_collection $DATA_INPUTS] > 0} {
+  set_input_delay 1.000 -clock $CLOCK_NAME $DATA_INPUTS
+  set_input_transition 0.100 $DATA_INPUTS
+}
+1
+if {[sizeof_collection [all_outputs]] > 0} {
+  set_output_delay 1.000 -clock $CLOCK_NAME [all_outputs]
+  set_load 0.050 [all_outputs]
+}
+1
+# rst_n is an asynchronous functional reset. Ignore its assertion path during
+# synthesis optimization; recovery/removal remains a required post-CTS check.
+set_false_path -from [get_ports rst_n]
+1
+set_ideal_network [get_ports {clk rst_n}]
+1
+set_max_fanout 32 [current_design]
+Current design is 'pde_chip_top_safe'.
+1
+set_max_transition 0.500 [current_design]
+Current design is 'pde_chip_top_safe'.
+1
+set_fix_multiple_port_nets -all -buffer_constants
+1
+compile_ultra -no_autoungroup
+Loading db file '/ssd0/synopsys/install_place/syn/O-2018.06-SP1/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing power optimization. (PWR-850)
+Analyzing: "/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db"
+Library analysis succeeded.
+Information: Running optimization using a maximum of 4 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | O-2018.06-DWBB_201806.1 |     *     |
+| Licensed DW Building Blocks        | O-2018.06-DWBB_201806.1 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 2454 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'pde_chip_top_safe'
+
+Loaded alib file './alib-52/tcbn65lpwc_ccs.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+...
+  Processing 'pde_chip_top_20_20_1_1_1_4096_10'
+ Implement Synthetic for 'pde_chip_top_20_20_1_1_1_4096_10'.
+Information: Added key list 'DesignWare' to design 'pde_chip_top_20_20_1_1_1_4096_10'. (DDB-72)
+Memory usage for J1 task 1421 Mbytes -- main task 1421 Mbytes.
+  Processing 'pde_memcontrol_NROW20_NCOL_LOG20'
+Information: Added key list 'DesignWare' to design 'pde_memcontrol_NROW20_NCOL_LOG20'. (DDB-72)
+ Implement Synthetic for 'pde_memcontrol_NROW20_NCOL_LOG20'.
+Memory usage for J2 task 1421 Mbytes -- main task 1421 Mbytes.
+  Processing 'pde_core_20_20_1_1_1_4096_10'
+Memory usage for J3 task 1421 Mbytes -- main task 1421 Mbytes.
+  Processing 'pde_tcu_1_1_4096'
+Information: Added key list 'DesignWare' to design 'pde_tcu_1_1_4096'. (DDB-72)
+ Implement Synthetic for 'pde_tcu_1_1_4096'.
+  Processing 'sol_acc_0_0'
+ Implement Synthetic for 'sol_acc_0_0'.
+  Processing 'sol_acc_1_0'
+ Implement Synthetic for 'sol_acc_1_0'.
+  Processing 'sol_acc_1_99'
+ Implement Synthetic for 'sol_acc_1_99'.
+  Processing 'r_status_0'
+  Processing 'pe_top_1_1_0'
+ Implement Synthetic for 'pe_top_1_1_0'.
+Information: Added key list 'DesignWare' to design 'pe_top_1_1_0'. (DDB-72)
+  Processing 'pe_top_0_1_0'
+ Implement Synthetic for 'pe_top_0_1_0'.
+Information: Added key list 'DesignWare' to design 'pe_top_0_1_0'. (DDB-72)
+  Processing 'pe_top_1_1_99'
+ Implement Synthetic for 'pe_top_1_1_99'.
+Information: Added key list 'DesignWare' to design 'pe_top_1_1_99'. (DDB-72)
+  Processing 'pe_top_0_1_99'
+ Implement Synthetic for 'pe_top_0_1_99'.
+Information: Added key list 'DesignWare' to design 'pe_top_0_1_99'. (DDB-72)
+  Processing 'pde_chip_top_safe'
+  Processing 'r_reg_0'
+  Processing 'r_alu_0'
+Information: Added key list 'DesignWare' to design 'r_alu_0'. (DDB-72)
+  Processing 'counter_ce_WIDTH5'
+Information: Added key list 'DesignWare' to design 'counter_ce_WIDTH5'. (DDB-72)
+ Implement Synthetic for 'counter_ce_WIDTH5'.
+  Processing 'r_dsm_1_0'
+  Processing 'r_state_ctrl_1_0'
+  Processing 'r_state_ctrl_0_0'
+Memory usage for J4 task 1421 Mbytes -- main task 1421 Mbytes.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIEL' in the library 'tcbn65lpwc_ccs' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIEH' in the library 'tcbn65lpwc_ccs' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+...
+Memory usage for J5 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J6 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J7 task 1421 Mbytes -- main task 1421 Mbytes.
+Information: Added key list 'DesignWare' to design 'sol_acc_1_99'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_98'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_99'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_0'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_1'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_2'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_3'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_4'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_5'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_6'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_7'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_8'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_9'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_10'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_11'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_12'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_13'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_14'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_15'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_16'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_17'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_18'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_19'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_20'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_21'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_22'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_23'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_24'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_25'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_26'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_27'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_28'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_29'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_30'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_31'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_32'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_33'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_34'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_35'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_36'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_37'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_38'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_39'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_40'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_41'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_42'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_43'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_44'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_45'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_46'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_47'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_48'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_49'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_50'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_51'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_52'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_53'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_54'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_55'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_56'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_57'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_58'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_59'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_60'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_61'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_62'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_63'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_64'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_65'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_66'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_67'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_68'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_69'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_70'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_71'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_72'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_73'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_74'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_75'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_76'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_77'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_78'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_79'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_80'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_81'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_82'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_83'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_84'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_85'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_86'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_87'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_88'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_89'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_90'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_91'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_92'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_93'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_94'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_95'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_96'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_97'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_0_98'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_0'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_1'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_2'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_3'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_4'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_5'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_6'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_7'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_8'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_9'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_10'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_11'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_12'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_13'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_14'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_15'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_16'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_17'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_18'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_19'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_20'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_21'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_22'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_23'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_24'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_25'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_26'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_27'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_28'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_29'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_30'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_31'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_32'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_33'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_34'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_35'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_36'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_37'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_38'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_39'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_40'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_41'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_42'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_43'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_44'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_45'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_46'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_47'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_48'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_49'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_50'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_51'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_52'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_53'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_54'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_55'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_56'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_57'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_58'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_59'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_60'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_61'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_62'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_63'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_64'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_65'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_66'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_67'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_68'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_69'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_70'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_71'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_72'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_73'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_74'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_75'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_76'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_77'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_78'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_79'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_80'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_81'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_82'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_83'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_84'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_85'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_86'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_87'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_88'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_89'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_90'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_91'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_92'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_93'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_94'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_95'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_96'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'sol_acc_1_97'. (DDB-72)
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:04:03  494686.8      0.00       0.0      32.4                           160666.7969
+    0:04:03  494686.8      0.00       0.0      32.4                           160666.7969
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:05:12  420170.4      0.00       0.0      83.2                           110329.7344
+    0:05:12  420170.4      0.00       0.0      83.2                           110329.7344
+    0:05:12  420170.4      0.00       0.0      83.2                           110329.7344
+    0:05:13  420170.4      0.00       0.0      83.2                           110329.7344
+Memory usage for J8 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J9 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J10 task 1421 Mbytes -- main task 1421 Mbytes.
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+Memory usage for J11 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J12 task 1421 Mbytes -- main task 1421 Mbytes.
+Memory usage for J13 task 1421 Mbytes -- main task 1421 Mbytes.
+    0:06:04  420586.6      0.00       0.0      73.0                           109775.3125
+    0:06:09  419686.6      0.00       0.0      72.1                           108433.7812
+    0:06:19  419484.2      0.00       0.0      71.9                           108002.4609
+    0:06:26  419465.5      0.00       0.0      71.6                           107991.8672
+    0:06:30  418815.0      0.00       0.0      71.6                           107612.1719
+    0:06:52  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:06:53  412711.9      0.00       0.0      12.2                           86959.8828
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+    0:07:00  412884.4      0.00       0.0      50.4 cfg_rdata[8]              87026.8516
+    0:07:04  412889.8      0.00       0.0      12.4 u_impl/u_core/net143305   87027.6172
+    0:07:36  412898.4      0.00       0.0       0.4                           87029.5469
+    0:07:36  412898.4      0.00       0.0       0.4                           87029.5469
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:07:36  412898.4      0.00       0.0       0.4                           87029.5469
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+  Global Optimization (Phase 51)
+  Global Optimization (Phase 52)
+    0:09:01  412789.3      0.00       0.0       0.7                           86435.3594
+Information: Complementing port 'scan_last' in design 'pde_chip_top_20_20_1_1_1_4096_10'.
+         The new name of the port is 'scan_last_BAR'. (OPT-319)
+    0:09:12  412789.3      0.00       0.0       0.7                           86435.3594
+    0:09:12  412789.3      0.00       0.0       0.7                           86435.3594
+    0:09:12  412789.3      0.00       0.0       0.7                           86435.3594
+    0:09:20  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:20  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:20  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:20  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:20  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:21  412787.2      0.00       0.0       0.7                           86324.6250
+    0:09:24  412784.3      0.00       0.0       0.7                           86325.4375
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:09:30  412784.3      0.00       0.0       0.7                           86325.4375
+    0:09:39  412738.6      0.00       0.0       1.6                           86329.5469
+    0:09:39  412738.6      0.00       0.0       1.6                           86329.5469
+    0:09:39  412738.6      0.00       0.0       1.6                           86329.5469
+    0:09:47  412733.2      0.00       0.0       1.5                           86324.0234
+    0:09:55  412732.1      0.00       0.0       1.5                           86323.8672
+    0:10:02  412730.6      0.00       0.0       1.5                           86323.3750
+    0:10:11  412747.6      0.00       0.0       0.8 u_impl/net212583          86329.5469
+    0:10:47  412747.6      0.00       0.0       0.8                           86329.5469
+    0:10:47  412747.6      0.00       0.0       0.8                           86329.5469
+    0:10:49  412747.6      0.00       0.0       0.8                           86329.5469
+    0:10:49  412747.6      0.00       0.0       0.8                           86329.5469
+    0:10:52  412743.2      0.00       0.0       0.8                           86327.1172
+Loading db file '/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Front_End/timing_power_noise/CCS/tcbn65lpwc_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'pde_chip_top_safe' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'u_impl/u_core/g_row[0].g_col[1].u_pe/u_dsm/clk': 23905 load(s), 1 driver(s)
+     Net 'u_impl/u_core/g_row[0].g_col[1].u_pe/u_dsm/rst_n': 16226 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+change_names -rules verilog -hierarchy
+1
+redirect -file [file join $REPORT_DIR check_design.rpt] {
+  check_design
+}
+redirect -file [file join $REPORT_DIR check_timing.rpt] {
+  check_timing
+}
+redirect -file [file join $REPORT_DIR qor.rpt] {
+  report_qor
+}
+redirect -file [file join $REPORT_DIR area_hier.rpt] {
+  report_area -hierarchy
+}
+redirect -file [file join $REPORT_DIR timing_max.rpt] {
+  report_timing -delay_type max -max_paths 50 -nworst 2 -input_pins -nets
+}
+redirect -file [file join $REPORT_DIR timing_min.rpt] {
+  report_timing -delay_type min -max_paths 20 -nworst 1 -input_pins -nets
+}
+redirect -file [file join $REPORT_DIR constraints.rpt] {
+  report_constraint -all_violators
+}
+redirect -file [file join $REPORT_DIR power.rpt] {
+  report_power -hierarchy
+}
+redirect -file [file join $REPORT_DIR clocks.rpt] {
+  report_clock
+}
+redirect -file [file join $REPORT_DIR high_fanout.rpt] {
+  report_net_fanout -threshold 32
+}
+redirect -file [file join $REPORT_DIR resources.rpt] {
+  report_resources -hierarchy
+}
+write -format ddc -hierarchy -output [file join $RESULT_DIR ${TOP}.ddc]
+Writing ddc file '/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.ddc'.
+1
+write_file -format verilog -hierarchy -output [file join $RESULT_DIR ${TOP}.v]
+Writing verilog file '/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.v'.
+1
+write_sdc [file join $RESULT_DIR ${TOP}.sdc]
+1
+write_sdf -version 2.1 [file join $RESULT_DIR ${TOP}.sdf]
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/sxw/PDE/pdeMujunjie/flow/results/dc/pde_chip_top_safe.sdf'. (WT-3)
+1
+puts "PDE_DC_DONE top=$TOP clock_period=$CLOCK_PERIOD"
+PDE_DC_DONE top=pde_chip_top_safe clock_period=10.000
+quit
+
+Memory usage for main task 1421 Mbytes.
+Memory usage for this session 1421 Mbytes.
+CPU usage for this session 1227 seconds ( 0.34 hours ).
+
+Thank you...
+

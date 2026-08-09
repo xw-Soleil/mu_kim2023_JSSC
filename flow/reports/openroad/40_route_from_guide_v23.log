@@ -1,0 +1,79 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+PDE_PRE_DRT_UNCONNECTED_PG_ITERMS=0
+PDE_MARKED_ZERO_TERM_SUPPLY_SPECIAL=203
+[WARNING GRT-0008] The read_guides command does not allow parasitics estimation from the guides file.
+[INFO DRT-0149] Reading tech and libs.
+
+Units:                2000
+Number of layers:     15
+Number of macros:     855
+Number of vias:       79
+Number of viarulegen: 6
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net rst_n has 16227 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_impl/n1127 has 330 pins which may impact routing performance. Consider optimization.
+
+Design:                   pde_chip_top_safe
+Die area:                 ( 0 0 ) ( 2385280 2385280 )
+Number of track patterns: 14
+Number of DEF vias:       0
+Number of components:     97513
+Number of terminals:      57
+Number of snets:          205
+Number of nets:           120193
+
+[INFO DRT-0167] List of default vias:
+  Layer VIA1
+    default via: VIA12_1cut
+  Layer VIA2
+    default via: VIA23_1cut
+  Layer VIA3
+    default via: VIA34_1cut
+  Layer VIA4
+    default via: VIA45_1cut
+  Layer VIA5
+    default via: VIA56_1cut
+  Layer RV
+    default via: VIA6AP_1cut
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 146.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete PO.
+[INFO DRT-0024]   Complete CO.
+[INFO DRT-0024]   Complete M1.
+[INFO DRT-0024]   Complete VIA1.
+[INFO DRT-0024]   Complete M2.
+[INFO DRT-0024]   Complete VIA2.
+[INFO DRT-0024]   Complete M3.
+[INFO DRT-0024]   Complete VIA3.
+[INFO DRT-0024]   Complete M4.
+[INFO DRT-0024]   Complete VIA4.
+[INFO DRT-0024]   Complete M5.
+[INFO DRT-0024]   Complete VIA5.
+[INFO DRT-0024]   Complete M6.
+[INFO DRT-0024]   Complete RV.
+[INFO DRT-0024]   Complete AP.
+[INFO DRT-0033] PO shape region query size = 0.
+[INFO DRT-0033] CO shape region query size = 0.
+[INFO DRT-0033] M1 shape region query size = 3328715.
+[INFO DRT-0033] VIA1 shape region query size = 76936.
+[INFO DRT-0033] M2 shape region query size = 45548.
+[INFO DRT-0033] VIA2 shape region query size = 27848.
+[INFO DRT-0033] M3 shape region query size = 10620.
+[INFO DRT-0033] VIA3 shape region query size = 7080.
+[INFO DRT-0033] M4 shape region query size = 5709.
+[INFO DRT-0033] VIA4 shape region query size = 13328.
+[INFO DRT-0033] M5 shape region query size = 2112.
+[INFO DRT-0033] VIA5 shape region query size = 0.
+[INFO DRT-0033] M6 shape region query size = 0.
+[INFO DRT-0033] RV shape region query size = 0.
+[INFO DRT-0033] AP shape region query size = 0.
+[INFO DRT-0165] Start pin access.
+[ERROR DRT-0073] No access point for clkbuf_0_clk/Z.
+[ERROR DRT-0073] No access point for clkbuf_2_0_0_clk/Z.

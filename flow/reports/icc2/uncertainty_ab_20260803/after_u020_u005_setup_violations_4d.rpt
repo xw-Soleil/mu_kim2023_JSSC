@@ -1,0 +1,1569 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 10000
+        -slack_lesser_than 0.0000
+        -report_by design
+        -nosplit
+        -physical
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:37:15 2026
+****************************************
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/q_reg_15_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_55756_20854/ZN (CKND3)                                   0.4956      3.1880 r    (628.89,709.33)
+  u_impl/u_core/HFSBUF_52484_20835/Z (CKBD3)                                    0.4374      3.6253 r    (340.78,757.92)
+  u_impl/u_core/HFSBUF_49313_20816/Z (CKBD3)                                    0.4566      4.0819 r    (226.38,752.49)
+  u_impl/u_core/HFSBUF_47092_20799/Z (BUFFD1)                                   0.4219      4.5038 r    (259.31,682.30)
+  u_impl/u_core/g_row_15__g_col_9__u_pe/u_ctrl/U1/Z (AO22D0)                    0.5257      5.0295 r    (266.44,664.30)
+  u_impl/u_core/g_row_15__g_col_9__u_pe/HFSINV_1205_17742/ZN (CKND1)            0.4326      5.4621 f    (265.45,635.48)
+  u_impl/u_core/g_row_15__g_col_9__u_pe/U19/Z (MUX2D0)                          0.5548      6.0169 r    (273.68,642.60)
+  u_impl/u_core/g_row_15__g_col_9__u_pe/HFSBUF_744_17172/Z (CKBD2)              0.3878      6.4047 r    (283.75,730.90)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U6/S (FA1D0)                      0.3450      6.7497 r    (461.22,746.97)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/ctmTdsLR_1_24351/ZN (MAOI22D0)    0.2610      7.0107 r    (463.00,745.41)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U11/ZN (OAI22D0)                  0.1647      7.1754 f    (465.10,743.53)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U12/ZN (AOI21D0)                  0.2021      7.3775 r    (465.09,741.80)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U13/ZN (AOI21D0)                  0.1271      7.5046 f    (463.49,743.40)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U25/ZN (INVD0)                    0.1402      7.6448 r    (464.18,745.30)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U30/Z (CKXOR2D0)                  0.2274      7.8722 r    (460.92,741.70)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U35/Z (CKXOR2D0)                  0.2598      8.1320 f    (465.09,738.10)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U36/ZN (OAI31D0)                  0.1600      8.2919 r    (466.10,736.29)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/U37/ZN (IOA21D0)                  0.1342      8.4262 f    (464.30,736.30)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_alu/ctmTdsLR_3_23923/ZN (MAOI22D0)    0.2175      8.6436 r    (463.20,734.61)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/U30/ZN (OAI221D0)             0.2506      8.8943 f    (459.79,725.61)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/U31/ZN (CKND2D2)              0.1107      9.0050 r    (459.51,723.83)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/copt_h_inst_48274/Z (DEL1)    1.7159     10.7208 r    (464.68,725.49)
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/q_reg_15_/D (DFCNQD1)         0.0000     10.7209 r    (464.35,730.78)
+  data arrival time                                                                        10.7209
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7095     10.7095
+  u_impl/u_core/g_row_16__g_col_9__u_pe/u_r_black/q_reg_15_/CP (DFCNQD1)        0.0000     10.7095 r    (463.32,730.90)
+  clock uncertainty                                                            -0.2000     10.5095
+  library setup time                                                           -0.0034     10.5061
+  data required time                                                                       10.5061
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5061
+  data arrival time                                                                       -10.7209
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.2148
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/u_red_q_reg_10_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_37015_20936/ZN (CKND4)                                   0.5338      3.2261 r    (654.27,691.31)
+  u_impl/u_core/HFSBUF_36780_20874/Z (CKBD3)                                    0.4444      3.6706 r    (570.38,757.92)
+  u_impl/u_core/HFSBUF_30046_20856/Z (BUFFD1)                                   0.4950      4.1656 r    (517.51,786.70)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_ctrl/U2/Z (AO22D0)                    0.5669      4.7325 r    (525.85,761.50)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/HFSINV_499_17745/ZN (CKND1)             0.4425      5.1750 f    (521.85,723.72)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/U31/ZN (CKND2D0)                        0.2555      5.4305 r    (524.25,723.72)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/U32/ZN (OAI222D0)                       0.3806      5.8111 f    (525.49,725.61)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/ctmTdsLR_1_22662/ZN (OAI221D0)          0.3369      6.1479 r    (525.39,730.79)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/HFSBUF_54_6265/Z (CKBD0)                0.3915      6.5394 r    (525.89,745.32)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/U34/ZN (OAI221D0)                 0.3299      6.8693 f    (542.01,827.99)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U15/CO (FA1D0)         0.2580      7.1273 f    (544.89,829.78)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U14/CO (FA1D0)         0.1711      7.2984 f    (550.29,829.78)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U13/CO (FA1D0)         0.1655      7.4640 f    (555.49,829.78)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U12/CO (FA1D0)         0.1589      7.6229 f    (559.29,828.22)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U11/CO (FA1D0)         0.1676      7.7905 f    (560.49,829.78)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U10/CO (FA1D0)         0.1796      7.9701 f    (559.29,826.18)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U9/CO (FA1D0)          0.1719      8.1420 f    (560.49,815.38)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U8/CO (FA1D0)          0.1701      8.3121 f    (562.29,811.78)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U7/CO (FA1D0)          0.1666      8.4787 f    (557.71,808.18)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/intadd_121_U6/S (FA1D0)           0.2040      8.6828 f    (560.62,806.63)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/U51/ZN (OAI222D0)                 0.1967      8.8795 r    (561.49,817.19)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/copt_h_inst_29020/Z (DEL1)        1.7807     10.6602 r    (562.52,817.32)
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/u_red_q_reg_10_/D (DFCNQD1)       0.0000     10.6602 r    (559.75,819.23)
+  data arrival time                                                                        10.6602
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.6527     10.6527
+  u_impl/u_core/g_row_16__g_col_0__u_pe/u_sol/u_red_q_reg_10_/CP (DFCNQD1)      0.0000     10.6527 r    (558.72,819.10)
+  clock uncertainty                                                            -0.2000     10.4527
+  library setup time                                                            0.0282     10.4809
+  data required time                                                                       10.4809
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.4809
+  data arrival time                                                                       -10.6602
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1793
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/u_red_q_reg_13_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4370      2.2327 f    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4573      2.6899 r    (722.89,381.70)
+  u_impl/u_core/HFSINV_17779_20776/ZN (CKND3)                                   0.4862      3.1762 f    (683.71,511.33)
+  u_impl/u_core/HFSINV_8508_20758/ZN (CKND2)                                    0.4323      3.6084 r    (759.17,655.42)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_ctrl/U1/Z (AO22D0)                    0.5361      4.1445 r    (752.05,635.50)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/HFSINV_1395_17781/ZN (CKND1)            0.4173      4.5618 f    (750.15,608.52)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/U22/Z (MUX2D0)                          0.3765      4.9383 r    (748.68,608.61)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/HFSBUF_190_13570/Z (CKBD0)              0.4533      5.3916 r    (759.09,631.88)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/U4/ZN (NR2D0)                           0.2266      5.6182 f    (755.25,612.19)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/U45/ZN (INVD0)                          0.1035      5.7217 r    (756.62,610.30)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/U46/ZN (OAI21D0)                        0.1700      5.8917 f    (757.53,610.39)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/U12/ZN (OAI211D1)                       0.4560      6.3477 r    (758.50,608.50)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/HFSINV_10_9395/ZN (CKND0)         0.2224      6.5701 f    (791.05,685.88)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U13/CO (FA1D0)          0.3520      6.9221 f    (804.49,687.82)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U12/CO (FA1D0)          0.1627      7.0848 f    (809.69,687.82)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U11/CO (FA1D0)          0.1767      7.2614 f    (809.29,689.38)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U10/CO (FA1D0)          0.1775      7.4389 f    (810.89,700.18)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U9/CO (FA1D0)           0.1685      7.6074 f    (808.89,703.78)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U8/CO (FA1D0)           0.1706      7.7781 f    (807.89,705.82)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U7/CO (FA1D0)           0.1735      7.9516 f    (811.29,709.42)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U6/CO (FA1D0)           0.1814      8.1330 f    (809.09,713.02)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U5/CO (FA1D0)           0.1888      8.3218 f    (801.89,710.98)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U4/CO (FA1D0)           0.1822      8.5041 f    (797.09,703.78)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/intadd_15_U3/S (FA1D0)            0.1925      8.6965 f    (792.02,705.84)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/U80/ZN (OAI222D0)                 0.1993      8.8958 r    (793.69,707.61)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/copt_gre_h_inst_49799/Z (DEL1)    1.7898     10.6857 r    (801.68,709.32)
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/u_red_q_reg_13_/D (DFCNQD1)       0.0000     10.6857 r    (798.15,707.62)
+  data arrival time                                                                        10.6857
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7411     10.7411
+  u_impl/u_core/g_row_17__g_col_7__u_pe/u_sol/u_red_q_reg_13_/CP (DFCNQD1)      0.0000     10.7411 r    (797.12,707.50)
+  clock uncertainty                                                            -0.2000     10.5411
+  library setup time                                                           -0.0297     10.5114
+  data required time                                                                       10.5114
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5114
+  data arrival time                                                                       -10.6857
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1743
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/u_red_q_reg_13_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U7/ZN (CKND2D0)                                           0.3190      2.1147 r    (727.15,376.28)
+  u_impl/u_core/u_tcu/U32/ZN (MUX2ND0)                                          0.3105      2.4252 f    (717.25,363.72)
+  u_impl/u_core/HFSBUF_155889_20447/Z (CKBD2)                                   0.3127      2.7380 f    (712.65,352.90)
+  u_impl/u_core/HFSINV_155660_20446/ZN (INVD1)                                  0.5065      3.2444 r    (445.32,313.32)
+  u_impl/u_core/ropt_inst_48387/Z (CKBD0)                                       0.4224      3.6668 r    (447.09,225.08)
+  u_impl/u_core/ropt_inst_48386/Z (CKBD2)                                       0.4259      4.0927 r    (443.95,127.90)
+  u_impl/u_core/HFSBUF_117571_20437/Z (CKBD3)                                   0.4827      4.5754 r    (348.58,147.69)
+  u_impl/u_core/HFSINV_108253_20414/ZN (CKND2)                                  0.3997      4.9751 f    (308.37,147.81)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/U5/ZN (CKND2D0)                          0.2893      5.2644 r    (309.05,151.32)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/U24/ZN (CKND0)                           0.2142      5.4786 f    (309.55,153.08)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/U34/ZN (OAI221D0)                        0.1985      5.6771 r    (309.39,167.61)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/ctmTdsLR_1_23653/ZN (OAI221D1)           0.4431      6.1202 f    (305.38,153.10)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/HFSINV_10_11461/ZN (CKND0)         0.2070      6.3272 r    (276.15,88.28)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U15/CO (FA1D0)           0.3321      6.6593 r    (267.51,80.98)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U14/CO (FA1D0)           0.1656      6.8249 r    (264.91,84.58)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U13/CO (FA1D0)           0.1671      6.9920 r    (259.51,84.58)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U12/CO (FA1D0)           0.1718      7.1637 r    (257.71,79.42)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U11/CO (FA1D0)           0.1702      7.3339 r    (260.71,75.82)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U10/CO (FA1D0)           0.1548      7.4887 r    (260.11,70.18)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U9/CO (FA1D0)            0.1539      7.6427 r    (259.11,68.62)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U8/CO (FA1D0)            0.1667      7.8094 r    (259.11,66.58)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U7/CO (FA1D0)            0.1593      7.9687 r    (264.11,66.58)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U6/CO (FA1D0)            0.1781      8.1467 r    (264.71,65.02)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U5/CO (FA1D0)            0.1757      8.3224 r    (277.31,62.98)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U4/CO (FA1D0)            0.1610      8.4835 r    (280.11,65.02)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/intadd_81_U3/S (FA1D0)             0.2150      8.6985 f    (279.58,68.64)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/U80/ZN (OAI222D0)                  0.1778      8.8763 r    (274.29,66.81)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/copt_h_inst_27213/Z (DEL1)         1.7691     10.6454 r    (276.48,68.52)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/u_red_q_reg_13_/D (DFCNQD1)        0.0000     10.6454 r    (276.35,66.83)
+  data arrival time                                                                        10.6454
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7199     10.7199
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_sol/u_red_q_reg_13_/CP (DFCNQD1)       0.0000     10.7199 r    (275.32,66.70)
+  clock uncertainty                                                            -0.2000     10.5199
+  library setup time                                                           -0.0312     10.4887
+  data required time                                                                       10.4887
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.4887
+  data arrival time                                                                       -10.6454
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1567
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/u_red_q_reg_8_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_17779_20776/ZN (CKND3)                                   0.5248      3.2172 r    (683.71,511.33)
+  u_impl/u_core/HFSBUF_17418_20704/Z (CKBD2)                                    0.4774      3.6946 r    (724.25,635.50)
+  u_impl/u_core/HFSBUF_3471_20702/Z (BUFFD1)                                    0.5110      4.2056 r    (693.32,633.70)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_ctrl/U1/Z (AO22D0)                    0.5463      4.7519 r    (704.96,644.50)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/HFSINV_1200_17709/ZN (CKND1)            0.4271      5.1790 f    (689.75,640.92)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/U20/Z (MUX2D0)                          0.3458      5.5248 f    (688.72,642.60)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/HFSBUF_214_13500/Z (CKBD0)              0.3536      5.8784 f    (740.09,658.92)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/U4/ZN (NR2D0)                           0.4904      6.3688 r    (724.35,649.81)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/U44/ZN (INVD0)                          0.1448      6.5136 f    (707.42,642.70)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/U45/ZN (OAI21D0)                        0.2035      6.7171 r    (709.07,640.81)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/U17/ZN (OAI211D1)                       0.4774      7.1945 f    (708.30,639.10)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/HFSINV_10_7962/ZN (CKND0)         0.2811      7.4756 r    (758.25,702.12)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U13/CO (FA1D0)          0.3400      7.8156 r    (780.49,707.38)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U12/CO (FA1D0)          0.1582      7.9738 r    (780.49,705.82)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U11/CO (FA1D0)          0.1613      8.1351 r    (781.09,702.22)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U10/CO (FA1D0)          0.1630      8.2981 r    (780.09,700.18)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U9/CO (FA1D0)           0.1798      8.4779 r    (781.29,695.02)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/intadd_38_U8/S (FA1D0)            0.2262      8.7041 f    (781.62,685.76)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/U90/ZN (OAI222D0)                 0.1854      8.8894 r    (784.89,691.19)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/copt_h_inst_39754/Z (DEL1)        1.7734     10.6628 r    (786.68,693.09)
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/u_red_q_reg_8_/D (DFCNQD1)        0.0000     10.6628 r    (787.95,693.23)
+  data arrival time                                                                        10.6628
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7411     10.7411
+  u_impl/u_core/g_row_13__g_col_4__u_pe/u_sol/u_red_q_reg_8_/CP (DFCNQD1)       0.0000     10.7411 r    (786.92,693.10)
+  clock uncertainty                                                            -0.2000     10.5411
+  library setup time                                                           -0.0281     10.5130
+  data required time                                                                       10.5130
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5130
+  data arrival time                                                                       -10.6628
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1497
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/u_red_q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_37015_20936/ZN (CKND4)                                   0.5338      3.2261 r    (654.27,691.31)
+  u_impl/u_core/HFSBUF_36640_20935/Z (BUFFD1)                                   0.5190      3.7451 r    (572.69,745.30)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_ctrl/U2/Z (AO22D0)                    0.5060      4.2511 r    (571.56,756.10)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/HFSINV_1555_17721/ZN (CKND1)            0.4147      4.6658 f    (560.45,761.48)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/U20/Z (MUX2D0)                          0.3169      4.9827 f    (573.08,763.41)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/HFSBUF_217_13516/Z (CKBD0)              0.3611      5.3438 f    (579.09,792.12)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/U4/ZN (NR2D0)                           0.4167      5.7605 r    (575.75,788.59)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/U45/ZN (INVD0)                          0.1121      5.8726 f    (570.58,774.10)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/U46/ZN (OAI21D0)                        0.1879      6.0604 r    (569.93,774.00)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/U10/ZN (OAI211D1)                       0.4487      6.5091 f    (568.50,775.90)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/HFSINV_10_8258/ZN (CKND0)         0.2486      6.7577 r    (610.65,838.92)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U13/CO (FA1D0)         0.3577      7.1154 r    (613.89,858.58)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U12/CO (FA1D0)         0.1732      7.2886 r    (625.29,854.98)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U11/CO (FA1D0)         0.1869      7.4755 r    (628.51,857.02)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U10/CO (FA1D0)         0.1937      7.6691 r    (623.49,847.78)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U9/CO (FA1D0)          0.1772      7.8463 r    (619.49,840.58)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U8/CO (FA1D0)          0.1620      8.0083 r    (628.29,842.62)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U7/CO (FA1D0)          0.1548      8.1631 r    (633.29,842.62)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U6/CO (FA1D0)          0.1676      8.3307 r    (635.69,844.18)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U5/CO (FA1D0)          0.1802      8.5110 r    (642.91,844.18)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/intadd_129_U4/S (FA1D0)           0.2215      8.7325 f    (644.58,851.37)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/U47/ZN (OAI222D0)                 0.1762      8.9087 r    (643.09,851.61)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/copt_h_inst_29396/Z (DEL1)        1.7723     10.6810 r    (640.72,853.32)
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/u_red_q_reg_12_/D (DFCNQD1)       0.0000     10.6810 r    (638.95,851.62)
+  data arrival time                                                                        10.6810
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7615     10.7615
+  u_impl/u_core/g_row_14__g_col_2__u_pe/u_sol/u_red_q_reg_12_/CP (DFCNQD1)      0.0000     10.7615 r    (637.92,851.50)
+  clock uncertainty                                                            -0.2000     10.5615
+  library setup time                                                           -0.0225     10.5390
+  data required time                                                                       10.5390
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5390
+  data arrival time                                                                       -10.6810
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1420
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_5_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                     0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                      0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                       0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                       0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                       0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                       0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                        0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                       0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                        0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                       0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                    0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                    0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_70040_20663/Z (CKBD2)                                    0.5333      6.9836 r    (292.75,142.30)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/HFSBUF_69557_20662/Z (BUFFD1)            0.5409      7.5245 r    (292.31,140.50)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U5/ZN (NR2XD0)                 0.5155      8.0400 f    (280.65,129.79)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U6/ZN (NR2XD0)                 0.5516      8.5915 r    (288.55,122.59)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U11/Z (AO222D0)                0.3300      8.9215 r    (291.15,131.40)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/copt_h_inst_27228/Z (DEL1)     1.7144     10.6359 r    (288.72,133.31)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_5_/D (DFCNQD1)           0.0000     10.6359 r    (287.55,129.58)
+  data arrival time                                                                        10.6359
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7280     10.7280
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_5_/CP (DFCNQD1)          0.0000     10.7280 r    (286.52,129.70)
+  clock uncertainty                                                            -0.2000     10.5280
+  library setup time                                                           -0.0220     10.5061
+  data required time                                                                       10.5061
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5061
+  data arrival time                                                                       -10.6359
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1299
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_2_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                     0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                      0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                       0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                       0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                       0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                       0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                        0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                       0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                        0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                       0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                    0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                    0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_70040_20663/Z (CKBD2)                                    0.5333      6.9836 r    (292.75,142.30)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/HFSBUF_69557_20662/Z (BUFFD1)            0.5409      7.5245 r    (292.31,140.50)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U5/ZN (NR2XD0)                 0.5155      8.0400 f    (280.65,129.79)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U6/ZN (NR2XD0)                 0.5516      8.5915 r    (288.55,122.59)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/U10/Z (AO222D0)                0.3314      8.9229 r    (290.95,129.81)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/copt_h_inst_47899/Z (DEL1)     1.7105     10.6334 r    (292.68,127.89)
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_2_/D (DFCNQD1)           0.0000     10.6334 r    (290.95,125.98)
+  data arrival time                                                                        10.6334
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7286     10.7286
+  u_impl/u_core/g_row_6__g_col_7__u_pe/u_r_black/q_reg_2_/CP (DFCNQD1)          0.0000     10.7286 r    (289.92,126.10)
+  clock uncertainty                                                            -0.2000     10.5286
+  library setup time                                                           -0.0214     10.5072
+  data required time                                                                       10.5072
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5072
+  data arrival time                                                                       -10.6334
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1262
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_15_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4370      2.2327 f    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4573      2.6899 r    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                  0.3783      3.0682 f    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                0.3753      3.4435 f    (137.22,475.29)
+  u_impl/u_core/copt_gre_mt_inst_48379/Z (CKBD2)                                0.4140      3.8575 f    (139.75,577.90)
+  u_impl/u_core/copt_gre_mt_inst_48378/Z (CKBD2)                                0.3562      4.2138 f    (164.15,604.90)
+  u_impl/u_core/HFSINV_120974_21175/ZN (CKND0)                                  0.3937      4.6074 r    (142.65,644.52)
+  u_impl/u_core/HFSBUF_120929_21174/Z (BUFFD1)                                  0.4036      5.0110 r    (145.09,664.30)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_ctrl/U1/Z (AO22D0)                    0.5514      5.5624 r    (160.05,640.90)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/HFSINV_1334_17661/ZN (CKND1)            0.4421      6.0045 f    (159.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U29/ZN (CKND2D0)                        0.2521      6.2565 r    (160.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U30/ZN (OAI222D0)                       0.3376      6.5942 f    (161.71,599.61)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/ctmTdsLR_1_22621/ZN (OAI221D0)          0.2510      6.8451 r    (156.99,597.59)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/copt_gre_mt_inst_48420/Z (CKBD0)        0.3896      7.2348 r    (154.09,597.72)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U35/ZN (OAI221D0)                 0.3549      7.5897 f    (102.01,665.99)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U15/CO (FA1D0)          0.2480      7.8377 f    (100.51,659.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U14/CO (FA1D0)          0.1647      8.0024 f    (95.31,656.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U13/CO (FA1D0)          0.1654      8.1678 f    (94.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U12/CO (FA1D0)          0.1712      8.3390 f    (89.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U11/CO (FA1D0)          0.1834      8.5223 f    (92.51,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U10/CO (FA1D0)          0.1768      8.6992 f    (90.91,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U9/CO (FA1D0)           0.1734      8.8725 f    (94.51,638.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U8/CO (FA1D0)           0.1765      9.0490 f    (97.11,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U7/CO (FA1D0)           0.1739      9.2229 f    (102.31,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U6/CO (FA1D0)           0.1709      9.3937 f    (107.51,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U5/CO (FA1D0)           0.1728      9.5666 f    (112.11,644.62)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U4/CO (FA1D0)           0.1708      9.7374 f    (113.51,648.22)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U3/CO (FA1D0)           0.1732      9.9105 f    (111.71,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U2/CO (FA1D0)           0.1612     10.0717 f    (114.71,656.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U3/ZN (XNR3D0)                    0.1815     10.2533 f    (114.32,660.70)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U41/ZN (OAI222D0)                 0.1723     10.4256 r    (111.91,660.81)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_15_/D (DFCNQD1)     0.0000     10.4256 r    (108.95,665.98)
+  data arrival time                                                                        10.4256
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.5444     10.5444
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_15_/CP (DFCNQD1)    0.0000     10.5444 r    (107.92,666.10)
+  clock uncertainty                                                            -0.2000     10.3444
+  library setup time                                                           -0.0414     10.3030
+  data required time                                                                       10.3030
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.3030
+  data arrival time                                                                       -10.4256
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.1227
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/u_black_q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_55756_20854/ZN (CKND3)                                   0.4956      3.1880 r    (628.89,709.33)
+  u_impl/u_core/HFSINV_54462_20841/ZN (CKND2)                                   0.3912      3.5791 f    (345.97,746.99)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_ctrl/U1/ZN (AOI22D0)                  0.2588      3.8379 r    (318.50,736.21)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/U18/Z (BUFFD1)                          0.3351      4.1730 r    (317.52,730.90)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/U9/ZN (INVD0)                           0.3648      4.5378 f    (315.78,721.90)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/U27/ZN (CKND2D0)                        0.2464      4.7842 r    (310.55,725.48)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/U29/ZN (OAI222D0)                       0.4464      5.2306 f    (313.31,729.21)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/ctmTdsLR_1_22654/ZN (OAI221D0)          0.4694      5.6999 r    (310.39,732.81)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/HFSBUF_39_6255/Z (CKBD0)                0.4431      6.1430 r    (298.31,761.48)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/U34/ZN (OAI221D0)                 0.3685      6.5116 f    (258.01,830.01)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U15/CO (FA1D0)          0.2461      6.7576 f    (250.91,826.18)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U14/CO (FA1D0)          0.1645      6.9221 f    (249.71,824.62)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U13/CO (FA1D0)          0.1725      7.0946 f    (245.91,826.18)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U12/CO (FA1D0)          0.1676      7.2622 f    (249.11,822.58)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U11/CO (FA1D0)          0.1793      7.4415 f    (248.11,818.98)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U10/CO (FA1D0)          0.1828      7.6243 f    (248.51,808.18)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U9/CO (FA1D0)           0.1786      7.8029 f    (244.51,803.02)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U8/CO (FA1D0)           0.1630      7.9659 f    (249.71,803.02)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U7/CO (FA1D0)           0.1725      8.1384 f    (248.91,804.58)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U6/CO (FA1D0)           0.1899      8.3283 f    (255.71,806.62)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U5/CO (FA1D0)           0.1739      8.5023 f    (264.11,813.82)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/intadd_32_U4/S (FA1D0)            0.1980      8.7003 f    (264.58,815.37)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/U46/ZN (OAI222D0)                 0.1816      8.8819 r    (260.29,819.21)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/copt_h_inst_29172/Z (DEL1)        1.7748     10.6566 r    (262.08,817.32)
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/u_black_q_reg_12_/D (DFCNQD1)     0.0000     10.6567 r    (264.55,817.18)
+  data arrival time                                                                        10.6567
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.7880     10.7880
+  u_impl/u_core/g_row_15__g_col_0__u_pe/u_sol/u_black_q_reg_12_/CP (DFCNQD1)    0.0000     10.7880 r    (263.52,817.30)
+  clock uncertainty                                                            -0.2000     10.5880
+  library setup time                                                           -0.0290     10.5590
+  data required time                                                                       10.5590
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.5590
+  data arrival time                                                                       -10.6567
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.0977
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/u_red_q_reg_9_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U7/ZN (CKND2D0)                                           0.3190      2.1147 r    (727.15,376.28)
+  u_impl/u_core/u_tcu/U32/ZN (MUX2ND0)                                          0.3105      2.4252 f    (717.25,363.72)
+  u_impl/u_core/HFSBUF_155889_20447/Z (CKBD2)                                   0.3127      2.7380 f    (712.65,352.90)
+  u_impl/u_core/HFSINV_155660_20446/ZN (INVD1)                                  0.5065      3.2444 r    (445.32,313.32)
+  u_impl/u_core/ropt_inst_48387/Z (CKBD0)                                       0.4224      3.6668 r    (447.09,225.08)
+  u_impl/u_core/ropt_inst_48386/Z (CKBD2)                                       0.4259      4.0927 r    (443.95,127.90)
+  u_impl/u_core/HFSBUF_117571_20437/Z (CKBD3)                                   0.4827      4.5754 r    (348.58,147.69)
+  u_impl/u_core/HFSINV_110385_20419/ZN (CKND2)                                  0.4336      5.0090 f    (210.37,252.22)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/U25/ZN (CKND2D0)                         0.2822      5.2913 r    (231.85,264.68)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/U27/ZN (OAI222D0)                        0.3692      5.6605 f    (228.69,268.41)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/ctmTdsLR_1_22714/ZN (OAI221D0)           0.4277      6.0882 r    (224.61,268.41)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/HFSBUF_50_6344/Z (CKBD0)                 0.4507      6.5388 r    (189.11,264.68)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/U34/ZN (OAI221D0)                  0.3759      6.9148 f    (92.01,254.01)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U15/CO (FA1D0)           0.2699      7.1847 f    (93.31,259.42)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U14/CO (FA1D0)           0.1633      7.3481 f    (92.31,263.02)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U13/CO (FA1D0)           0.1666      7.5146 f    (91.51,264.58)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U12/CO (FA1D0)           0.1743      7.6890 f    (94.11,266.62)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U11/CO (FA1D0)           0.1752      7.8642 f    (95.91,271.78)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U10/CO (FA1D0)           0.1784      8.0426 f    (102.11,271.78)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U9/CO (FA1D0)            0.1788      8.2213 f    (107.31,268.18)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U8/CO (FA1D0)            0.1681      8.3894 f    (112.11,266.62)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/intadd_80_U7/S (FA1D0)             0.1952      8.5846 f    (110.58,264.56)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/U88/ZN (OAI222D0)                  0.1842      8.7688 r    (101.71,264.81)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/copt_h_inst_27357/Z (DEL1)         1.7698     10.5386 r    (97.32,262.92)
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/u_red_q_reg_9_/D (DFCNQD1)         0.0000     10.5386 r    (97.55,264.82)
+  data arrival time                                                                        10.5386
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.6518     10.6518
+  u_impl/u_core/g_row_5__g_col_2__u_pe/u_sol/u_red_q_reg_9_/CP (DFCNQD1)        0.0000     10.6518 r    (96.52,264.70)
+  clock uncertainty                                                            -0.2000     10.4518
+  library setup time                                                           -0.0079     10.4439
+  data required time                                                                       10.4439
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.4439
+  data arrival time                                                                       -10.5386
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.0948
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/u_black_q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_37015_20936/ZN (CKND4)                                   0.5338      3.2261 r    (654.27,691.31)
+  u_impl/u_core/HFSINV_18255_20884/ZN (CKND1)                                   0.5120      3.7381 f    (644.65,745.32)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_ctrl/U1/ZN (AOI22D0)                  0.2834      4.0215 r    (621.30,743.41)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/U20/Z (BUFFD1)                          0.3357      4.3572 r    (619.12,741.70)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/U10/ZN (INVD0)                          0.3539      4.7111 f    (607.82,739.90)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/U29/ZN (CKND2D0)                        0.2306      4.9416 r    (613.65,741.72)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/U31/ZN (OAI222D0)                       0.3631      5.3047 f    (612.69,740.01)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/ctmTdsLR_1_22645/ZN (OAI221D0)          0.5375      5.8422 r    (613.19,747.21)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/HFSBUF_43_6246/Z (CKBD0)                0.4344      6.2765 r    (645.49,768.68)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/U34/ZN (OAI221D0)                 0.3506      6.6271 f    (730.39,781.19)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U15/CO (FA1D0)          0.2687      6.8958 f    (723.69,785.02)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U14/CO (FA1D0)          0.1675      7.0633 f    (722.69,788.62)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U13/CO (FA1D0)          0.1581      7.2215 f    (721.69,790.18)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U12/CO (FA1D0)          0.1670      7.3885 f    (722.49,792.22)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U11/CO (FA1D0)          0.1712      7.5597 f    (721.09,795.82)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U10/CO (FA1D0)          0.1707      7.7304 f    (716.09,795.82)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U9/CO (FA1D0)           0.1826      7.9129 f    (713.69,797.38)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U8/CO (FA1D0)           0.1771      8.0900 f    (702.69,797.38)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U7/CO (FA1D0)           0.1641      8.2541 f    (702.49,793.78)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U6/CO (FA1D0)           0.1685      8.4226 f    (702.29,792.22)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/intadd_33_U5/S (FA1D0)            0.1865      8.6091 f    (704.62,788.63)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/U48/ZN (OAI222D0)                 0.1944      8.8034 r    (710.29,790.41)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/copt_h_inst_27987/Z (DEL1)        1.7805     10.5839 r    (714.32,792.12)
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/u_black_q_reg_11_/D (DFCNQD1)     0.0000     10.5839 r    (712.55,790.43)
+  data arrival time                                                                        10.5839
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.6913     10.6913
+  u_impl/u_core/g_row_13__g_col_9__u_pe/u_sol/u_black_q_reg_11_/CP (DFCNQD1)    0.0000     10.6913 r    (711.52,790.30)
+  clock uncertainty                                                            -0.2000     10.4913
+  library setup time                                                            0.0024     10.4936
+  data required time                                                                       10.4936
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.4936
+  data arrival time                                                                       -10.5839
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.0903
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_red_q_reg_15_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                               0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                            0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                              0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                             0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                           0.4370      2.2327 f    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                  0.4573      2.6899 r    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                  0.3783      3.0682 f    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                0.3753      3.4435 f    (137.22,475.29)
+  u_impl/u_core/copt_gre_mt_inst_48379/Z (CKBD2)                                0.4140      3.8575 f    (139.75,577.90)
+  u_impl/u_core/copt_gre_mt_inst_48378/Z (CKBD2)                                0.3562      4.2138 f    (164.15,604.90)
+  u_impl/u_core/HFSINV_120974_21175/ZN (CKND0)                                  0.3937      4.6074 r    (142.65,644.52)
+  u_impl/u_core/HFSBUF_120929_21174/Z (BUFFD1)                                  0.4036      5.0110 r    (145.09,664.30)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_ctrl/U1/Z (AO22D0)                    0.5514      5.5624 r    (160.05,640.90)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/HFSINV_1334_17661/ZN (CKND1)            0.4421      6.0045 f    (159.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U29/ZN (CKND2D0)                        0.2521      6.2565 r    (160.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U30/ZN (OAI222D0)                       0.3376      6.5942 f    (161.71,599.61)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/ctmTdsLR_1_22621/ZN (OAI221D0)          0.2510      6.8451 r    (156.99,597.59)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/copt_gre_mt_inst_48420/Z (CKBD0)        0.3896      7.2348 r    (154.09,597.72)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U35/ZN (OAI221D0)                 0.3549      7.5897 f    (102.01,665.99)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U15/CO (FA1D0)          0.2480      7.8377 f    (100.51,659.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U14/CO (FA1D0)          0.1647      8.0024 f    (95.31,656.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U13/CO (FA1D0)          0.1654      8.1678 f    (94.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U12/CO (FA1D0)          0.1712      8.3390 f    (89.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U11/CO (FA1D0)          0.1834      8.5223 f    (92.51,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U10/CO (FA1D0)          0.1768      8.6992 f    (90.91,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U9/CO (FA1D0)           0.1734      8.8725 f    (94.51,638.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U8/CO (FA1D0)           0.1765      9.0490 f    (97.11,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U7/CO (FA1D0)           0.1739      9.2229 f    (102.31,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U6/CO (FA1D0)           0.1709      9.3937 f    (107.51,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U5/CO (FA1D0)           0.1728      9.5666 f    (112.11,644.62)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U4/CO (FA1D0)           0.1708      9.7374 f    (113.51,648.22)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U3/CO (FA1D0)           0.1732      9.9105 f    (111.71,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U2/CO (FA1D0)           0.1612     10.0717 f    (114.71,656.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U3/ZN (XNR3D0)                    0.1815     10.2533 f    (114.32,660.70)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U76/ZN (OAI222D0)                 0.1405     10.3938 r    (104.89,660.81)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_red_q_reg_15_/D (DFCNQD1)       0.0000     10.3938 r    (103.75,664.43)
+  data arrival time                                                                        10.3938
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.5444     10.5444
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_red_q_reg_15_/CP (DFCNQD1)      0.0000     10.5444 r    (102.72,664.30)
+  clock uncertainty                                                            -0.2000     10.3444
+  library setup time                                                           -0.0389     10.3055
+  data required time                                                                       10.3055
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.3055
+  data arrival time                                                                       -10.3938
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.0884
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/q_reg_7_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                          Incr        Path           Location
+  ---------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                    0.0000      0.0000
+  clock network delay (propagated)                                              0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                     0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                      0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                       0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                       0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                       0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                       0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                        0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                       0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                        0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                       0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                    0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                    0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_60654_20638/Z (CKBD3)                                    0.4896      6.9399 r    (246.38,367.29)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/HFSBUF_54319_20615/Z (BUFFD1)            0.4345      7.3744 r    (209.09,318.70)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/U3/ZN (NR2XD0)                 0.4375      7.8119 f    (199.05,331.39)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/U6/ZN (NR2XD0)                 0.5590      8.3709 r    (210.05,327.79)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/U8/Z (AO222D0)                 0.3158      8.6867 r    (210.25,322.19)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/copt_h_inst_47937/Z (DEL1)     1.7122     10.3990 r    (210.52,322.29)
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/q_reg_7_/D (DFCNQD1)           0.0000     10.3990 r    (211.75,320.38)
+  data arrival time                                                                        10.3990
+
+  clock core_clk (rise edge)                                                   10.0000     10.0000
+  clock network delay (propagated)                                              0.5049     10.5049
+  u_impl/u_core/g_row_7__g_col_4__u_pe/u_r_black/q_reg_7_/CP (DFCNQD1)          0.0000     10.5049 r    (210.72,320.50)
+  clock uncertainty                                                            -0.2000     10.3049
+  library setup time                                                            0.0127     10.3176
+  data required time                                                                       10.3176
+  ---------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                       10.3176
+  data arrival time                                                                       -10.3990
+  ---------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                         -0.0814
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_9_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_60654_20638/Z (CKBD3)                                     0.4896      6.9399 r    (246.38,367.29)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/HFSBUF_55387_20631/Z (BUFFD1)             0.5378      7.4777 r    (218.12,244.90)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U4/ZN (NR2XD0)                    0.5053      7.9830 f    (206.25,250.21)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U3/ZN (NR2XD0)                    0.5537      8.5367 r    (202.95,250.21)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U6/Z (AO222D0)                    0.3457      8.8824 r    (194.35,255.81)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/copt_gre_h_inst_49757/Z (DEL1)    1.7165     10.5989 r    (190.48,255.72)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_9_/D (DFCNQD1)              0.0000     10.5990 r    (189.15,254.03)
+  data arrival time                                                                         10.5990
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7491     10.7491
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_9_/CP (DFCNQD1)             0.0000     10.7491 r    (188.12,253.90)
+  clock uncertainty                                                             -0.2000     10.5491
+  library setup time                                                            -0.0288     10.5203
+  data required time                                                                        10.5203
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5203
+  data arrival time                                                                        -10.5990
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0787
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/u_red_q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_55756_20854/ZN (CKND3)                                    0.4956      3.1880 r    (628.89,709.33)
+  u_impl/u_core/HFSBUF_54930_20852/Z (CKBD2)                                     0.4448      3.6327 r    (315.45,748.90)
+  u_impl/u_core/HFSBUF_53226_20850/Z (CKBD2)                                     0.3656      3.9984 r    (295.55,765.10)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_ctrl/U1/Z (AO22D1)                     0.3502      4.3485 r    (293.88,763.32)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/HFSINV_1484_17733/ZN (CKND1)             0.3399      4.6884 f    (292.95,729.08)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/U28/ZN (CKND2D0)                         0.2420      4.9303 r    (288.25,723.72)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/U29/ZN (OAI222D0)                        0.3456      5.2759 f    (283.71,727.19)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/ctmTdsLR_1_22657/ZN (OAI221D0)           0.4305      5.7064 r    (281.41,725.61)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/HFSBUF_43_6258/Z (CKBD0)                 0.4545      6.1609 r    (265.51,743.48)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/U41/ZN (OAI221D0)                  0.3444      6.5053 f    (213.21,824.39)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U15/CO (FA1D0)           0.2558      6.7610 f    (213.91,826.18)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U14/CO (FA1D0)           0.1628      6.9238 f    (215.11,822.58)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U13/CO (FA1D0)           0.1745      7.0983 f    (213.51,821.02)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U12/CO (FA1D0)           0.1716      7.2699 f    (212.71,810.22)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U11/CO (FA1D0)           0.1729      7.4428 f    (214.51,808.18)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U10/CO (FA1D0)           0.1792      7.6220 f    (219.91,808.18)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U9/CO (FA1D0)            0.1851      7.8072 f    (225.11,806.62)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U8/CO (FA1D0)            0.1833      7.9905 f    (233.11,806.62)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U7/CO (FA1D0)            0.1698      8.1602 f    (235.71,811.78)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U6/CO (FA1D0)            0.1663      8.3265 f    (236.91,810.22)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U5/CO (FA1D0)            0.1758      8.5023 f    (237.11,813.82)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/intadd_29_U4/S (FA1D0)             0.1936      8.6959 f    (234.78,821.04)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/U82/ZN (OAI222D0)                  0.1673      8.8631 r    (228.49,822.81)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/copt_h_inst_27951/Z (DEL1)         1.7670     10.6301 r    (224.32,822.69)
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/u_red_q_reg_12_/D (DFCNQD1)        0.0000     10.6301 r    (225.95,820.78)
+  data arrival time                                                                         10.6301
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7788     10.7788
+  u_impl/u_core/g_row_15__g_col_3__u_pe/u_sol/u_red_q_reg_12_/CP (DFCNQD1)       0.0000     10.7788 r    (224.92,820.90)
+  clock uncertainty                                                             -0.2000     10.5788
+  library setup time                                                            -0.0230     10.5558
+  data required time                                                                        10.5558
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5558
+  data arrival time                                                                        -10.6301
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0743
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/q_reg_8_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_70040_20663/Z (CKBD2)                                     0.5333      6.9836 r    (292.75,142.30)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/HFSBUF_64826_20649/Z (BUFFD1)             0.5150      7.4986 r    (376.31,165.70)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/U5/ZN (NR2XD0)                    0.4801      7.9787 f    (373.35,172.99)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/U6/ZN (NR2XD0)                    0.5512      8.5299 r    (363.25,174.61)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/U3/Z (AO222D0)                    0.3442      8.8740 r    (367.35,174.59)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/copt_h_inst_48253/Z (DEL1)        1.7096     10.5836 r    (363.92,174.69)
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/q_reg_8_/D (DFCNQD1)              0.0000     10.5837 r    (365.35,171.22)
+  data arrival time                                                                         10.5837
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7384     10.7384
+  u_impl/u_core/g_row_2__g_col_0__u_pe/u_r_red/q_reg_8_/CP (DFCNQD1)             0.0000     10.7384 r    (364.32,171.10)
+  clock uncertainty                                                             -0.2000     10.5384
+  library setup time                                                            -0.0213     10.5171
+  data required time                                                                        10.5171
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5171
+  data arrival time                                                                        -10.5837
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0666
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/q_reg_14_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_60654_20638/Z (CKBD3)                                     0.4896      6.9399 r    (246.38,367.29)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/HFSBUF_56754_20632/Z (BUFFD1)             0.4720      7.4119 r    (226.31,280.90)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/U6/ZN (NR2XD0)                  0.4531      7.8650 f    (214.75,252.19)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/U7/ZN (NR2XD0)                  0.5447      8.4097 r    (225.75,252.19)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/U24/ZN (OAI221D0)               0.3433      8.7531 f    (211.39,248.39)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/U25/ZN (CKND2D0)                0.1478      8.9009 r    (215.15,250.28)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/copt_h_inst_48074/Z (DEL1)      1.7181     10.6189 r    (212.32,248.52)
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/q_reg_14_/D (DFCNQD1)           0.0000     10.6190 r    (211.35,246.83)
+  data arrival time                                                                         10.6190
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7715     10.7715
+  u_impl/u_core/g_row_5__g_col_3__u_pe/u_r_black/q_reg_14_/CP (DFCNQD1)          0.0000     10.7715 r    (210.32,246.70)
+  clock uncertainty                                                             -0.2000     10.5715
+  library setup time                                                            -0.0188     10.5527
+  data required time                                                                        10.5527
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5527
+  data arrival time                                                                        -10.6190
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0663
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_60654_20638/Z (CKBD3)                                     0.4896      6.9399 r    (246.38,367.29)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/HFSBUF_55387_20631/Z (BUFFD1)             0.5378      7.4777 r    (218.12,244.90)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/U4/ZN (NR2XD0)                  0.5027      7.9805 f    (207.95,250.21)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/U3/ZN (NR2XD0)                  0.5405      8.5210 r    (206.95,243.01)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/U17/Z (AO222D0)                 0.3782      8.8992 r    (207.55,243.00)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/copt_h_inst_48318/Z (DEL1)      1.7183     10.6175 r    (200.08,241.31)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/q_reg_12_/D (DFCNQD1)           0.0000     10.6175 r    (201.35,241.18)
+  data arrival time                                                                         10.6175
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7718     10.7718
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_black/q_reg_12_/CP (DFCNQD1)          0.0000     10.7718 r    (200.32,241.30)
+  clock uncertainty                                                             -0.2000     10.5718
+  library setup time                                                            -0.0187     10.5531
+  data required time                                                                        10.5531
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5531
+  data arrival time                                                                        -10.6175
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0644
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/u_red_q_reg_15_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                   0.3955      3.0878 r    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                 0.4027      3.4905 r    (137.22,475.29)
+  u_impl/u_core/copt_gre_mt_inst_48379/Z (CKBD2)                                 0.4515      3.9421 r    (139.75,577.90)
+  u_impl/u_core/copt_gre_mt_inst_48378/Z (CKBD2)                                 0.3826      4.3246 r    (164.15,604.90)
+  u_impl/u_core/HFSBUF_118922_21180/Z (BUFFD1)                                   0.3748      4.6994 r    (163.69,626.50)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_ctrl/U1/Z (AO22D0)                     0.4579      5.1573 r    (179.65,626.50)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/HFSINV_1438_17670/ZN (CKND1)             0.3899      5.5472 f    (179.95,626.52)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/U28/ZN (CKND2D0)                         0.2471      5.7943 r    (185.75,628.28)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/U29/ZN (OAI222D0)                        0.4153      6.2095 f    (183.11,628.41)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/ctmTdsLR_1_22625/ZN (OAI221D0)           0.4498      6.6593 r    (180.01,629.99)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/HFSBUF_32_6222/Z (CKBD0)                 0.4886      7.1479 r    (164.71,648.12)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/U34/ZN (OAI221D0)                  0.3673      7.5152 f    (102.81,714.81)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U15/CO (FA1D0)           0.2622      7.7775 f    (100.51,709.42)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U14/CO (FA1D0)           0.1642      7.9417 f    (92.11,709.42)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U13/CO (FA1D0)           0.1712      8.1129 f    (90.71,710.98)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U12/CO (FA1D0)           0.1769      8.2898 f    (83.69,709.42)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U11/CO (FA1D0)           0.1828      8.4726 f    (87.49,703.78)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U10/CO (FA1D0)           0.1756      8.6482 f    (90.51,698.62)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U9/CO (FA1D0)            0.1741      8.8223 f    (95.11,696.58)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U8/CO (FA1D0)            0.1739      8.9962 f    (100.11,696.58)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U7/CO (FA1D0)            0.1789      9.1751 f    (105.11,696.58)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U6/CO (FA1D0)            0.1763      9.3514 f    (112.71,700.18)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U5/CO (FA1D0)            0.1808      9.5321 f    (117.11,698.62)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U4/CO (FA1D0)            0.1733      9.7054 f    (118.51,705.82)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U3/CO (FA1D0)            0.1677      9.8731 f    (118.71,709.42)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/intadd_47_U2/CO (FA1D0)            0.1640     10.0371 f    (115.71,713.02)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/U38/ZN (XNR3D0)                    0.1977     10.2348 f    (120.72,712.90)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/U76/ZN (OAI222D0)                  0.1378     10.3726 r    (104.89,714.81)
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/u_red_q_reg_15_/D (DFCNQD1)        0.0000     10.3726 r    (106.95,714.83)
+  data arrival time                                                                         10.3726
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.5513     10.5513
+  u_impl/u_core/g_row_11__g_col_5__u_pe/u_sol/u_red_q_reg_15_/CP (DFCNQD1)       0.0000     10.5513 r    (105.92,714.70)
+  clock uncertainty                                                             -0.2000     10.3513
+  library setup time                                                            -0.0384     10.3130
+  data required time                                                                        10.3130
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.3130
+  data arrival time                                                                        -10.3726
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0596
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_black_q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                   0.3955      3.0878 r    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                 0.4027      3.4905 r    (137.22,475.29)
+  u_impl/u_core/HFSBUF_122231_21198/Z (CKBD1)                                    0.4879      3.9784 r    (136.09,475.30)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_ctrl/U1/Z (AO22D0)                      0.4217      4.4001 r    (149.84,450.10)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/HFSINV_1468_17907/ZN (CKND1)              0.3323      4.7325 f    (215.65,450.12)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/U27/Z (MUX2D0)                            0.3164      5.0489 r    (217.72,450.21)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/U30/ZN (OAI222D0)                         0.2760      5.3249 f    (214.31,444.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/ctmTdsLR_1_22510/ZN (OAI221D0)            0.4389      5.7638 r    (210.21,444.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/HFSBUF_43_6384/Z (CKBD0)                  0.4701      6.2338 r    (170.11,444.68)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/U34/ZN (OAI221D0)                   0.3518      6.5856 f    (59.81,462.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U15/CO (FA1D0)            0.2525      6.8381 f    (60.91,462.58)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U14/CO (FA1D0)            0.1664      7.0045 f    (58.11,453.82)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U13/CO (FA1D0)            0.1674      7.1719 f    (57.11,451.78)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U12/CO (FA1D0)            0.1660      7.3379 f    (53.71,448.18)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U11/CO (FA1D0)            0.1738      7.5117 f    (55.31,446.62)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U10/CO (FA1D0)            0.1715      7.6832 f    (59.51,443.02)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U9/CO (FA1D0)             0.1801      7.8633 f    (60.31,440.98)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U8/CO (FA1D0)             0.1771      8.0404 f    (69.11,439.42)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U7/CO (FA1D0)             0.1679      8.2083 f    (72.51,437.38)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U6/CO (FA1D0)             0.1639      8.3722 f    (74.11,439.42)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U5/S (FA1D0)              0.1913      8.5636 f    (73.98,443.04)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/U48/ZN (OAI222D0)                   0.2146      8.7782 r    (68.51,441.21)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/copt_h_inst_28152/Z (DEL1)          1.7931     10.5712 r    (73.92,441.09)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_black_q_reg_11_/D (DFCNQD1)       0.0000     10.5713 r    (70.55,441.23)
+  data arrival time                                                                         10.5713
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7483     10.7483
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_black_q_reg_11_/CP (DFCNQD1)      0.0000     10.7483 r    (69.52,441.10)
+  clock uncertainty                                                             -0.2000     10.5483
+  library setup time                                                            -0.0332     10.5152
+  data required time                                                                        10.5151
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5151
+  data arrival time                                                                        -10.5713
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0561
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_60654_20638/Z (CKBD3)                                     0.4896      6.9399 r    (246.38,367.29)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/HFSBUF_55387_20631/Z (BUFFD1)             0.5378      7.4777 r    (218.12,244.90)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U4/ZN (NR2XD0)                    0.5053      7.9830 f    (206.25,250.21)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U3/ZN (NR2XD0)                    0.5537      8.5367 r    (202.95,250.21)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/U17/Z (AO222D0)                   0.3513      8.8881 r    (202.35,246.59)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/copt_h_inst_27224/Z (DEL1)        1.7065     10.5946 r    (199.52,244.92)
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_12_/D (DFCNQD1)             0.0000     10.5946 r    (198.15,243.23)
+  data arrival time                                                                         10.5946
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7718     10.7718
+  u_impl/u_core/g_row_5__g_col_7__u_pe/u_r_red/q_reg_12_/CP (DFCNQD1)            0.0000     10.7718 r    (197.12,243.10)
+  clock uncertainty                                                             -0.2000     10.5718
+  library setup time                                                            -0.0187     10.5532
+  data required time                                                                        10.5532
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5532
+  data arrival time                                                                        -10.5946
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0415
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/u_red_q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U7/ZN (CKND2D0)                                            0.3190      2.1147 r    (727.15,376.28)
+  u_impl/u_core/u_tcu/U32/ZN (MUX2ND0)                                           0.3105      2.4252 f    (717.25,363.72)
+  u_impl/u_core/HFSBUF_155889_20447/Z (CKBD2)                                    0.3127      2.7380 f    (712.65,352.90)
+  u_impl/u_core/HFSINV_155660_20446/ZN (INVD1)                                   0.5065      3.2444 r    (445.32,313.32)
+  u_impl/u_core/ropt_inst_48387/Z (CKBD0)                                        0.4224      3.6668 r    (447.09,225.08)
+  u_impl/u_core/ropt_inst_48386/Z (CKBD2)                                        0.4259      4.0927 r    (443.95,127.90)
+  u_impl/u_core/HFSBUF_117571_20437/Z (CKBD3)                                    0.4827      4.5754 r    (348.58,147.69)
+  u_impl/u_core/HFSINV_113630_20434/ZN (CKND2)                                   0.4061      4.9815 f    (203.03,160.19)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/U6/ZN (CKND2D0)                           0.2965      5.2780 r    (203.65,160.28)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/U25/ZN (CKND0)                            0.2068      5.4848 f    (209.45,162.12)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/U33/ZN (OAI221D0)                         0.1936      5.6783 r    (215.61,165.59)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/ctmTdsLR_1_23664/ZN (OAI221D1)            0.4882      6.1665 f    (203.18,158.50)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/HFSINV_11_11938/ZN (CKND0)          0.2746      6.4411 r    (178.35,77.48)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U15/CO (FA1D0)           0.3462      6.7873 r    (165.91,66.58)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U14/CO (FA1D0)           0.1580      6.9453 r    (164.91,61.42)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U13/CO (FA1D0)           0.1702      7.1156 r    (165.51,62.98)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U12/CO (FA1D0)           0.1649      7.2804 r    (157.51,66.58)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U11/CO (FA1D0)           0.1581      7.4385 r    (156.11,62.98)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U10/CO (FA1D0)           0.1620      7.6005 r    (151.11,62.98)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U9/CO (FA1D0)            0.1677      7.7682 r    (152.51,66.58)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U8/CO (FA1D0)            0.1578      7.9260 r    (156.51,68.62)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U7/CO (FA1D0)            0.1529      8.0789 r    (156.11,70.18)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U6/CO (FA1D0)            0.1581      8.2370 r    (156.11,72.22)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/intadd_167_U5/S (FA1D0)             0.2111      8.4480 f    (154.98,75.84)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/U48/ZN (OAI222D0)                   0.1794      8.6275 r    (152.29,77.61)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/copt_h_inst_27403/Z (DEL1)          1.7672     10.3947 r    (156.48,77.48)
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/u_red_q_reg_11_/D (DFCNQD1)         0.0000     10.3947 r    (156.75,79.17)
+  data arrival time                                                                         10.3947
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.5443     10.5443
+  u_impl/u_core/g_row_6__g_col_4__u_pe/u_sol/u_red_q_reg_11_/CP (DFCNQD1)        0.0000     10.5443 r    (155.72,79.30)
+  clock uncertainty                                                             -0.2000     10.3443
+  library setup time                                                             0.0196     10.3639
+  data required time                                                                        10.3639
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.3639
+  data arrival time                                                                        -10.3947
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0307
+
+
+
+  Startpoint: u_impl/black_valid_q_reg_34_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/q_reg_10_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.7776      0.7776
+
+  u_impl/black_valid_q_reg_34_/CP (DFCNQD1)                                      0.0000      0.7776 r    (604.92,226.90)
+  u_impl/black_valid_q_reg_34_/Q (DFCNQD1)                                       0.4646      1.2422 r    (609.09,226.91)
+  u_impl/U1662/ZN (ND4D1)                                                        0.3477      1.5899 f    (543.64,225.09)
+  u_impl/U1665/ZN (NR4D0)                                                        0.3365      1.9264 r    (489.96,219.80)
+  u_impl/HFSBUF_2_1080/Z (CKBD0)                                                 0.4462      2.3726 r    (487.31,237.72)
+  u_impl/U1674/ZN (ND4D0)                                                        0.4630      2.8356 f    (481.56,338.50)
+  u_impl/HFSBUF_2_1086/Z (CKBD2)                                                 0.3342      3.1698 f    (505.15,342.10)
+  u_impl/U1675/ZN (NR4D0)                                                        0.2908      3.4606 r    (705.44,392.60)
+  u_impl/U447/ZN (ND4D0)                                                         0.4209      3.8815 f    (718.24,390.69)
+  u_impl/U1676/ZN (NR3D1)                                                        0.5507      4.4322 r    (695.20,385.26)
+  u_impl/U467/ZN (ND2D2)                                                         0.5880      5.0202 f    (560.89,370.94)
+  u_impl/U1678/ZN (NR4D8)                                                        0.6237      5.6440 r    (547.42,574.21)
+  u_impl/u_core/HFSBUF_84248_20698/Z (CKBD3)                                     0.3881      6.0321 r    (509.38,588.72)
+  u_impl/u_core/HFSBUF_83977_20665/Z (CKBD4)                                     0.4182      6.4503 r    (215.25,513.10)
+  u_impl/u_core/HFSBUF_70040_20663/Z (CKBD2)                                     0.5333      6.9836 r    (292.75,142.30)
+  u_impl/u_core/HFSBUF_66256_20658/Z (BUFFD1)                                    0.5485      7.5321 r    (322.52,163.90)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/U3/ZN (NR2XD1)                    0.3797      7.9118 f    (306.94,165.91)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/U6/ZN (NR2D0)                     0.1701      8.0819 r    (301.45,171.01)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/ropt_mt_inst_50427/Z (CKBD0)      0.4468      8.5287 r    (302.69,171.08)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/U10/Z (AO222D0)                   0.3130      8.8416 r    (306.15,181.80)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/copt_h_inst_38862/Z (DEL1)        1.7055     10.5471 r    (302.52,181.89)
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/q_reg_10_/D (DFCNQD1)             0.0000     10.5471 r    (301.75,179.98)
+  data arrival time                                                                         10.5471
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7505     10.7505
+  u_impl/u_core/g_row_5__g_col_1__u_pe/u_r_red/q_reg_10_/CP (DFCNQD1)            0.0000     10.7505 r    (300.72,180.10)
+  clock uncertainty                                                             -0.2000     10.5505
+  library setup time                                                            -0.0282     10.5224
+  data required time                                                                        10.5224
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5224
+  data arrival time                                                                        -10.5471
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0248
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_red_q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4233      1.0082 r    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1411      1.1494 f    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2576      1.4070 f    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3412      1.7482 r    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4769      2.2251 r    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4672      2.6924 f    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                   0.3955      3.0878 r    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                 0.4027      3.4905 r    (137.22,475.29)
+  u_impl/u_core/HFSBUF_122231_21198/Z (CKBD1)                                    0.4879      3.9784 r    (136.09,475.30)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_ctrl/U1/Z (AO22D0)                      0.4217      4.4001 r    (149.84,450.10)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/HFSINV_1468_17907/ZN (CKND1)              0.3323      4.7325 f    (215.65,450.12)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/U27/Z (MUX2D0)                            0.3164      5.0489 r    (217.72,450.21)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/U30/ZN (OAI222D0)                         0.2760      5.3249 f    (214.31,444.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/ctmTdsLR_1_22510/ZN (OAI221D0)            0.4389      5.7638 r    (210.21,444.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/HFSBUF_43_6384/Z (CKBD0)                  0.4701      6.2338 r    (170.11,444.68)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/U34/ZN (OAI221D0)                   0.3518      6.5856 f    (59.81,462.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U15/CO (FA1D0)            0.2525      6.8381 f    (60.91,462.58)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U14/CO (FA1D0)            0.1664      7.0045 f    (58.11,453.82)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U13/CO (FA1D0)            0.1674      7.1719 f    (57.11,451.78)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U12/CO (FA1D0)            0.1660      7.3379 f    (53.71,448.18)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U11/CO (FA1D0)            0.1738      7.5117 f    (55.31,446.62)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U10/CO (FA1D0)            0.1715      7.6832 f    (59.51,443.02)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U9/CO (FA1D0)             0.1801      7.8633 f    (60.31,440.98)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U8/CO (FA1D0)             0.1771      8.0404 f    (69.11,439.42)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U7/CO (FA1D0)             0.1679      8.2083 f    (72.51,437.38)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U6/CO (FA1D0)             0.1639      8.3722 f    (74.11,439.42)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/intadd_59_U5/S (FA1D0)              0.1913      8.5636 f    (73.98,443.04)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/U84/ZN (OAI222D0)                   0.1933      8.7569 r    (66.09,444.81)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/copt_h_inst_39561/Z (DEL1)          1.7819     10.5388 r    (67.12,444.69)
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_red_q_reg_11_/D (DFCNQD1)         0.0000     10.5388 r    (68.75,442.78)
+  data arrival time                                                                         10.5388
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7485     10.7485
+  u_impl/u_core/g_row_9__g_col_3__u_pe/u_sol/u_red_q_reg_11_/CP (DFCNQD1)        0.0000     10.7485 r    (67.72,442.90)
+  clock uncertainty                                                             -0.2000     10.5485
+  library setup time                                                            -0.0331     10.5155
+  data required time                                                                        10.5155
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5155
+  data arrival time                                                                        -10.5388
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0233
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_14_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4370      2.2327 f    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4573      2.6899 r    (722.89,381.70)
+  u_impl/u_core/HFSINV_123720_21205/ZN (CKND2)                                   0.3783      3.0682 f    (271.57,381.81)
+  u_impl/u_core/copt_gre_mt_inst_48382/Z (CKBD3)                                 0.3753      3.4435 f    (137.22,475.29)
+  u_impl/u_core/copt_gre_mt_inst_48379/Z (CKBD2)                                 0.4140      3.8575 f    (139.75,577.90)
+  u_impl/u_core/copt_gre_mt_inst_48378/Z (CKBD2)                                 0.3562      4.2138 f    (164.15,604.90)
+  u_impl/u_core/HFSINV_120974_21175/ZN (CKND0)                                   0.3937      4.6074 r    (142.65,644.52)
+  u_impl/u_core/HFSBUF_120929_21174/Z (BUFFD1)                                   0.4036      5.0110 r    (145.09,664.30)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_ctrl/U1/Z (AO22D0)                     0.5514      5.5624 r    (160.05,640.90)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/HFSINV_1334_17661/ZN (CKND1)             0.4421      6.0045 f    (159.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U29/ZN (CKND2D0)                         0.2521      6.2565 r    (160.15,599.48)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/U30/ZN (OAI222D0)                        0.3376      6.5942 f    (161.71,599.61)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/ctmTdsLR_1_22621/ZN (OAI221D0)           0.2510      6.8451 r    (156.99,597.59)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/copt_gre_mt_inst_48420/Z (CKBD0)         0.3896      7.2348 r    (154.09,597.72)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U35/ZN (OAI221D0)                  0.3549      7.5897 f    (102.01,665.99)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U15/CO (FA1D0)           0.2480      7.8377 f    (100.51,659.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U14/CO (FA1D0)           0.1647      8.0024 f    (95.31,656.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U13/CO (FA1D0)           0.1654      8.1678 f    (94.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U12/CO (FA1D0)           0.1712      8.3390 f    (89.91,655.42)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U11/CO (FA1D0)           0.1834      8.5223 f    (92.51,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U10/CO (FA1D0)           0.1768      8.6992 f    (90.91,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U9/CO (FA1D0)            0.1734      8.8725 f    (94.51,638.98)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U8/CO (FA1D0)            0.1765      9.0490 f    (97.11,641.02)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U7/CO (FA1D0)            0.1739      9.2229 f    (102.31,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U6/CO (FA1D0)            0.1709      9.3937 f    (107.51,642.58)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U5/CO (FA1D0)            0.1728      9.5666 f    (112.11,644.62)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U4/CO (FA1D0)            0.1708      9.7374 f    (113.51,648.22)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U3/CO (FA1D0)            0.1732      9.9105 f    (111.71,653.38)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/intadd_51_U2/S (FA1D0)             0.1999     10.1104 f    (115.18,656.97)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/U43/ZN (OAI222D0)                  0.2084     10.3188 r    (108.09,658.79)
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_14_/D (DFCNQD1)      0.0001     10.3189 r    (112.55,664.43)
+  data arrival time                                                                         10.3189
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.5444     10.5444
+  u_impl/u_core/g_row_11__g_col_1__u_pe/u_sol/u_black_q_reg_14_/CP (DFCNQD1)     0.0000     10.5444 r    (111.52,664.30)
+  clock uncertainty                                                             -0.2000     10.3444
+  library setup time                                                            -0.0445     10.2999
+  data required time                                                                        10.2999
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.2999
+  data arrival time                                                                        -10.3189
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0190
+
+
+
+  Startpoint: u_impl/u_core/u_tcu/state_q_reg_0_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/u_red_q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: WC
+  Scenario: FUNC_WC
+  Path Group: core_clk
+  Path Type: max
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.5849      0.5849
+
+  u_impl/u_core/u_tcu/state_q_reg_0_/CP (DFCNQD1)                                0.0000      0.5849 r    (721.52,376.30)
+  u_impl/u_core/u_tcu/state_q_reg_0_/Q (DFCNQD1)                                 0.4319      1.0168 f    (725.69,376.29)
+  u_impl/u_core/u_tcu/U12/ZN (CKND0)                                             0.1344      1.1513 r    (721.95,374.52)
+  u_impl/u_core/u_tcu/U9/Z (OR2D4)                                               0.2973      1.4486 r    (721.85,378.12)
+  u_impl/u_core/u_tcu/HFSINV_15065_20036/ZN (CKND2)                              0.3471      1.7957 f    (727.83,376.19)
+  u_impl/u_core/u_tcu/U3/ZN (IAO22D2)                                            0.4370      2.2327 f    (724.64,381.67)
+  u_impl/u_core/HFSINV_147292_21278/ZN (CKND6)                                   0.4573      2.6899 r    (722.89,381.70)
+  u_impl/u_core/HFSINV_146849_21134/ZN (CKND3)                                   0.5339      3.2239 f    (268.69,381.73)
+  u_impl/u_core/HFSBUF_146500_21052/Z (CKBD2)                                    0.4636      3.6875 f    (129.95,392.50)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_ctrl/U3/ZN (AOI22D0)                    0.2387      3.9262 r    (154.30,365.41)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/U24/Z (BUFFD1)                            0.3409      4.2671 r    (157.09,363.70)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/U11/ZN (INVD0)                            0.3609      4.6280 f    (166.42,354.70)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/U22/ZN (CKND2D0)                          0.2423      4.8703 r    (162.25,352.92)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/U34/ZN (OAI222D0)                         0.3759      5.2462 f    (163.11,351.21)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/ctmTdsLR_1_22507/ZN (OAI221D0)            0.3020      5.5482 r    (161.21,352.79)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/HFSBUF_32_6373/Z (CKBD0)                  0.4486      5.9969 r    (153.71,349.32)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/U36/ZN (OAI221D0)                   0.3858      6.3826 f    (31.19,341.99)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U15/CO (FA1D0)           0.3090      6.6916 f    (25.31,335.02)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U14/CO (FA1D0)           0.1917      6.8832 f    (14.89,322.18)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U13/CO (FA1D0)           0.1950      7.0783 f    (14.89,318.58)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U12/CO (FA1D0)           0.1997      7.2780 f    (30.91,318.58)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U11/CO (FA1D0)           0.1853      7.4633 f    (34.31,329.38)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U10/CO (FA1D0)           0.1781      7.6413 f    (26.31,327.82)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U9/CO (FA1D0)            0.1800      7.8213 f    (23.31,322.18)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U8/CO (FA1D0)            0.1671      7.9884 f    (23.71,331.42)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U7/CO (FA1D0)            0.1649      8.1533 f    (23.91,332.98)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U6/CO (FA1D0)            0.1694      8.3227 f    (23.71,336.58)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/intadd_159_U5/S (FA1D0)             0.1904      8.5131 f    (22.58,342.24)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/U48/ZN (OAI222D0)                   0.2299      8.7430 r    (19.31,338.39)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/copt_h_inst_27385/Z (DEL1)          1.7914     10.5345 r    (10.12,342.12)
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/u_red_q_reg_11_/D (DFCNQD1)         0.0000     10.5345 r    (11.75,344.03)
+  data arrival time                                                                         10.5345
+
+  clock core_clk (rise edge)                                                    10.0000     10.0000
+  clock network delay (propagated)                                               0.7610     10.7610
+  u_impl/u_core/g_row_8__g_col_2__u_pe/u_sol/u_red_q_reg_11_/CP (DFCNQD1)        0.0000     10.7610 r    (10.72,343.90)
+  clock uncertainty                                                             -0.2000     10.5610
+  library setup time                                                            -0.0276     10.5335
+  data required time                                                                        10.5335
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                        10.5335
+  data arrival time                                                                        -10.5345
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0010
+
+
+1

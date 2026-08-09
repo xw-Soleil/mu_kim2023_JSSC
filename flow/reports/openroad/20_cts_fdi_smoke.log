@@ -1,0 +1,48 @@
+Successfully read the arguments
+Summary of Options:
+
+Library      	 OAFILE_267332
+Cell         	 pde_chip_top_safe
+View         	 layout
+Cell Case    	 PRESERVE
+Cell Map     	 NO
+Layer Map    	 NO
+Object Map    	 NO
+Property Map    	 NO
+Log File     	 flow/reports/openroad/20_cts_fdi_smoke.log
+Template File     	 NO
+mapInfo File      	 NO
+annotateNets      TEXT	 NO
+annotateNets      PROPERTY	 NO
+annotateNets      ALL	 YES
+annotateNetType      PROPERTY	 NO
+InstAsProp      	 NO
+annotatePins      TEXT	 NO
+annotatePins      PROPERTY	 NO
+bboxlayer   	 NO
+prboundarylayer   	 NO
+instPinAsShape      	 NO
+noText      	 NO
+noPinShape      	 NO
+outputFills      	 NO
+flattenVias      	 NO
+viewList          	 NO
+cellGDS     	 NO
+waiverGDS     	 NO
+netProp     	 NO
+Lef files:  /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef 
+Def files:  flow/results/openroad/20_cts.def 
+
+
+
+************** Summary Report ************************
+
+
+Command Line executed   :: fdi2gds  -system LEFDEF -lef /ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b/Back_End/lef/tcbn65lp_200a/lef/tcbn65lp_6lmT1.lef -def flow/results/openroad/20_cts.def -outFile flow/results/openroad/20_cts_abstract_smoke.gds   -logFile flow/reports/openroad/20_cts_fdi_smoke.log -outformat GDS
+
+
+
+
+Total Elapsed Time      :: 1 Seconds
+Peak Virtual Memory     :: 2.00 MB
+

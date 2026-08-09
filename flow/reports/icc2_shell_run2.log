@@ -1,0 +1,25 @@
+
+# Compatibility launcher for ICC2 O-2018.06-SP1.
+# The release does not accept the newer grouped "netlist unbound" check name;
+# map only that early link check to the release's default check_design command
+# and pass every stage-specific check through unchanged.
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+/home/sxw/PDE/pdeMujunjie/flow/icc2
+set REPO_ROOT [file normalize [file join $SCRIPT_DIR ../..]]
+/home/sxw/PDE/pdeMujunjie
+set ::env(PDE_ICC2_DESIGN_LIB)   [file join $REPO_ROOT flow work icc2 pde_chip_top_safe_run2.dlib]
+/home/sxw/PDE/pdeMujunjie/flow/work/icc2/pde_chip_top_safe_run2.dlib
+rename check_design pde_native_check_design
+Error: command cannot be renamed
+        Use error_info for more info. (CMD-013)
+Information: script '/home/sxw/PDE/pdeMujunjie/flow/icc2/pnr_compat_v1.tcl'
+        stopped at line 11 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"rename check_design pde_native_check_design"
+ -- End Extended Error Info
+icc2_shell> Maximum memory usage for this session: 126.09 MB
+CPU usage for this session:      5 seconds (  0.00 hours)
+Elapsed time for this session:      5 seconds (  0.00 hours)
+Thank you for using IC Compiler II.

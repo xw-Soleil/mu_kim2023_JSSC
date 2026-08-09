@@ -1,0 +1,1597 @@
+=== 续跑尝试 1/25 开始 Sun 02 Aug 2026 01:22:27 AM CST ===
+
+Segmentation fault encountered. (Bad read from 0x1fa7ccc8d0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_214293.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=3
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 135174776992800 135173839167992 135173772600089 135173772625860 135173772644949 135173772645563 135173772656004 1272790861 1272800989 1274644649 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 135173838676099 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_03e42bafc90650b032fa3057ad0013ac+125
+QKUEv77W8tmB3ON+93
+TWV0FYI9QlDt2H4+777
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000214293.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 214293 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 1 结束 Sun 02 Aug 2026 01:22:30 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 2/25 开始 Sun 02 Aug 2026 01:22:30 AM CST ===
+
+Segmentation fault encountered. (Bad read from 0x2997c408c0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_214428.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=3
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 130149840360480 130148901495288 130148838380313 130148838406084 130148838425173 130148838425787 130148838436228 1272790861 1272800989 1274644649 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 130148901003395 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_03e42bafc90650b032fa3057ad0013ac+125
+QKUEv77W8tmB3ON+93
+TWV0FYI9QlDt2H4+777
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000214428.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 214428 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 2 结束 Sun 02 Aug 2026 01:22:34 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 3/25 开始 Sun 02 Aug 2026 01:22:34 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 85899345920 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 132652483879741'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x69a48c900)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_214576.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 132653489316896 132652550758904 132652483879705 132652483905476 132652483924565 132652483925179 132652483935620 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 132652550267011 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000214576.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 214576 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 3 结束 Sun 02 Aug 2026 01:22:38 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 4/25 开始 Sun 02 Aug 2026 01:22:38 AM CST ===
+
+Segmentation fault encountered. (Bad read from 0x32aa8268f0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_214729.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 132532862067744 132531924673016 132531857814297 132531857840068 132531857859157 132531857859771 132531857870212 1272790861 1272800989 1274644649 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 132531924181123 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_03e42bafc90650b032fa3057ad0013ac+125
+QKUEv77W8tmB3ON+93
+TWV0FYI9QlDt2H4+777
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000214729.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 214729 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 4 结束 Sun 02 Aug 2026 01:22:42 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 5/25 开始 Sun 02 Aug 2026 01:22:42 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 335007457280 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 124313955746621'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x147a0968d8)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_214930.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=3
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 124314961118240 124314022748664 124313955746585 124313955772356 124313955791445 124313955792059 124313955802500 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 124314022256771 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000214930.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 214930 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 5 结束 Sun 02 Aug 2026 01:22:46 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 6/25 开始 Sun 02 Aug 2026 01:22:46 AM CST ===
+
+Segmentation fault encountered. (Bad read from 0x3d7bebe8d0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215059.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 134667308356640 134666370327032 134666297156377 134666297182148 134666297201237 134666297201851 134666297212292 1272790861 1272800989 1274644649 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 134666369835139 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_03e42bafc90650b032fa3057ad0013ac+125
+QKUEv77W8tmB3ON+93
+TWV0FYI9QlDt2H4+777
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215059.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215059 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 6 结束 Sun 02 Aug 2026 01:22:50 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 7/25 开始 Sun 02 Aug 2026 01:22:50 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 141733928960 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 132885341422397'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x167c9d48c8)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215201.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 132886345757728 132885408031224 132885341422361 132885341448132 132885341467221 132885341467835 132885341478276 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 132885407539331 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215201.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215201 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 7 结束 Sun 02 Aug 2026 01:22:54 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 8/25 开始 Sun 02 Aug 2026 01:22:54 AM CST ===
+
+Segmentation fault encountered. (Bad read from 0x359c164900)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215345.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 128525586027552 128524648882680 128524581745433 128524581771204 128524581790293 128524581790907 128524581801348 1272790861 1272800989 1274644649 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 128524648390787 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_03e42bafc90650b032fa3057ad0013ac+125
+QKUEv77W8tmB3ON+93
+TWV0FYI9QlDt2H4+777
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215345.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215345 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 8 结束 Sun 02 Aug 2026 01:22:58 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 9/25 开始 Sun 02 Aug 2026 01:22:58 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 133143994368 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 128265766314813'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x347c18e8d0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215488.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 128266770732064 128265833062904 128265766314777 128265766340548 128265766359637 128265766360251 128265766370692 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 128265832571011 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215488.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215488 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 9 结束 Sun 02 Aug 2026 01:23:02 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 10/25 开始 Sun 02 Aug 2026 01:23:02 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 73014444032 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 134855947006781'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x3f7b1128f0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215692.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=3
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 134856951268384 134856013685240 134855947006745 134855947032516 134855947051605 134855947052219 134855947062660 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 134856013193347 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215692.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215692 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 10 结束 Sun 02 Aug 2026 01:23:06 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 11/25 开始 Sun 02 Aug 2026 01:23:06 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 184683601920 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 123971018830653'
+MEM Fatal: Out of memory (MEM-1)
+
+Segmentation fault encountered. (Bad read from 0x2f91a908c0)
+
+Stack trace for crashing thread
+-------------------------------
+
+A detailed stack trace has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/Synopsys_stack_trace_215838.txt.
+
+The tool has just encountered a fatal error:
+
+If you encountered this fatal error when using the most recent
+Synopsys release, submit the above stack trace and a test case that
+reproduces the problem to the Synopsys Support Center by using
+Enter A Call at http://solvnet.synopsys.com/EnterACall.
+
+* For information about the latest software releases, go to the Synopsys
+  SolvNet Release Library at http://solvnet.synopsys.com/ReleaseLibrary.
+
+* For information about required Operating System patches, go to
+  http://www.synopsys.com/support
+
+
+Fatal: Internal system error, cannot recover.
+Error code=11
+CPU time=4
+
+Release = 'W-2024.09'  Architecture = 'linux64'  Program = 'IC Compiler II'
+Exec = '/home/soleil/synopsys/icc2/W-2024.09/linux64/nwtn/bin/dgcom_exec'
+
+'1315545141 1268302314 123972023145504 123971085967864 123971018830617 123971018856388 123971018875477 123971018876091 123971018886532 1272792045 1272802093 1274645077 1272797325 1274627362 1274016960 1274021619 1271360609 1271443960 1271445542 1271447459 1271413955 1271423158 1271426658 1308098954 1308099873 1308106503 1309984233 1310001428 324336231 324347142 123971085475971 324268078'
+SNPSee_72fe6ee5e6adf88ac107a01d196ffb8ed40842348ffb0f8b+36
+SNPSee_9ea8dbbd5e74784445edf9ed12a0bc4777b489dcaefdb88f6aa47f4097fccf5e+124
+SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+2069
+SNPSee_11b97cddff68b62dc89843a99710a483+984
+funlockfile+96
+malloc_usable_size+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_get_userdata+72
+udev_enumerate_scan_devices+660
+SNPSee_955c06274531ad4e4be4c986042ff99b+125
+gnnQ9OntNZrAIUb+93
+TWV0FYI9QlDt2H4+1205
+c5gZqoQbpz1HzLP+45
+K2MJvUS0SnauVB+626
+KSmjJrtmFGE89nx+48
+Vi9wVDbIr1poz5K+131
+SNPSee_0383044e5b1421740a80857cac84f694+177
+SNPSee_5e54eaa1df739f6ed4c1ff24a0986ee6+424
+q4B4ASScVBC3CiY+182
+qtnTU2IV8TBvb6+195
+c6obzhUAjviQHlJ+2051
+S6d9TcUheexaJHD+454
+scl_lc_checkout+1314
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6d70e1779ef0e6414dd3fa23ba41c827a5de0a618bf6dd0671e79b086362c82c0e+170
+SNPSee_aac57d44e163568190759c9cfe85637039e17ffb72971525d84d5d5c49b98b81017535bd6d7312d380987a70ea4cf9401944000080f1664a40aaedccd7e97dc149a76ce49a78b4fc4840ea1191941adcb98a26accd453ddbf38e998d2ed3723baf15f060d233793dec7ff51f448411709dc38e9ffa411e8f8efa25e90966adf5+49
+SNPSee_aac57d44e163568190759c9cfe856370ae4235c295d94f6df6c1024e1eceb5d2218b8aef9faa42bfb2d446ff1b00d0810193cc1c5a4a23aaf93239c0660ab7fa472a1c7004d64121e3b3da7ed4e790992df34f2ed621d7fd39d4ab35ca711c51+1047
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f830d5bf4b8974e747b53590f44785f4a89f60cece70e10e1f40e2a34e0182f044+265
+SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+212
+SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+18919
+main+4086
+__libc_start_main+243
+SNPSee_d06eed713327be76+46
+
+A snapshot of runtime data has been captured in /home/soleil/code/DigitalIC/PDE/pdeMujunjie/crte_000215838.txt
+/home/soleil/synopsys/icc2/W-2024.09/bin/icc2_shell: line 380: 215838 Segmentation fault      (core dumped) ${CONTAINER} ${REAL_EXEC_NAME} -root_path ${SYNOPSYS_ROOT} ${ARGS}
+=== 续跑尝试 11 结束 Sun 02 Aug 2026 01:23:10 AM CST ===
+[retry] SCL 签 license 时段错误，重来…
+=== 续跑尝试 12/25 开始 Sun 02 Aug 2026 01:23:10 AM CST ===
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 107374182400 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 126812856922941'
+MEM Fatal: Out of memory (MEM-1)
+
+
+The tool has just run out of memory:
+
+Memory allocated = 105 MB, Request size = 283467841536 bytes.
+
+'1320109883 1320124019 1320127342 1320128946 1320100506 1320101405 1320105856 126812856922941'
+MEM Fatal: Out of memory (MEM-1)
+
+
+
+                              IC Compiler II (TM)
+
+                  Version W-2024.09 for linux64 - Aug 26, 2024
+  This release has significant feature enhancements. Please review the Release
+                       Notes associated with this release.
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+# 续跑：布线（route_opt）已经完成并 save_block，dlib 里是完整的布线后数据。
+# 流程死在下一步 create_stdcell_fillers（"Filler FILL64 has no site def set"），
+# 这里从那一步接着往下跑，不重做 place/CTS/route。
+#
+# 尾部代码不手抄，直接从 pnr.tcl 里按注释锚点切出来 eval —— 保证和主流程一致，
+# pnr.tcl 改了这里自动跟着改。
+#
+# 环境变量由 flow/local/env_local.sh 提供。
+# PDE_SKIP_FILLERS=1 可以跳过填充单元，先把报告和 GDS 出出来。
+set TOP $env(PDE_TOP)
+pde_chip_top_safe
+set REPO_ROOT $env(PDE_REPO_ROOT)
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie
+set RESULT_DIR [file join $REPO_ROOT flow results icc2]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2
+set REPORT_DIR [file join $REPO_ROOT flow reports icc2]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/reports/icc2
+set GDS_MAP $env(PDE_GDS_MAP)
+/home/soleil/code/DigitalIC/stdlib/tsmc65/tcbn65lp_200b/Back_End/milkyway/tcbn65lp_200a/gdsout_3X1Z.map
+set GDS_MAP_FORMAT $env(PDE_GDS_MAP_FORMAT)
+icc_default
+file mkdir $RESULT_DIR $REPORT_DIR
+# 与 pnr.tcl 中同名过程保持一致
+proc connect_named_pg_pins {} {
+  set vdd_pins [get_pins -hierarchical -physical_context -quiet */VDD]
+  set vss_pins [get_pins -hierarchical -physical_context -quiet */VSS]
+  if {[sizeof_collection $vdd_pins] == 0} {
+    error "No physical VDD pins were found; verify the RVT NDM and netlist link"
+  }
+  if {[sizeof_collection $vss_pins] == 0} {
+    error "No physical VSS pins were found; verify the RVT NDM and netlist link"
+  }
+  connect_pg_net -net VDD $vdd_pins
+  connect_pg_net -net VSS $vss_pins
+}
+open_lib $env(PDE_ICC2_DESIGN_LIB)
+Information: Loading library file '/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/work/icc2/pde_chip_top_safe.dlib' (FILE-007)
+Information: Loading library file '/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/work/icc2/ref_from_server/tcbn65lp_6lmT1.ndm' (FILE-007)
+{pde_chip_top_safe.dlib}
+# 续跑必须先 open_block：get_blocks 只匹配已经打开的 block，
+# 而这里的 block 是上一次 run_pnr.sh 里 save_block 存进 dlib 的（list_blocks 能看到
+# pde_chip_top_safe.design），不 open 的话 get_blocks 返回空。
+set blk ""
+foreach cand [list ${TOP}.design $TOP] {
+  if {![catch {set blk [open_block $cand]}] && $blk ne ""} {
+    puts "PDE_FINISH: 打开 block '$cand'"
+    break
+  }
+}
+Information: User units loaded from library 'tcbn65lp_6lmT1' (LNK-040)
+Opening block 'pde_chip_top_safe.dlib:pde_chip_top_safe.design' in edit mode
+PDE_FINISH: 打开 block 'pde_chip_top_safe.design'
+if {$blk eq ""} {
+  error "打不开 block，dlib 里有的是：[list_blocks]"
+}
+current_block $blk
+{pde_chip_top_safe.dlib:pde_chip_top_safe.design}
+link_block
+Using libraries: pde_chip_top_safe.dlib tcbn65lp_6lmT1
+Visiting block pde_chip_top_safe.dlib:pde_chip_top_safe.design
+Design 'pde_chip_top_safe' was successfully linked.
+1
+puts "PDE_FINISH: block=[get_object_name [current_block]]"
+PDE_FINISH: block=pde_chip_top_safe.dlib:pde_chip_top_safe.design
+set FILLER_MASTERS {FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1}
+FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1
+set filler_patterns {}
+foreach filler_master $FILLER_MASTERS {
+  lappend filler_patterns "*/$filler_master"
+}
+set FILLER_CELLS [get_lib_cells -quiet $filler_patterns]
+{tcbn65lp_6lmT1/FILL64/frame tcbn65lp_6lmT1/FILL32/frame tcbn65lp_6lmT1/FILL16/frame tcbn65lp_6lmT1/FILL8/frame tcbn65lp_6lmT1/FILL4/frame tcbn65lp_6lmT1/FILL2/frame tcbn65lp_6lmT1/FILL1/frame}
+puts "PDE_FINISH: filler_cells=[sizeof_collection $FILLER_CELLS]"
+PDE_FINISH: filler_cells=7
+# ---- 切出 pnr.tcl 从填充单元开始的尾部 ----
+set src [file join $REPO_ROOT flow icc2 pnr.tcl]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/icc2/pnr.tcl
+set fh [open $src r]
+file31
+set body [read $fh]
+# ICC2 place-and-route flow for pde_chip_top_safe on TSMC65LP RVT 6LM-T1.
+# Run with: icc2_shell -f flow/icc2/pnr.tcl
+
+proc env_or_default {name fallback} {
+  if {[info exists ::env($name)] && [string trim $::env($name)] ne ""} {
+    return $::env($name)
+  }
+  return $fallback
+}
+
+proc require_regular_file {path description} {
+  if {![file exists $path] || ![file isfile $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_path {path description} {
+  if {![file exists $path] || ![file readable $path]} {
+    error "$description is missing or unreadable: $path"
+  }
+}
+
+proc require_command {name} {
+  if {[llength [info commands $name]] == 0} {
+    error "Required ICC2 command is unavailable in this release: $name"
+  }
+}
+
+proc require_one_lib_cell {master} {
+  set matches [get_lib_cells -quiet "*/$master"]
+  if {[sizeof_collection $matches] == 0} {
+    error "Required RVT library master is absent from the NDM: $master"
+  }
+  return $matches
+}
+
+proc connect_named_pg_pins {} {
+  set vdd_pins [get_pins -hierarchical -physical_context -quiet */VDD]
+  set vss_pins [get_pins -hierarchical -physical_context -quiet */VSS]
+  if {[sizeof_collection $vdd_pins] == 0} {
+    error "No physical VDD pins were found; verify the RVT NDM and netlist link"
+  }
+  if {[sizeof_collection $vss_pins] == 0} {
+    error "No physical VSS pins were found; verify the RVT NDM and netlist link"
+  }
+  connect_pg_net -net VDD $vdd_pins
+  connect_pg_net -net VSS $vss_pins
+}
+
+set SCRIPT_DIR [file dirname [file normalize [info script]]]
+set REPO_ROOT [file normalize [env_or_default PDE_REPO_ROOT \
+  [file join $SCRIPT_DIR .. ..]]]
+set TOP [env_or_default PDE_TOP pde_chip_top_safe]
+
+set RVT_ROOT "/ssd0/PDKs/TSMC65nm/STDCELL/std/STD_Cell/tcbn65lp_200b"
+set RVT_MW [file join $RVT_ROOT Back_End milkyway tcbn65lp_200a]
+
+set NETLIST [file normalize [env_or_default PDE_DC_NETLIST \
+  [file join $REPO_ROOT flow results dc ${TOP}.v]]]
+set SDC [file normalize [env_or_default PDE_DC_SDC \
+  [file join $REPO_ROOT flow results dc ${TOP}.sdc]]]
+set REF_NDM [file normalize [env_or_default PDE_REF_NDM \
+  [file join $REPO_ROOT flow work icc2 ref tcbn65lp_6lmT1.ndm]]]
+set TLU_WORST [env_or_default PDE_TLUPLUS_MAX \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcworst_top1.tluplus]]
+set TLU_BEST [env_or_default PDE_TLUPLUS_MIN \
+  [file join $RVT_MW techfiles tluplus cln65lp_1p06m+alrdl_rcbest_top1.tluplus]]
+set TLU_MAP [env_or_default PDE_TLUPLUS_MAP \
+  [file join $RVT_MW techfiles tluplus star.map_6M]]
+set GDS_MAP [env_or_default PDE_GDS_MAP \
+  [file join $RVT_MW gdsout_3X1Z.map]]
+set GDS_MAP_FORMAT [env_or_default PDE_GDS_MAP_FORMAT icc_default]
+
+set WORK_DIR [file join $REPO_ROOT flow work icc2]
+set RESULT_DIR [file join $REPO_ROOT flow results icc2]
+set REPORT_DIR [file join $REPO_ROOT flow reports icc2]
+set DESIGN_LIB [file normalize [env_or_default PDE_ICC2_DESIGN_LIB \
+  [file join $WORK_DIR ${TOP}.dlib]]]
+
+foreach item [list \
+  [list $NETLIST "DC gate-level netlist"] \
+  [list $SDC "DC SDC"] \
+  [list $TLU_WORST "RC-worst TLU+"] \
+  [list $TLU_BEST "RC-best TLU+"] \
+  [list $TLU_MAP "6M TLU+ layer map"] \
+  [list $GDS_MAP "RVT stream-out map"]] {
+  require_regular_file [lindex $item 0] [lindex $item 1]
+}
+require_path $REF_NDM "RVT reference NDM"
+
+file mkdir $WORK_DIR
+file mkdir $RESULT_DIR
+file mkdir $REPORT_DIR
+if {[file exists $DESIGN_LIB]} {
+  error "Refusing to overwrite existing ICC2 design library: $DESIGN_LIB"
+}
+
+puts "PDE_ICC2: top=$TOP"
+puts "PDE_ICC2: netlist=$NETLIST"
+puts "PDE_ICC2: sdc=$SDC"
+puts "PDE_ICC2: ref_ndm=$REF_NDM"
+
+create_lib -use_technology_lib $REF_NDM -ref_libs [list $REF_NDM] $DESIGN_LIB
+read_verilog -top $TOP [list $NETLIST]
+current_block $TOP
+link_block
+
+redirect -file [file join $REPORT_DIR link_check.rpt] {
+  check_design -checks {netlist unbound}
+}
+
+# Build one functional mode and explicit WC/BC timing/RC corners.  The NDM was
+# created with matching uppercase process labels in create_ndm.tcl.
+remove_scenarios -all
+remove_modes -all
+remove_corners -all
+create_mode FUNC
+create_corner WC
+create_corner BC
+create_scenario -mode FUNC -corner WC -name FUNC_WC
+create_scenario -mode FUNC -corner BC -name FUNC_BC
+
+current_mode FUNC
+read_sdc $SDC
+set_process_label WC -corners [get_corners WC]
+set_process_label BC -corners [get_corners BC]
+
+read_parasitic_tech -tlup $TLU_WORST -layermap $TLU_MAP -name RC_WORST
+read_parasitic_tech -tlup $TLU_BEST -layermap $TLU_MAP -name RC_BEST
+set_parasitic_parameters -corners [get_corners WC] \
+  -early_spec RC_WORST -late_spec RC_WORST
+set_parasitic_parameters -corners [get_corners BC] \
+  -early_spec RC_BEST -late_spec RC_BEST
+
+set_scenario_status [get_scenarios FUNC_WC] \
+  -active true -setup true -hold false \
+  -max_transition true -max_capacitance true \
+  -leakage_power true -dynamic_power true
+set_scenario_status [get_scenarios FUNC_BC] \
+  -active true -setup false -hold true \
+  -max_transition true -max_capacitance true \
+  -leakage_power false -dynamic_power false
+current_scenario FUNC_WC
+
+# Constrain signal routing to the six-layer stack.  M5 is horizontal and M6
+# vertical in the selected foundry TF/LEF.
+foreach layer_name {M1 M3 M4 M5 M6} {
+  if {[sizeof_collection [get_layers -quiet $layer_name]] == 0} {
+    error "Required routing layer is missing from 6LM-T1 technology: $layer_name"
+  }
+}
+set_ignored_layers -min_routing_layer M1 -max_routing_layer M6
+
+# Square, 55%-utilized core.  The 10 um core-to-die margin contains the two-net
+# ring with the conservative baseline widths below.
+initialize_floorplan -control_type core -shape R -side_ratio {1.0 1.0} \
+  -core_utilization 0.55 -core_offset 10.0
+set_block_pin_constraints -self -allowed_layers [get_layers {M3 M4}] \
+  -corner_keepout_num_tracks 2 -pin_spacing 0.4 -allow_feedthroughs false
+place_pins -self
+
+# This design has no pad ring or qualified supply-pin locations.  Create named
+# PG nets and connect every RVT leaf PG pin; do not invent pad cells or bumps.
+if {[sizeof_collection [get_nets -quiet VDD]] == 0} {
+  create_net -power VDD
+} else {
+  set_attribute [get_nets VDD] net_type power
+}
+if {[sizeof_collection [get_nets -quiet VSS]] == 0} {
+  create_net -ground VSS
+} else {
+  set_attribute [get_nets VSS] net_type ground
+}
+connect_named_pg_pins
+
+# Guard the ICC2 pattern API and the concrete layer/cell assumptions before PG
+# compilation.  Widths/spacing are an implementation baseline, not an IR/EM-
+# signed-off grid; update them only from a qualified power-budget analysis.
+foreach pg_command {create_pg_ring_pattern create_pg_std_cell_conn_pattern set_pg_strategy compile_pg} {
+  require_command $pg_command
+}
+if {[catch {
+  create_pg_ring_pattern PDE_CORE_RING \
+    -horizontal_layer M5 -vertical_layer M6 \
+    -horizontal_width 1.6 -vertical_width 1.6 \
+    -horizontal_spacing 0.8 -vertical_spacing 0.8
+  set_pg_strategy PDE_CORE_RING_STRATEGY -core \
+    -pattern {{name: PDE_CORE_RING} {nets: {VDD VSS}} {offset: {2.0 2.0}}}
+  compile_pg -strategies {PDE_CORE_RING_STRATEGY}
+
+  # Standard-cell rails must follow the M1 power pins; M5/M6 form the ring.
+  create_pg_std_cell_conn_pattern PDE_STDCELL_RAILS \
+    -layers {M1} -mark_as_follow_pin true
+  set_pg_strategy PDE_STDCELL_RAIL_STRATEGY -core \
+    -pattern {{name: PDE_STDCELL_RAILS} {nets: {VDD VSS}}} \
+    -extension {{stop: innermost_ring}}
+  compile_pg -strategies {PDE_STDCELL_RAIL_STRATEGY}
+} pg_error]} {
+  error "PG pattern compilation failed; verify the foundry via rules and qualified grid dimensions: $pg_error"
+}
+connect_named_pg_pins
+save_block
+
+# Do not invent tap/endcap masters: the installed library contains variants,
+# but no project/foundry-approved tap/endcap selection or spacing rule was
+# supplied.  This omission is explicit and must be resolved before tapeout.
+puts "PDE_ICC2_WARNING: tap/endcap insertion intentionally omitted pending approved masters/rules"
+
+set ANTENNA_CELLS [require_one_lib_cell ANTENNA]
+set FILLER_MASTERS {FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1}
+set filler_patterns {}
+foreach filler_master $FILLER_MASTERS {
+  require_one_lib_cell $filler_master
+  lappend filler_patterns "*/$filler_master"
+}
+set FILLER_CELLS [get_lib_cells -quiet $filler_patterns]
+set_lib_cell_purpose -include optimization $ANTENNA_CELLS
+set_lib_cell_purpose -include none $FILLER_CELLS
+
+# Enable the documented O-2018.06-SP1 antenna flow and the real RVT diode.
+set_app_options -name route.detail.antenna -value true
+set_app_options -name route.detail.diode_libcell_names -value {ANTENNA}
+set_app_options -name route.detail.insert_diodes_during_routing -value true
+set_app_options -name route.detail.antenna_fixing_preference -value use_diodes
+set_app_options -name route.detail.diode_insertion_mode -value new
+
+redirect -file [file join $REPORT_DIR pre_place_check.rpt] {
+  check_design -checks pre_placement_stage
+}
+place_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_cts_check.rpt] {
+  check_design -checks pre_clock_tree_stage
+}
+clock_opt
+save_block
+
+redirect -file [file join $REPORT_DIR pre_route_check.rpt] {
+  check_design -checks pre_route_stage
+}
+route_auto
+route_opt
+save_block
+
+# Fill every legal row gap using only the explicitly verified RVT FILL family.
+create_stdcell_fillers -lib_cells $FILLER_CELLS -prefix PDE_FILLER_
+connect_named_pg_pins
+save_block
+
+redirect -file [file join $REPORT_DIR final_design.rpt] {
+  report_design -all
+}
+redirect -file [file join $REPORT_DIR final_qor.rpt] {
+  report_qor -nosplit
+}
+redirect -file [file join $REPORT_DIR final_setup_timing.rpt] {
+  report_timing -delay_type max -scenarios [get_scenarios FUNC_WC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_hold_timing.rpt] {
+  report_timing -delay_type min -scenarios [get_scenarios FUNC_BC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_constraints.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $REPORT_DIR final_power.rpt] {
+  report_power -scenarios [get_scenarios FUNC_WC] -verbose -nosplit
+}
+redirect -file [file join $REPORT_DIR final_utilization.rpt] {
+  report_utilization -verbose
+}
+redirect -file [file join $REPORT_DIR final_congestion.rpt] {
+  report_congestion -mode summary -nosplit
+}
+redirect -file [file join $REPORT_DIR final_clock_qor.rpt] {
+  report_clock_qor -all -nosplit
+}
+redirect -file [file join $REPORT_DIR final_legality.rpt] {
+  check_legality -verbose
+}
+redirect -file [file join $REPORT_DIR final_pg_connectivity.rpt] {
+  check_pg_connectivity -nets [get_nets {VDD VSS}] \
+    -check_std_cell_pins all -check_block_pins none -check_pad_pins none
+}
+redirect -file [file join $REPORT_DIR final_routes.rpt] {
+  check_routes -open_net true -drc true -antenna true
+}
+redirect -file [file join $REPORT_DIR final_lvs.rpt] {
+  check_lvs -checks all -max_errors 200
+}
+
+set FINAL_GDS [file join $RESULT_DIR ${TOP}.gds]
+set FINAL_DEF [file join $RESULT_DIR ${TOP}.def]
+set FINAL_NETLIST [file join $RESULT_DIR ${TOP}.postroute.v]
+set FINAL_WC_SPEF [file join $RESULT_DIR ${TOP}.WC.spef]
+set FINAL_BC_SPEF [file join $RESULT_DIR ${TOP}.BC.spef]
+
+write_verilog -include all $FINAL_NETLIST
+write_def $FINAL_DEF
+write_parasitics -format spef -corner WC -output $FINAL_WC_SPEF
+write_parasitics -format spef -corner BC -output $FINAL_BC_SPEF
+write_gds -hierarchy all -lib_cell_view layout -long_names \
+  -output_pin all -fill include -layer_map $GDS_MAP \
+  -layer_map_format $GDS_MAP_FORMAT $FINAL_GDS
+
+save_block
+save_lib
+puts "PDE_ICC2_DONE gds=$FINAL_GDS def=$FINAL_DEF netlist=$FINAL_NETLIST"
+
+close $fh
+set anchor "# Fill every legal row gap"
+# Fill every legal row gap
+set pos [string first $anchor $body]
+9171
+if {$pos < 0} {
+  error "在 pnr.tcl 里找不到锚点 '$anchor'，脚本可能已改动"
+}
+set tail [string range $body $pos end]
+# Fill every legal row gap using only the explicitly verified RVT FILL family.
+create_stdcell_fillers -lib_cells $FILLER_CELLS -prefix PDE_FILLER_
+connect_named_pg_pins
+save_block
+
+redirect -file [file join $REPORT_DIR final_design.rpt] {
+  report_design -all
+}
+redirect -file [file join $REPORT_DIR final_qor.rpt] {
+  report_qor -nosplit
+}
+redirect -file [file join $REPORT_DIR final_setup_timing.rpt] {
+  report_timing -delay_type max -scenarios [get_scenarios FUNC_WC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_hold_timing.rpt] {
+  report_timing -delay_type min -scenarios [get_scenarios FUNC_BC] \
+    -max_paths 50 -sort_by slack -physical -nosplit
+}
+redirect -file [file join $REPORT_DIR final_constraints.rpt] {
+  report_constraints -all_violators -nosplit
+}
+redirect -file [file join $REPORT_DIR final_power.rpt] {
+  report_power -scenarios [get_scenarios FUNC_WC] -verbose -nosplit
+}
+redirect -file [file join $REPORT_DIR final_utilization.rpt] {
+  report_utilization -verbose
+}
+redirect -file [file join $REPORT_DIR final_congestion.rpt] {
+  report_congestion -mode summary -nosplit
+}
+redirect -file [file join $REPORT_DIR final_clock_qor.rpt] {
+  report_clock_qor -all -nosplit
+}
+redirect -file [file join $REPORT_DIR final_legality.rpt] {
+  check_legality -verbose
+}
+redirect -file [file join $REPORT_DIR final_pg_connectivity.rpt] {
+  check_pg_connectivity -nets [get_nets {VDD VSS}] \
+    -check_std_cell_pins all -check_block_pins none -check_pad_pins none
+}
+redirect -file [file join $REPORT_DIR final_routes.rpt] {
+  check_routes -open_net true -drc true -antenna true
+}
+redirect -file [file join $REPORT_DIR final_lvs.rpt] {
+  check_lvs -checks all -max_errors 200
+}
+
+set FINAL_GDS [file join $RESULT_DIR ${TOP}.gds]
+set FINAL_DEF [file join $RESULT_DIR ${TOP}.def]
+set FINAL_NETLIST [file join $RESULT_DIR ${TOP}.postroute.v]
+set FINAL_WC_SPEF [file join $RESULT_DIR ${TOP}.WC.spef]
+set FINAL_BC_SPEF [file join $RESULT_DIR ${TOP}.BC.spef]
+
+write_verilog -include all $FINAL_NETLIST
+write_def $FINAL_DEF
+write_parasitics -format spef -corner WC -output $FINAL_WC_SPEF
+write_parasitics -format spef -corner BC -output $FINAL_BC_SPEF
+write_gds -hierarchy all -lib_cell_view layout -long_names \
+  -output_pin all -fill include -layer_map $GDS_MAP \
+  -layer_map_format $GDS_MAP_FORMAT $FINAL_GDS
+
+save_block
+save_lib
+puts "PDE_ICC2_DONE gds=$FINAL_GDS def=$FINAL_DEF netlist=$FINAL_NETLIST"
+
+if {[info exists env(PDE_SKIP_FILLERS)] && $env(PDE_SKIP_FILLERS) eq "1"} {
+  # 只掐掉 create_stdcell_fillers 那一行，后面的 connect/save/报告/写出全部保留
+  set n [regsub -all -- {create_stdcell_fillers[^\n]*\n} $tail \
+         "puts \"PDE_FINISH: 按 PDE_SKIP_FILLERS=1 跳过填充单元\"\n" tail]
+  puts "PDE_FINISH: 跳过填充单元（改写 $n 处）"
+}
+PDE_FINISH: 跳过填充单元（改写 1 处）
+set patched [file join $REPO_ROOT flow work icc2 finish.patched.tcl]
+/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/work/icc2/finish.patched.tcl
+set fh [open $patched w]
+file31
+puts -nonewline $fh $tail
+close $fh
+puts "PDE_FINISH: 尾部写到 $patched，开始执行"
+PDE_FINISH: 尾部写到 /home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/work/icc2/finish.patched.tcl，开始执行
+source $patched
+PDE_FINISH: 按 PDE_SKIP_FILLERS=1 跳过填充单元
+Information: The command 'save_block' cleared the undo history. (UNDO-016)
+Information: Saving block 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'
+****************************************
+Report : Data Mismatches
+Version: W-2024.09
+Date   : Sun Aug  2 01:25:30 2026
+****************************************
+No mismatches exist on the design.
+Information: Fill shapes with 'active_fill' purpose will be skipped from output DEF. (DEFW-032)
+---------------------------------------
+Number of Written DEF Constructs
+---------------------------------------
+VERSION                        : 1
+DIVIDERCHAR                    : 1
+BUSBITCHARS                    : 1
+DESIGN                         : 1
+UNITS                          : 1
+PROPERTYDEFINITIONS            : 1
+DIEAREA                        : 1
+ROW                            : 481
+TRACKS                         : 14
+VIAS                           : 10
+COMPONENTS                     : 112970
+PINS                           : 59
+PINPROPERTIES                  : 57
+SPECIALNETS                    : 52622
+NETS                           : 117279
+Information: The command 'write_parasitics' cleared the undo history. (UNDO-016)
+Information: Design pde_chip_top_safe has 117285 nets, 0 global routed, 117283 detail routed. (NEX-024)
+NEX: extract design pde_chip_top_safe
+Information: batch extract takes 0.00 seconds, elapse 0.00 seconds (NEX-015)
+Information: The stitching and editing of coupling caps is turned OFF for design 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'. (TIM-125)
+NEX: write corner ID 0 parasitics to /home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.WC.spef.RC_WORST_125.spef 
+spefName /home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.WC.spef.RC_WORST_125.spef, corner name WC 
+NEX: write_parasitics command finished
+Information: Design pde_chip_top_safe has 117285 nets, 0 global routed, 117283 detail routed. (NEX-024)
+NEX: extract design pde_chip_top_safe
+Information: batch extract takes 0.00 seconds, elapse 0.00 seconds (NEX-015)
+Information: The stitching and editing of coupling caps is turned OFF for design 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'. (TIM-125)
+NEX: write corner ID 1 parasitics to /home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.BC.spef.RC_BEST_125.spef 
+spefName /home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.BC.spef.RC_BEST_125.spef, corner name BC 
+NEX: write_parasitics command finished
+Warning: Technology layer for layer number 189, does not exist. Ignoring the layer-map entry at line 255. (GDS-045)
+Warning: Technology layer for layer number 189, does not exist. Ignoring the layer-map entry at line 256. (GDS-045)
+Warning: Technology layer for layer number 189, does not exist. Ignoring the layer-map entry at line 257. (GDS-045)
+Warning: Technology layer for layer number 191, does not exist. Ignoring the layer-map entry at line 260. (GDS-045)
+Warning: Technology layer for layer number 192, does not exist. Ignoring the layer-map entry at line 261. (GDS-045)
+Warning: Technology layer for layer number 193, does not exist. Ignoring the layer-map entry at line 262. (GDS-045)
+Warning: Technology layer for layer number 194, does not exist. Ignoring the layer-map entry at line 263. (GDS-045)
+Warning: Technology layer for layer number 195, does not exist. Ignoring the layer-map entry at line 264. (GDS-045)
+Warning: Technology layer for layer number 196, does not exist. Ignoring the layer-map entry at line 265. (GDS-045)
+Warning: Technology layer for layer number 197, does not exist. Ignoring the layer-map entry at line 266. (GDS-045)
+Warning: Technology layer for layer number 198, does not exist. Ignoring the layer-map entry at line 267. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 270. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 271. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 272. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 273. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 274. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 275. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 276. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 277. (GDS-045)
+Warning: Technology layer for layer number 204, does not exist. Ignoring the layer-map entry at line 278. (GDS-045)
+Warning: Technology layer for layer number 254, does not exist. Ignoring the layer-map entry at line 291. (GDS-045)
+Warning: Technology layer for layer number 254, does not exist. Ignoring the layer-map entry at line 292. (GDS-045)
+Warning: Technology layer for layer number 254, does not exist. Ignoring the layer-map entry at line 293. (GDS-045)
+Warning: Technology layer for layer number 254, does not exist. Ignoring the layer-map entry at line 294. (GDS-045)
+Warning: Technology layer for layer number 254, does not exist. Ignoring the layer-map entry at line 295. (GDS-045)
+Warning: The user specified view ' layout' for lib-cell 'DFCNQD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI221D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI211D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKAN2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MOAI22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DFSNQD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND2D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR2D4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MUX2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI22D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI31D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DEL1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AN4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI211D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR3D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MAOI22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI31D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IND2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IND4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI221D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI221D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IOA21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI32D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR2D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IOA22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR2XD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI22D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND4D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IOA22D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR2XD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI22D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA211D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI211XD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD8' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI211XD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO22D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO21D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO222D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR2XD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MUX2ND0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MUX4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'FA1D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'XNR4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'EDFCNQD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IAO21D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI211D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI222D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI21D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IAO21D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR2XD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'XOR3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI222D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'HA1D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD6' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AN3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AN4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKMUX2D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD6' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IND4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR2XD2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR2D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI21D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND6' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI222D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKMUX2D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI222D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI221D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO21D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD8' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI211D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD16' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI32D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DEL005' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKAN2D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AN4D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND8' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI33D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IND3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO221D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND3D3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKMUX2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO211D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND12' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND16' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'MAOI22D4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKBD12' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DEL02' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'FA1D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'XNR4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD12' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD16' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD8' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD12' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'BUFFD2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD6' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR4D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IAO22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND4D4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DFQD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DFQD2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DFQD4' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'CKND2D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA32D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR2XD1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INVD3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI31D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND4D3' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR3D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND3D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO211D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI31D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AOI31D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA211D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'NR4D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'INR4D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA22D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND3D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OAI22D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AO31D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'ND2D0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'IAO22D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR4D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA22D2' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OA21D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'OR3D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'AN3D1' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DEL0' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'DEL015' is not available. (GDS-034)
+Warning: The user specified view ' layout' for lib-cell 'TIEL' is not available. (GDS-034)
+Information: Saving block 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'
+Saving library 'pde_chip_top_safe.dlib'
+PDE_ICC2_DONE gds=/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.gds def=/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.def netlist=/home/soleil/code/DigitalIC/PDE/pdeMujunjie/flow/results/icc2/pde_chip_top_safe.postroute.v
+Information: 17399 out of 17409 POW-046 messages were not printed due to limit 10 (after 'source' at finish.tcl:86) (MSG-3913)
+icc2_shell> Maximum memory usage for this session: 2100.96 MB
+Maximum memory usage for this session including child processes: 2100.96 MB
+CPU usage for this session:    165 seconds (  0.05 hours)
+Elapsed time for this session:    168 seconds (  0.05 hours)
+Thank you for using IC Compiler II.
+=== 续跑尝试 12 结束 Sun 02 Aug 2026 01:25:59 AM CST ===
+RESULT: OK
+total 757036
+drwxr-xr-x 2 soleil soleil      4096 Aug  2 01:25 .
+drwxrwxr-x 4 soleil soleil      4096 Aug  2 00:23 ..
+-rw-r--r-- 1 soleil soleil 263074773 Aug  2 01:25 pde_chip_top_safe.BC.spef.RC_BEST_125.spef
+-rw-r--r-- 1 soleil soleil       167 Aug  2 01:25 pde_chip_top_safe.BC.spef.spef_scenario
+-rw-r--r-- 1 soleil soleil 113996365 Aug  2 01:25 pde_chip_top_safe.def
+-rw-r--r-- 1 soleil soleil 117455192 Aug  2 01:25 pde_chip_top_safe.gds
+-rw-r--r-- 1 soleil soleil  19730801 Aug  2 01:25 pde_chip_top_safe.postroute.v
+-rw-r--r-- 1 soleil soleil 260917617 Aug  2 01:25 pde_chip_top_safe.WC.spef.RC_WORST_125.spef
+-rw-r--r-- 1 soleil soleil       168 Aug  2 01:25 pde_chip_top_safe.WC.spef.spef_scenario

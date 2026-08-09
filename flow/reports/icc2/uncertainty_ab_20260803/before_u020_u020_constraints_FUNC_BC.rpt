@@ -1,0 +1,92 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:37:10 2026
+****************************************
+
+   late_timing
+   -----------
+
+Warning: Scenario FUNC_BC is not configured for setup analysis: skipping. (UIC-058)
+Error: None of the specified scenarios are active for setup analysis. (UIC-057)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   early_timing
+   -----------
+
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_/D (DFCNQD1)   0.54 f   0.54   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_/D (DFCNQD1)   0.57 f   0.57   0.00  -0.00 core_clk FUNC_BC
+u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_5_/D (DFCNQD1)   0.48 f   0.48   0.00  -0.00 core_clk FUNC_BC
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+   max_transition                                                              
+                             Required        Actual                            
+   Net                      Transition     Transition        Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/n15368                0.36           0.44          -0.08  (VIOLATED) 
+     PIN : u_impl/U377/Z        0.36           0.44          -0.08  (VIOLATED) 
+     PIN : u_impl/HFSINV_1316_18520/I     0.36     0.44      -0.08  (VIOLATED) 
+
+   u_impl/load_red_flat[1937]     0.36         0.38          -0.02  (VIOLATED) 
+     PIN : u_impl/U6170/B2      0.36           0.38          -0.02  (VIOLATED) 
+     PIN : u_impl/red_shadow_reg_121__1_/Q     0.36     0.38    -0.02 (VIOLATED)
+     PIN : u_impl/U11996/B1     0.36           0.38          -0.02  (VIOLATED) 
+     PIN : u_impl/u_core/g_row_12__g_col_1__u_pe/u_r_red/U3/A2     0.36     0.38    -0.02 (VIOLATED)
+
+   u_impl/load_red_flat[2017]     0.36         0.37          -0.01  (VIOLATED) 
+     PIN : u_impl/U6170/A2      0.36           0.37          -0.01  (VIOLATED) 
+     PIN : u_impl/red_shadow_reg_126__1_/Q     0.36     0.37    -0.01 (VIOLATED)
+     PIN : u_impl/u_core/g_row_12__g_col_6__u_pe/u_r_red/U15/A2     0.36     0.37    -0.01 (VIOLATED)
+     PIN : u_impl/U9240/A1      0.36           0.37          -0.01  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 3
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   u_impl/n15368                0.03           0.04          -0.01  (VIOLATED) 
+     PIN : u_impl/U377/Z        0.03           0.04          -0.01  (VIOLATED) 
+
+   u_impl/load_red_flat[1937]     0.06         0.06          -0.00  (VIOLATED) 
+     PIN : u_impl/red_shadow_reg_121__1_/Q     0.06     0.06    -0.00 (VIOLATED)
+
+   u_impl/load_red_flat[2017]     0.06         0.06          -0.00  (VIOLATED) 
+     PIN : u_impl/red_shadow_reg_126__1_/Q     0.06     0.06    -0.00 (VIOLATED)
+
+   u_impl/n3915_CDR1            0.02           0.02          -0.00  (VIOLATED) 
+     PIN : u_impl/U5798/ZN      0.02           0.02          -0.00  (VIOLATED) 
+
+   u_impl/n3337_CDR1            0.02           0.02          -0.00  (VIOLATED) 
+     PIN : u_impl/U5268/ZN      0.02           0.02          -0.00  (VIOLATED) 
+
+   u_impl/u_core/g_row_5__g_col_0__u_pe/u_r_red/n7     0.03     0.03    -0.00 (VIOLATED)
+     PIN : u_impl/u_core/g_row_5__g_col_0__u_pe/u_r_red/U4/ZN     0.03     0.03    -0.00 (VIOLATED)
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 6
+
+
+   Mode: FUNC Corner: BC
+   Scenario: FUNC_BC
+  ---------------------------------------------------------------------------
+   Number of min_capacitance violation(s): 0
+
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 9
+1

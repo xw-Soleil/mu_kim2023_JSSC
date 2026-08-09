@@ -1,0 +1,49 @@
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+u_impl/U277/ZN                           32    329   -297 (VIOLATED)
+clkbuf_11_1792__f_clk/Z                  32     34     -2 (VIOLATED)
+clkbuf_11_855__f_clk/Z                   32     34     -2 (VIOLATED)
+clkbuf_11_1195__f_clk/Z                  32     33        (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+u_impl/U277/ZN                          0.05    1.69   -1.64 (VIOLATED)
+u_impl/u_core/U180/Z                    0.06    0.89   -0.83 (VIOLATED)
+u_impl/u_core/U179/Z                    0.06    0.85   -0.80 (VIOLATED)
+u_impl/u_core/U159/Z                    0.06    0.85   -0.79 (VIOLATED)
+u_impl/u_core/U9/Z                      0.06    0.82   -0.76 (VIOLATED)
+u_impl/u_core/U6/Z                      0.06    0.82   -0.76 (VIOLATED)
+u_impl/u_core/U10/Z                     0.06    0.82   -0.76 (VIOLATED)
+u_impl/u_core/U30/Z                     0.06    0.81   -0.76 (VIOLATED)
+u_impl/u_core/U158/Z                    0.06    0.76   -0.71 (VIOLATED)
+u_impl/u_core/U69/ZN                    0.03    0.73   -0.70 (VIOLATED)
+u_impl/u_core/U32/Z                     0.06    0.75   -0.69 (VIOLATED)
+u_impl/u_core/U8/Z                      0.06    0.75   -0.69 (VIOLATED)
+u_impl/u_core/U31/Z                     0.06    0.75   -0.69 (VIOLATED)
+u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_3_/Q    0.06    0.74   -0.68 (VIOLATED)
+u_impl/u_core/U33/Z                     0.06    0.73   -0.67 (VIOLATED)
+u_impl/u_core/u_tcu/U19/ZN              0.05    0.70   -0.65 (VIOLATED)
+u_impl/u_core/u_tcu/U3/Z                0.06    0.70   -0.64 (VIOLATED)
+u_impl/u_core/U25/Z                     0.06    0.70   -0.64 (VIOLATED)
+u_impl/u_core/U29/Z                     0.06    0.70   -0.64 (VIOLATED)
+u_impl/u_core/U68/ZN                    0.03    0.66   -0.63 (VIOLATED)
+u_impl/u_core/U123/Z                    0.03    0.66   -0.63 (VIOLATED)
+u_impl/u_core/u_tcu/u_bit_counter/count_o_reg_2_/Q    0.06    0.69   -0.63 (VIOLATED)
+u_impl/u_core/u_tcu/U7/Z                0.06    0.69   -0.63 (VIOLATED)
+u_impl/u_core/U147/Z                    0.03    0.66   -0.63 (VIOLATED)
+u_impl/u_core/U34/Z                     0.06    0.69   -0.63 (VIOLATED)
+u_impl/u_core/U7/Z                      0.06    0.68   -0.62 (VIOLATED)
+u_impl/u_core/U35/Z                     0.06    0.67   -0.62 (VIOLATED)
+u_impl/u_core/U129/Z                    0.03    0.64   -0.61 (VIOLATED)
+u_impl/u_core/U26/Z                     0.06    0.67   -0.61 (VIOLATED)
+u_impl/u_core/U118/Z                    0.06    0.67   -0.61 (VIOLATED)
+u_impl/U8477/Z                          0.06    0.67   -0.61 (VIOLATED)
+u_impl/u_core/U24/Z                     0.06    0.66   -0.60 (VIOLATED)
+u_impl/u_core/U28/Z                     0.06    0.66   -0.60 (VIOLATED)
+u_impl/u_core/U196/Z                    0.03    0.63   -0.60 (VIOLATED)
+u_impl/u_core/U27/Z                     0.06    0.66   -0.60 (VIOLATED)
+u_impl/u_core/U128/Z                    0.06    0.65   -0.59 (VIOLATED)

@@ -1,0 +1,4 @@
+[WARNING PDN-1042] Core voltage domain will be named "Core".
+[ERROR PDN-1032] Unable to find CORE_FIXED domain.
+application-specific initialization failed: can't read "auto_index(::tclreadline::ScriptCompleter)": no such element in array
+% 

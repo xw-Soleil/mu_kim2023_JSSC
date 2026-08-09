@@ -1,0 +1,117 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 10000
+        -slack_lesser_than 0.0000
+        -report_by design
+        -nosplit
+        -physical
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:37:11 2026
+****************************************
+
+  Startpoint: u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                                                        Incr        Path           Location
+  -------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                  0.0000      0.0000
+  clock network delay (propagated)                                            0.2985      0.2985
+
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_/CP (DFCNQD1)         0.0000      0.2985 r    (151.72,448.30)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_/Q (DFCNQD1)          0.1378      0.4362 f    (155.89,448.29)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/copt_h_inst_42572/Z (CKBD0)    0.0453      0.4816 f    (156.69,448.28)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/U9/Z (AO222D0)                 0.0624      0.5440 f    (161.05,444.60)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_/D (DFCNQD1)          0.0000      0.5440 f    (157.15,446.38)
+  data arrival time                                                                       0.5440
+
+  clock core_clk (rise edge)                                                  0.0000      0.0000
+  clock network delay (propagated)                                            0.3031      0.3031
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_/CP (DFCNQD1)         0.0000      0.3031 r    (156.12,446.50)
+  clock uncertainty                                                           0.2000      0.5031
+  library hold time                                                           0.0414      0.5446
+  data required time                                                                      0.5446
+  -------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                      0.5446
+  data arrival time                                                                      -0.5440
+  -------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                       -0.0005
+
+
+
+  Startpoint: u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.3324      0.3324
+
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_/CP (DFCNQD1)         0.0000      0.3324 r    (197.72,646.30)
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_/Q (DFCNQD1)          0.1164      0.4488 f    (201.89,646.29)
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/copt_h_inst_42727/Z (CKBD0)    0.0470      0.4957 f    (199.71,648.12)
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/U9/Z (AO222D0)                 0.0748      0.5705 f    (199.25,648.21)
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_/D (DFCNQD1)          0.0000      0.5705 f    (198.75,646.43)
+  data arrival time                                                                          0.5705
+
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.3362      0.3362
+  u_impl/u_core/g_row_11__g_col_7__u_pe/u_r_black/q_reg_11_/CP (DFCNQD1)         0.0000      0.3362 r    (197.72,646.30)
+  clock uncertainty                                                              0.2000      0.5362
+  library hold time                                                              0.0343      0.5705
+  data required time                                                                         0.5705
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                         0.5705
+  data arrival time                                                                         -0.5705
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0000
+
+
+
+  Startpoint: u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_6_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_5_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                                                           Incr        Path           Location
+  ----------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.2327      0.2327
+
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_6_/CP (DFCNQD1)       0.0000      0.2327 r    (316.72,10.90)
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_6_/Q (DFCNQD1)        0.1310      0.3637 f    (320.88,10.91)
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/U5/ZN (CKND0)                       0.0277      0.3914 r    (315.55,12.68)
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/copt_h_inst_30690/Z (DEL005)        0.0496      0.4410 r    (312.96,12.68)
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/U95/ZN (OAI222D0)                   0.0353      0.4763 f    (313.09,20.01)
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_5_/D (DFCNQD1)        0.0000      0.4763 f    (314.75,14.38)
+  data arrival time                                                                          0.4763
+
+  clock core_clk (rise edge)                                                     0.0000      0.0000
+  clock network delay (propagated)                                               0.2365      0.2365
+  u_impl/u_core/g_row_4__g_col_9__u_pe/u_sol/u_black_q_reg_5_/CP (DFCNQD1)       0.0000      0.2365 r    (313.72,14.50)
+  clock uncertainty                                                              0.2000      0.4365
+  library hold time                                                              0.0398      0.4763
+  data required time                                                                         0.4763
+  ----------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                         0.4763
+  data arrival time                                                                         -0.4763
+  ----------------------------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                                          -0.0000
+
+
+1

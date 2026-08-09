@@ -1,0 +1,60 @@
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[2651] net:u_impl/load_red_flat[2509] net:u_impl/load_red_flat[2596] net:u_impl/load_red_flat[2740] net:u_impl/load_red_flat[2745] net:u_impl/n3322 net:u_impl/n3476 net:u_impl/n4439 net:u_impl/n4634 net:u_impl/n4821 net:u_impl/n5273 net:u_impl/n6091 net:u_impl/n7280 net:u_impl/u_core/f8[160] net:u_impl/u_core/n681 net:u_impl/u_core/tx[146] net:u_impl/u_core/tx[150] net:clknet_6_6_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (276.0000, 480.0000) - (279.0000, 483.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/black_valid_q[163] net:u_impl/load_black_flat[2651] net:u_impl/load_red_flat[2509] net:u_impl/load_red_flat[2596] net:u_impl/load_red_flat[2740] net:u_impl/load_red_flat[2745] net:u_impl/n16004 net:u_impl/n3322 net:u_impl/n4439 net:u_impl/n4634 net:u_impl/n4821 net:u_impl/n5273 net:u_impl/n7280 net:u_impl/u_core/f8[160] net:u_impl/u_core/n681 net:u_impl/u_core/tx[146] net:u_impl/u_core/tx[150] net:clknet_6_6_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (288.0000, 480.0000) - (291.0000, 483.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/black_valid_q[144] net:u_impl/load_black_flat[2599] net:u_impl/load_black_flat[2602] net:u_impl/load_red_flat[1783] net:u_impl/load_red_flat[2347] net:u_impl/load_red_flat[2437] net:u_impl/load_red_flat[2775] net:u_impl/load_red_flat[2983] net:u_impl/load_red_flat[3000] net:u_impl/n5398 net:u_impl/u_core/g_row_16__g_col_3__u_pe/n13 net:u_impl/u_core/g_row_16__g_col_3__u_pe/n35 net:u_impl/u_core/g_row_16__g_col_3__u_pe/r_black_q[4] net:u_impl/u_core/g_row_16__g_col_3__u_pe/r_red_q[10] net:u_impl/u_core/g_row_16__g_col_3__u_pe/r_red_q[4] net:u_impl/u_core/g_row_16__g_col_3__u_pe/u_r_black/n8 net:u_impl/u_core/g_row_16__g_col_3__u_pe/u_r_black/n9 net:clknet_6_7_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (288.0000, 519.0000) - (291.0000, 522.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[1844] net:u_impl/load_black_flat[2533] net:u_impl/load_black_flat[2909] net:u_impl/load_red_flat[1779] net:u_impl/load_red_flat[2515] net:u_impl/load_red_flat[2548] net:u_impl/load_red_flat[2558] net:u_impl/load_red_flat[2578] net:u_impl/load_red_flat[2958] net:u_impl/load_red_flat[3086] net:u_impl/n15303 net:u_impl/n4472 net:u_impl/n474 net:u_impl/n6175 net:u_impl/n7275 net:clknet_6_18_0_clk
+	comment: capacity:16 usage:17 overflow:1
+	bbox = (291.0000, 633.0000) - (294.0000, 636.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[1222] net:u_impl/load_black_flat[1272] net:u_impl/load_black_flat[1366] net:u_impl/load_black_flat[3037] net:u_impl/load_red_flat[1237] net:u_impl/load_red_flat[1571] net:u_impl/load_red_flat[3039] net:u_impl/n1681 net:u_impl/n3513 net:u_impl/n3524 net:u_impl/n3794 net:u_impl/n5385 net:u_impl/n5395 net:u_impl/n5820 net:u_impl/n5821 net:u_impl/n6190 net:clknet_10_390_0_clk net:clknet_11_780__leaf_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (396.0000, 624.0000) - (399.0000, 627.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:rst_n net:u_impl/load_black_flat[1201] net:u_impl/load_black_flat[1252] net:u_impl/load_red_flat[1929] net:u_impl/load_red_flat[2018] net:u_impl/load_red_flat[2023] net:u_impl/load_red_flat[2029] net:u_impl/n1311 net:u_impl/n5742 net:u_impl/n5825 net:u_impl/n6165 net:u_impl/n6625 net:u_impl/n7015 net:u_impl/n7346 net:u_impl/u_core/n821 net:u_impl/u_core/tx[121] net:u_impl/u_core/g_row_12__g_col_0__u_pe/u_r_red/n34 net:clknet_6_25_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (420.0000, 708.0000) - (423.0000, 711.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[1201] net:u_impl/load_black_flat[1252] net:u_impl/load_red_flat[1929] net:u_impl/load_red_flat[2018] net:u_impl/load_red_flat[2023] net:u_impl/load_red_flat[2029] net:u_impl/n1311 net:u_impl/n5742 net:u_impl/n6165 net:u_impl/n6625 net:u_impl/n7015 net:u_impl/n7346 net:u_impl/u_core/n821 net:u_impl/u_core/tx[121] net:u_impl/u_core/g_row_12__g_col_0__u_pe/r_red_q[7] net:clknet_6_25_0_clk net:clknet_10_408_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (423.0000, 708.0000) - (426.0000, 711.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[1342] net:u_impl/load_black_flat[1462] net:u_impl/load_black_flat[1496] net:u_impl/load_black_flat[1607] net:u_impl/load_black_flat[1626] net:u_impl/load_black_flat[1630] net:u_impl/load_red_flat[1398] net:u_impl/load_red_flat[1612] net:u_impl/n5763 net:u_impl/n744 net:u_impl/n7539 net:u_impl/u_core/n797 net:u_impl/u_core/tx[124] net:u_impl/u_core/tx[125] net:u_impl/u_core/g_row_12__g_col_0__u_pe/read_value[2] net:clknet_6_25_0_clk
+	comment: capacity:16 usage:17 overflow:1
+	bbox = (435.0000, 738.0000) - (438.0000, 741.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[1207] net:u_impl/load_black_flat[1390] net:u_impl/load_black_flat[1474] net:u_impl/load_black_flat[1475] net:u_impl/load_red_flat[1365] net:u_impl/n1127 net:u_impl/n130 net:u_impl/n5650 net:u_impl/n5653 net:u_impl/n6894 net:u_impl/n7107 net:u_impl/u_core/n718 net:u_impl/u_core/n824 net:u_impl/u_core/tx[94] net:clknet_6_27_0_clk net:clknet_10_434_0_clk net:clknet_11_869__leaf_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (516.0000, 711.0000) - (519.0000, 714.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[10] net:u_impl/load_black_flat[153] net:u_impl/load_black_flat[2073] net:u_impl/load_red_flat[240] net:u_impl/n1362 net:u_impl/n1689 net:u_impl/n2897 net:u_impl/n3421 net:u_impl/n4053 net:u_impl/n574 net:u_impl/n6197 net:u_impl/u_core/tx[4] net:u_impl/u_core/g_row_1__g_col_4__u_pe/u_alu/n13 net:u_impl/u_core/g_row_1__g_col_4__u_pe/u_alu/n3 net:u_impl/u_core/g_row_1__g_col_4__u_pe/u_alu/n4 net:clknet_6_45_0_clk net:clknet_10_727_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (774.0000, 360.0000) - (777.0000, 363.0000) on Layer -
+violation type: Horizontal congestion
+	srcs: net:u_impl/load_black_flat[502] net:u_impl/load_red_flat[406] net:u_impl/load_red_flat[485] net:u_impl/load_red_flat[796] net:u_impl/load_red_flat[854] net:u_impl/n1243 net:u_impl/n1329 net:u_impl/n1412 net:u_impl/n1735 net:u_impl/n1898 net:u_impl/n3736 net:u_impl/n4083 net:u_impl/n4088 net:u_impl/n4283 net:u_impl/n4612 net:u_impl/n5034 net:u_impl/n6064 net:clknet_10_896_0_clk
+	comment: capacity:18 usage:19 overflow:1
+	bbox = (834.0000, 390.0000) - (837.0000, 393.0000) on Layer -
+violation type: Vertical congestion
+	srcs: net:u_impl/load_black_flat[1685] net:u_impl/load_black_flat[1689] net:u_impl/load_black_flat[1759] net:u_impl/load_black_flat[1761] net:u_impl/load_black_flat[2529] net:u_impl/load_black_flat[2530] net:u_impl/load_black_flat[2536] net:u_impl/load_black_flat[2547] net:u_impl/load_red_flat[1497] net:u_impl/load_red_flat[1672] net:u_impl/load_red_flat[1818] net:u_impl/load_red_flat[2730] net:u_impl/n1466 net:u_impl/n1952 net:u_impl/n2326 net:u_impl/n4333 net:u_impl/n5695 net:u_impl/n5762 net:u_impl/n5955 net:u_impl/n6086 net:u_impl/n6730 net:clknet_6_18_0_clk
+	comment: capacity:22 usage:23 overflow:1
+	bbox = (294.0000, 624.0000) - (297.0000, 627.0000) on Layer -
+violation type: Vertical congestion
+	srcs: net:u_impl/load_black_flat[2730] net:u_impl/load_black_flat[2815] net:u_impl/load_red_flat[1344] net:u_impl/load_red_flat[1527] net:u_impl/load_red_flat[2716] net:u_impl/load_red_flat[2718] net:u_impl/load_red_flat[3034] net:u_impl/load_red_flat[3045] net:u_impl/load_red_flat[3155] net:u_impl/load_red_flat[3156] net:u_impl/load_red_flat[3191] net:u_impl/n4172 net:u_impl/n4188 net:u_impl/n4332 net:u_impl/n516 net:u_impl/n6258 net:u_impl/n6451 net:u_impl/n7238 net:u_impl/n7292 net:u_impl/u_core/g_row_14__g_col_1__u_pe/r_red_q[6] net:u_impl/u_core/g_row_14__g_col_1__u_pe/r_red_q[8] net:u_impl/u_core/g_row_14__g_col_1__u_pe/u_r_red/n36 net:u_impl/u_core/g_row_14__g_col_1__u_pe/u_r_red/n8 net:clknet_6_13_0_clk net:clknet_10_215_0_clk
+	comment: capacity:26 usage:27 overflow:1
+	bbox = (327.0000, 498.0000) - (330.0000, 501.0000) on Layer -
+violation type: Vertical congestion
+	srcs: net:u_impl/load_black_flat[2826] net:u_impl/load_black_flat[3027] net:u_impl/load_red_flat[1975] net:u_impl/load_red_flat[2691] net:u_impl/load_red_flat[3164] net:u_impl/load_red_flat[3189] net:u_impl/n11342 net:u_impl/n1760 net:u_impl/n4729 net:u_impl/n4806 net:u_impl/n5381 net:u_impl/n5387 net:u_impl/n6251 net:u_impl/n6259 net:u_impl/n6267 net:u_impl/n6492 net:u_impl/n7320 net:u_impl/n7321 net:u_impl/n792 net:u_impl/n827 net:u_impl/n842 net:u_impl/n847 net:clknet_10_244_0_clk net:clknet_11_489__leaf_clk
+	comment: capacity:24 usage:25 overflow:1
+	bbox = (372.0000, 495.0000) - (375.0000, 498.0000) on Layer -
+violation type: Vertical congestion
+	srcs: net:u_impl/load_black_flat[1591] net:u_impl/load_black_flat[1921] net:u_impl/load_black_flat[1930] net:u_impl/load_red_flat[1383] net:u_impl/load_red_flat[1490] net:u_impl/load_red_flat[1580] net:u_impl/load_red_flat[1758] net:u_impl/load_red_flat[2011] net:u_impl/n1431 net:u_impl/n1813 net:u_impl/n4669 net:u_impl/n4893 net:u_impl/n5741 net:u_impl/n6839 net:u_impl/u_core/f4[142] net:u_impl/u_core/g_row_12__g_col_2__u_pe/n23 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n25 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n26 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n31 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n32 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n37 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n38 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n39 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n40 net:u_impl/u_core/g_row_12__g_col_2__u_pe/n41 net:clknet_6_24_0_clk
+	comment: capacity:26 usage:27 overflow:1
+	bbox = (405.0000, 642.0000) - (408.0000, 645.0000) on Layer -

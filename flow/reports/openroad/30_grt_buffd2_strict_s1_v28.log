@@ -1,0 +1,14 @@
+OpenROAD v2.0-17598-ga008522d8 
+Features included (+) or not (-): +Charts +GPU +GUI +Python : None
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+PDE_PRE_GRT_UNCONNECTED_PG_ITERMS=0
+[INFO PSM-0040] All shapes on net VDD are connected.
+[INFO PSM-0040] All shapes on net VSS are connected.
+PDE_grt_buffd2_strict_s1_v28_GUARDED_ZERO_SUPPLY=203
+Signal 11 received
+Stack trace:
+malloc_consolidate(): unaligned fastbin chunk detected
+Signal 6 received
+Stack trace:

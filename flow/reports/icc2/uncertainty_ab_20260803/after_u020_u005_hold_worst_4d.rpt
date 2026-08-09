@@ -1,0 +1,47 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by design
+        -nosplit
+        -physical
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:37:16 2026
+****************************************
+
+  Startpoint: u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_ (rising edge-triggered flip-flop clocked by core_clk)
+  Endpoint: u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_ (rising edge-triggered flip-flop clocked by core_clk)
+  Mode: FUNC
+  Corner: BC
+  Scenario: FUNC_BC
+  Path Group: core_clk
+  Path Type: min
+
+  Point                                                                        Incr        Path           Location
+  -------------------------------------------------------------------------------------------------------------------------
+  clock core_clk (rise edge)                                                  0.0000      0.0000
+  clock network delay (propagated)                                            0.2985      0.2985
+
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_/CP (DFCNQD1)         0.0000      0.2985 r    (151.72,448.30)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_12_/Q (DFCNQD1)          0.1378      0.4362 f    (155.89,448.29)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/copt_h_inst_42572/Z (CKBD0)    0.0453      0.4816 f    (156.69,448.28)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/U9/Z (AO222D0)                 0.0624      0.5440 f    (161.05,444.60)
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_/D (DFCNQD1)          0.0000      0.5440 f    (157.15,446.38)
+  data arrival time                                                                       0.5440
+
+  clock core_clk (rise edge)                                                  0.0000      0.0000
+  clock network delay (propagated)                                            0.3031      0.3031
+  u_impl/u_core/g_row_8__g_col_8__u_pe/u_r_red/q_reg_11_/CP (DFCNQD1)         0.0000      0.3031 r    (156.12,446.50)
+  clock uncertainty                                                           0.0500      0.3531
+  library hold time                                                           0.0414      0.3946
+  data required time                                                                      0.3945
+  -------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                      0.3945
+  data arrival time                                                                      -0.5440
+  -------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                             0.1495
+
+
+1

@@ -1,0 +1,144 @@
+Information: Timer using 8 threads
+****************************************
+Report : qor
+Design : pde_chip_top_safe
+Version: W-2024.09
+Date   : Mon Aug  3 20:34:13 2026
+****************************************
+Information: Corner WC: no PVT mismatches. (PVT-032)
+Information: Corner BC: no PVT mismatches. (PVT-032)
+Information: The stitching and editing of coupling caps is turned OFF for design 'pde_chip_top_safe.dlib:pde_chip_top_safe.design'. (TIM-125)
+Information: Design pde_chip_top_safe has 131293 nets, 0 global routed, 131291 detail routed. (NEX-024)
+Information: The RC mode used is DR for design 'pde_chip_top_safe'. (NEX-022)
+---extraction options---
+Corner: WC
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Corner: BC
+ late_cap_scale                : 1
+ late_res_scale                : 1
+ early_cap_scale               : 1
+ early_res_scale               : 1
+Global options:
+ reference_direction       : use_from_tluplus
+ real_metalfill_extraction : none
+ virtual_shield_extraction : true
+---app options---
+ host.max_cores                   : 8
+ extract.connect_open           : true
+ extract.enable_coupling_cap    : false
+Extracting design: pde_chip_top_safe 
+Warning: Net 'rst_n' is exceeding threshold (over 1000 pins) and will be skipped. (NEX-020)
+Information: coupling capacitance is lumped to ground. (NEX-030)
+Information: 131290 nets are successfully extracted. (NEX-028)
+Warning: Advanced receiver model has not been enabled for detailed routed design. (TIM-204)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 131291, routed nets = 131287, across physical hierarchy nets = 0, parasitics cached nets = 131287, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'FUNC_BC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Worst Hold Violation:             -0.00
+Total Hold Violation:             -0.00
+No. of Hold Violations:               4
+----------------------------------------
+
+Scenario           'FUNC_WC'
+Timing Path Group  'core_clk'
+----------------------------------------
+Levels of Logic:                     27
+Critical Path Length:             10.12
+Critical Path Slack:              -0.00
+Critical Path Clk Period:         10.00
+Total Negative Slack:             -0.00
+No. of Violating Paths:               1
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:           1605
+Hierarchical Port Count:          89648
+Leaf Cell Count:                 128254
+Buf/Inv Cell Count:               38847
+Buf Cell Count:                   26505
+Inv Cell Count:                   12342
+Combinational Cell Count:        104349
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:            23905
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       23905
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           297450.00
+Noncombinational Area:        182122.20
+Buf/Inv Area:                  94656.96
+Total Buffer Area:             80561.16
+Total Inverter Area:           14095.80
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                 3895048.19
+Net YLength:                 3506489.46
+----------------------------------------
+Cell Area (netlist):                         479572.20
+Cell Area (netlist and physical only):       731025.00
+Net Length:                  7401537.65
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:            131362
+Nets with Violations:                 8
+Max Trans Violations:                 0
+Max Cap Violations:                   8
+----------------------------------------
+
+1

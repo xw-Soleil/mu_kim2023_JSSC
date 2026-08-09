@@ -14,7 +14,7 @@ must agree on every single grid point.
 
 import sys, os
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'matlab'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from golden_model import solve
 
 

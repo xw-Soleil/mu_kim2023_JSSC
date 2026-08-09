@@ -41,7 +41,7 @@ Additional signed regressions:
     tb/            tb_pe_smoke tb_pde_top
     sim/           Makefile + filelists
     sim/ref/       golden_model.py dsm_sweep.py check_golden.py
-    doc/           design_notes.md / design_notes_zh.md   <-- read this first
+    docs/           design_notes.md / design_notes_zh.md   <-- read this first
 
 ## Key parameters
     USE_DSM        delta-sigma on/off

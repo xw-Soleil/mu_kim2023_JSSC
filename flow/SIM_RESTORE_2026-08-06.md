@@ -465,7 +465,7 @@ Normalized mappings used for this comparison:
 | `rtl/tb/` | `tb/` |
 | `rtl/reference/` | `sim/ref/` |
 | `rtl/sim/` | `sim/` |
-| `rtl/docs/` | `doc/` design-note files only |
+| `rtl/docs/` | `docs/` design-note files only |
 | `rtl/README.md` | `README.md` |
 
 Results:

@@ -34,12 +34,12 @@
 
 ### 0.1 这个项目是什么
 
-复现 JSSC'23 的 PDE(偏微分方程)加速器(Mu & Kim, *A Dynamic-Precision Bit-Serial Computing Hardware Accelerator for Solving Partial Differential Equations*,论文 PDF 在 `doc/`),并加入两项自己的优化:
+复现 JSSC'23 的 PDE(偏微分方程)加速器(Mu & Kim, *A Dynamic-Precision Bit-Serial Computing Hardware Accelerator for Solving Partial Differential Equations*,论文 PDF 在 `docs/`),并加入两项自己的优化:
 
 1. **红黑折叠**:红黑排序(red-black ordering)是解拉普拉斯类 PDE 的经典迭代着色方案——把网格点按棋盘染成红黑两色,同色点之间无数据依赖,可以并行更新。"折叠"指红黑两组共享同一套 PE(processing element)运算资源,用影子寄存器(设计里的 `red_shadow_reg`)保存另一色的状态,面积减半。
 2. **自适应精度 + Δ-Σ 误差反馈**:位串行(bit-serial)运算按位处理数据,精度可以逐次迭代动态调整;精度降低造成的舍入误差用 Δ-Σ(delta-sigma)调制的思路累积反馈回去(设计里的 `r_dsm` 模块),不让误差偏置累积。
 
-实现载体:`pde_chip_top_safe`(顶层 wrapper,内含 `pde_core` 的 20×20 PE 阵列),综合后约 12 万逻辑单元。RTL 16 个文件在 `src/`,testbench 在 `tb/`,golden 模型(Python,动态求解参考网格)在 `sim/ref/`。设计说明见 `doc/design_notes.md` / `doc/design_notes_zh.md`。
+实现载体:`pde_chip_top_safe`(顶层 wrapper,内含 `pde_core` 的 20×20 PE 阵列),综合后约 12 万逻辑单元。RTL 16 个文件在 `src/`,testbench 在 `tb/`,golden 模型(Python,动态求解参考网格)在 `sim/ref/`。设计说明见 `docs/design_notes.md` / `docs/design_notes_zh.md`。
 
 本仓库为个人学习用途(见 AGENTS.md 顶部声明),不外发、不商业化;PDK 与一切厂商交付物都在仓库外,永不入库。
 
@@ -99,7 +99,7 @@ RTL(src/,16 文件,SystemVerilog)
 
 ### 0.4 四天时间线(2026-08-05 → 08-08)
 
-按天记录发生了什么(commit 哈希见附录 C;8/5 及以前的 65nm 工作在 EDAServer 仓库与 `doc/worklogs/`,本地仓库从 8/6 起):
+按天记录发生了什么(commit 哈希见附录 C;8/5 及以前的 65nm 工作在 EDAServer 仓库与 `docs/worklogs/`,本地仓库从 8/6 起):
 
 | 日期 | 事件 |
 |---|---|
@@ -118,7 +118,7 @@ RTL(src/,16 文件,SystemVerilog)
 
 ## 第 1 章 起点:审计发现了什么
 
-本章证据出处:`doc/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md`(1,113 行,本地唯一的正式审计文档,审计 65nm ICC2/RVT 线)、`flow/OVERNIGHT_RECON_2026-08-06.md` 及其勘误附录(commit `33a3aa6`)。注意:HVT 线在 EDAServer 侧也做过对应核查,但**其审计文档未归档到本地**——本文引用 HVT 侧数字时会明确标注这一点。
+本章证据出处:`docs/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md`(1,113 行,本地唯一的正式审计文档,审计 65nm ICC2/RVT 线)、`flow/OVERNIGHT_RECON_2026-08-06.md` 及其勘误附录(commit `33a3aa6`)。注意:HVT 线在 EDAServer 侧也做过对应核查,但**其审计文档未归档到本地**——本文引用 HVT 侧数字时会明确标注这一点。
 
 ### 1.1 为什么要做独立审计
 
@@ -331,7 +331,7 @@ distrobox enter synopsys-focal -- sudo apt-get install -y libelf1:i386
 
 ## 第 4 章 65nm 为什么走不通
 
-本章证据出处:`flow/OVERNIGHT_RECON_2026-08-06.md`(库缺口普查 + 勘误)、`doc/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md`、`doc/worklogs/` (8/2–8/4 两份工作日志)、`flow/SIM_RESTORE_2026-08-06.md` §1.4(HVT 线网表溯源)。
+本章证据出处:`flow/OVERNIGHT_RECON_2026-08-06.md`(库缺口普查 + 勘误)、`docs/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md`、`docs/worklogs/` (8/2–8/4 两份工作日志)、`flow/SIM_RESTORE_2026-08-06.md` §1.4(HVT 线网表溯源)。
 
 ### 4.1 两条线各自是什么、走到了哪
 
@@ -924,7 +924,7 @@ pdeMujunjie/
 ├── sim/ref/         golden_model.py(动态参考解)+ dsm_sweep.py
 ├── sim/   仿真控制(Makefile + 5 个 .f + check_golden.py);
 │                   simv_*/csrc_* 等编译产物不入库
-├── doc/            design_notes(_zh).md、JSSC'23 论文 PDF、
+├── docs/            design_notes(_zh).md、JSSC'23 论文 PDF、
 │                   audits/(08-05 独立审计)、worklogs/(8/2–8/4 日志)、manifests/
 ├── flow/
 │   ├── dc/         65nm DC 脚本(synth.tcl 含四层解除,历史保留)
@@ -1043,7 +1043,7 @@ git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objec
 
 | 文件 | 一句话内容 |
 |---|---|
-| `doc/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md` | 65nm RVT 线独立审计:T/A/Z 三组判定 + P0 四条(第 1 章的原始出处) |
+| `docs/audits/ICC2_RVT_INDEPENDENT_AUDIT_20260805.md` | 65nm RVT 线独立审计:T/A/Z 三组判定 + P0 四条(第 1 章的原始出处) |
 | `flow/OVERNIGHT_RECON_2026-08-06.md` | 工具面普查(两机)+ 65nm 库缺口实证 + 08-07 勘误(local Calibre、PT/2023.2 实证) |
 | `flow/BASELINE_MANIFEST.md` | 65nm 交付物逐文件 sha256 冻结(审计 Z1 的回应) |
 | `flow/SIM_RESTORE_2026-08-06.md` | 仿真恢复三阶段:三方版本核对、网表溯源、VCS 修复、基准归档 |

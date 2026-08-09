@@ -8,8 +8,9 @@
 /flow/local_runs/
 /flow/innovus/*.tgz
 
-# flow/work/: track design library and scripts; exclude vendor standard-cell NDMs.
+# flow/work/: track scripts only; exclude design libraries and vendor NDMs.
 /flow/work/icc2/ref_*/
+/flow/work/**/*.dlib/
 
 # flow/reports/ and flow/results/ are tracked.
 # Large binaries in results/ (GDS, DEF, SPEF) are managed by Git LFS.

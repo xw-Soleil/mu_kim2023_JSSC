@@ -223,7 +223,7 @@ EDAServer 上全部存在,archive sha256
    - testbench 存在:`tb/` 5 个 SV + wave dump;
    - **`sim/` 目录不存在;全仓库没有任何 Makefile;`check_golden.py` 不存在**
      ——README"cd sim; make pe"的整套仿真入口在当前树中缺失(重组遗留)。
-   - golden model 在:`matlab/golden_model.py`、`dsm_sweep.py`。
+   - golden model 在:`sim/ref/golden_model.py`、`dsm_sweep.py`。
    - 可用仿真器:VCS(容器,license 见第五部分)、Verilator 5.008(host)。
    → 改 RTL 之前必须先恢复仿真跑法,否则改动无法回归验证。
 

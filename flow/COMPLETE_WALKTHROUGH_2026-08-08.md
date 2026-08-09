@@ -39,7 +39,7 @@
 1. **红黑折叠**:红黑排序(red-black ordering)是解拉普拉斯类 PDE 的经典迭代着色方案——把网格点按棋盘染成红黑两色,同色点之间无数据依赖,可以并行更新。"折叠"指红黑两组共享同一套 PE(processing element)运算资源,用影子寄存器(设计里的 `red_shadow_reg`)保存另一色的状态,面积减半。
 2. **自适应精度 + Δ-Σ 误差反馈**:位串行(bit-serial)运算按位处理数据,精度可以逐次迭代动态调整;精度降低造成的舍入误差用 Δ-Σ(delta-sigma)调制的思路累积反馈回去(设计里的 `r_dsm` 模块),不让误差偏置累积。
 
-实现载体:`pde_chip_top_safe`(顶层 wrapper,内含 `pde_core` 的 20×20 PE 阵列),综合后约 12 万逻辑单元。RTL 16 个文件在 `src/`,testbench 在 `tb/`,golden 模型(Python,动态求解参考网格)在 `matlab/`。设计说明见 `doc/design_notes.md` / `doc/design_notes_zh.md`。
+实现载体:`pde_chip_top_safe`(顶层 wrapper,内含 `pde_core` 的 20×20 PE 阵列),综合后约 12 万逻辑单元。RTL 16 个文件在 `src/`,testbench 在 `tb/`,golden 模型(Python,动态求解参考网格)在 `sim/ref/`。设计说明见 `doc/design_notes.md` / `doc/design_notes_zh.md`。
 
 本仓库为个人学习用途(见 AGENTS.md 顶部声明),不外发、不商业化;PDK 与一切厂商交付物都在仓库外,永不入库。
 
@@ -50,8 +50,8 @@
 ```text
 RTL(src/,16 文件,SystemVerilog)
    │
-   │ ① 功能仿真:VCS 回归(sim_restored/,8 个 make 目标)
-   │    输入:RTL + tb/ + matlab/golden_model.py(动态生成参考解)
+   │ ① 功能仿真:VCS 回归(sim/,8 个 make 目标)
+   │    输入:RTL + tb/ + sim/ref/golden_model.py(动态生成参考解)
    │    判据:8×testbench PASS + 8×check_golden PASS(逐格点整数精确比对)
    ▼
 ② 逻辑综合:Design Compiler(flow/dc28/synth28.tcl,容器内)
@@ -105,7 +105,7 @@ RTL(src/,16 文件,SystemVerilog)
 |---|---|
 | 08-05 | 65nm HVT/Innovus 线在 EDAServer 出最终 GDS(该仓库 commit `14591f95`);同日对 65nm ICC2/RVT 线执行独立审计,多项关键断言被证伪(第 1 章) |
 | 08-06 凌晨 | 隔夜勘察(overnight recon:工具面普查 + 交付物基线冻结);本地仓库建立(`2d18730` 基线、`04ad93d` 安全门禁、`f86c4cf` 指令桥) |
-| 08-06 白天 | 仿真恢复三阶段(`sim_restored/`,回归 8 目标全 PASS,tag `pre-reset-sync`);overnight recon + 基线清单提交(`70a1c01`) |
+| 08-06 白天 | 仿真恢复三阶段(`sim/`,回归 8 目标全 PASS,tag `pre-reset-sync`);overnight recon + 基线清单提交(`70a1c01`) |
 | 08-06 晚 | 复位同步器 RTL + SDC 四层解除,DC 65nm 验证 16,224 检查点全 MET(`57572a9`,tag `reset-fix-verified`);28nm 资料勘察(SURVEY 报告) |
 | 08-07 上午 | 28nm PDK 解压落地、ICC2 建库冒烟、DC28 基线(`8c77362`,tag `pdk28-dc-verified`) |
 | 08-07 下午 | ICC2 P&R 首次干净收敛,六项门禁全零(`08d19f1`,tag `pnr28-first-clean`) |
@@ -291,7 +291,7 @@ RTL(src/,16 文件,SystemVerilog)
 
 ### 3.4 golden 模型是动态生成,不是静态数据
 
-`check_golden.py` 每次运行时 import `matlab/golden_model.py` 现场求解参考网格,与仿真输出 `u_dyn.txt`/`u_fix.txt` 逐格点**整数精确**比对。好处:① 不存在"静态 golden 文件过期/被改"这类腐化途径;② 参考模型本身有独立哈希(`128c6169…`,与 EDAServer `rtl/reference/` 逐位相同),一条哈希就锚定了整个参考基准;③ 改边界条件/规模时参考自动跟随。代价是求解器的正确性要另行信任——它与论文模型的对拍属 RTL 开发期工作。
+`check_golden.py` 每次运行时 import `sim/ref/golden_model.py` 现场求解参考网格,与仿真输出 `u_dyn.txt`/`u_fix.txt` 逐格点**整数精确**比对。好处:① 不存在"静态 golden 文件过期/被改"这类腐化途径;② 参考模型本身有独立哈希(`128c6169…`,与 EDAServer `rtl/reference/` 逐位相同),一条哈希就锚定了整个参考基准;③ 改边界条件/规模时参考自动跟随。代价是求解器的正确性要另行信任——它与论文模型的对拍属 RTL 开发期工作。
 
 ### 3.5 VCS 起不来的诊断
 
@@ -570,11 +570,11 @@ TLU+ 是 Synopsys 的 RC 提取查找表(由 foundry ITF 生成);本 PDK 的 ITF
 
 ### 6.8 其他执行线的操作卡
 
-**仿真回归(sim_restored/)**
+**仿真回归(sim/)**
 
 ```bash
 distrobox enter synopsys-focal
-cd ~/code/DigitalIC/PDE/pdeMujunjie/sim_restored
+cd ~/code/DigitalIC/PDE/pdeMujunjie/sim
 make SYNOPSYS_ENV=$HOME/synopsys/env_synopsys_2024.sh all    # ~90 s
 make SYNOPSYS_ENV=$HOME/synopsys/env_synopsys_2024.sh clean
 ```
@@ -908,7 +908,7 @@ TSMC 交付形式:sbocv 包的 `.aocvm` 表(本 PDK 为 170a 版,CCS/ECSM 两口
 - **脚本**:`flow/dc28/`(综合)、`flow/icc2_28nm/`(11 个 stage 脚本,含全部教训固化)、`flow/signoff28/`(PT 双模式)、`flow/local/ snps_no_udev.sh`——全部环境变量化,换设计只动 env。
 - **库与补丁**(仓库外 `pdk28_bringup/`):HVH_t 时序 NDM、补丁 LEF、重生成 tf、porttext GDS map——28nm 任何新块直接可用。
 - **runset 配方**:三个 Calibre deck 的已批准编辑集(精度/开关/占位符 /FILTER),逐字 diff 在两轮 MANIFEST——新设计改两行路径即可复跑。
-- **验证基座**:`sim_restored/` 回归(90 s 全量)+ 动态 golden 模型。
+- **验证基座**:`sim/` 回归(90 s 全量)+ 动态 golden 模型。
 - **方法论**:审计规约(第 1 章)、字节级基准比对法(3.6)、坑集 (第 8 章)、本文档。
 
 ---
@@ -921,8 +921,8 @@ TSMC 交付形式:sbocv 包的 `.aocvm` 表(本 PDK 为 170a 版,CCS/ECSM 两口
 pdeMujunjie/
 ├── src/            RTL 16 文件(common/ pe/ pe_array/)——综合输入
 ├── tb/             testbench 6 文件(tb_pe_smoke、tb_pde_top、chip 三层)
-├── matlab/         golden_model.py(动态参考解)+ dsm_sweep.py
-├── sim_restored/   仿真控制(Makefile + 5 个 .f + check_golden.py);
+├── sim/ref/         golden_model.py(动态参考解)+ dsm_sweep.py
+├── sim/   仿真控制(Makefile + 5 个 .f + check_golden.py);
 │                   simv_*/csrc_* 等编译产物不入库
 ├── doc/            design_notes(_zh).md、JSSC'23 论文 PDF、
 │                   audits/(08-05 独立审计)、worklogs/(8/2–8/4 日志)、manifests/
@@ -974,7 +974,7 @@ distrobox enter synopsys-focal
 source ~/synopsys/env_synopsys_2024.sh
 
 # ---- 仿真回归(~90 s) ----
-cd sim_restored && make SYNOPSYS_ENV=$HOME/synopsys/env_synopsys_2024.sh all
+cd sim && make SYNOPSYS_ENV=$HOME/synopsys/env_synopsys_2024.sh all
 
 # ---- DC 综合(~400 s) ----
 PDE28_DC_OUTPUT_ROOT=$PWD/flow/local_runs/dc28_<tag> PDE28_CLOCK_PERIOD=6.0 \

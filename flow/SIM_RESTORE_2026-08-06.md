@@ -8,9 +8,9 @@ mismatches, and the pre-sync-baseline outputs are archived.
 
 Changes made in Stages 0-2:
 
-- Created `sim_restored/`.
+- Created `sim/`.
 - Copied seven simulation-control source files from the EDAServer working tree.
-- Stage 2: one-line `sim_restored/Makefile` edit (`dsm` target path), two
+- Stage 2: one-line `sim/Makefile` edit (`dsm` target path), two
   library packages reinstalled inside the `synopsys-focal` container, and the
   baseline archive under `local_artifacts/vcs/pre-sync-baseline/2026-08-06/`.
 - Created this report.
@@ -24,7 +24,7 @@ The existing unrelated local `flow/` changes were not modified.
    `EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/`, not the obsolete root-level
    `sim/` path.
 2. **Confirmed:** all seven tracked source/control files were copied to
-   `sim_restored/`; source and destination SHA256 values match 7/7.
+   `sim/`; source and destination SHA256 values match 7/7.
 3. **Confirmed:** local `src/` and EDAServer `rtl/src/` contain the same 16
    files with identical SHA256 values.
 4. **Confirmed:** GitHub commit `5a3fd5dea16cafe26c4596cc163c5e101aec2f14`
@@ -128,17 +128,17 @@ gold, upd = solve(nrow, ncol, bnd_n, bnd_s, bnd_w, bnd_e)
 
 On EDAServer, the script's literal `../matlab` path from `rtl/sim/` does not
 exist. The actual server model is `rtl/reference/golden_model.py`. When the
-unmodified script is placed in local root-level `sim_restored/`, `../matlab`
-resolves to local `matlab/`. The model bytes match:
+unmodified script is placed in local root-level `sim/`, `../matlab`
+resolves to local `sim/ref/`. The model bytes match:
 
 ```text
 $ LC_ALL=C ssh EDAServer 'sha256sum /home/sxw/PDE/pdeMujunjie/rtl/reference/golden_model.py /home/sxw/PDE/pdeMujunjie/rtl/reference/dsm_sweep.py'
 128c61691d9721bb02cda7b680fc577c5901c6346963fe46bb8a487726837a8a  .../golden_model.py
 1e56ec5a7ca6b5cc84762e5f80329a433e08da526ec1c41718c17b224c8c3107  .../dsm_sweep.py
 
-$ sha256sum matlab/golden_model.py matlab/dsm_sweep.py
-128c61691d9721bb02cda7b680fc577c5901c6346963fe46bb8a487726837a8a  matlab/golden_model.py
-1e56ec5a7ca6b5cc84762e5f80329a433e08da526ec1c41718c17b224c8c3107  matlab/dsm_sweep.py
+$ sha256sum sim/ref/golden_model.py sim/ref/dsm_sweep.py
+128c61691d9721bb02cda7b680fc577c5901c6346963fe46bb8a487726837a8a  sim/ref/golden_model.py
+1e56ec5a7ca6b5cc84762e5f80329a433e08da526ec1c41718c17b224c8c3107  sim/ref/dsm_sweep.py
 ```
 
 No testbench is stored in `rtl/sim/`. File lists and Makefile targets reference
@@ -149,7 +149,7 @@ files under `rtl/tb/`.
 Executed transfer:
 
 ```text
-$ mkdir sim_restored
+$ mkdir sim
 $ LC_ALL=C scp -p \
     EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/Makefile \
     EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/check_golden.py \
@@ -158,7 +158,7 @@ $ LC_ALL=C scp -p \
     EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/chip20.f \
     EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/chip8_wave.f \
     EDAServer:/home/sxw/PDE/pdeMujunjie/rtl/sim/chip_safe.f \
-    sim_restored/
+    sim/
 ```
 
 Source and destination SHA256 values:
@@ -176,12 +176,12 @@ Source and destination SHA256 values:
 The post-transfer command was:
 
 ```text
-$ sha256sum sim_restored/Makefile sim_restored/check_golden.py \
-    sim_restored/rtl.f sim_restored/chip.f sim_restored/chip20.f \
-    sim_restored/chip8_wave.f sim_restored/chip_safe.f
+$ sha256sum sim/Makefile sim/check_golden.py \
+    sim/rtl.f sim/chip.f sim/chip20.f \
+    sim/chip8_wave.f sim/chip_safe.f
 ```
 
-`diff -qr sim_restored /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/sim`
+`diff -qr sim /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/sim`
 returned no output and exit status 0.
 
 ## Stage 1 - three-way version relationship
@@ -463,16 +463,16 @@ Normalized mappings used for this comparison:
 |---|---|
 | `rtl/src/` | `src/` |
 | `rtl/tb/` | `tb/` |
-| `rtl/reference/` | `matlab/` |
-| `rtl/sim/` | `sim_restored/` |
+| `rtl/reference/` | `sim/ref/` |
+| `rtl/sim/` | `sim/` |
 | `rtl/docs/` | `doc/` design-note files only |
 | `rtl/README.md` | `README.md` |
 
 Results:
 
 - `src/`: no file-set or content differences (`diff -qr` exit 0).
-- `matlab/` versus `rtl/reference/`: both files have matching SHA256.
-- `sim_restored/` versus `rtl/sim/`: all seven files match (`diff -qr` exit 0).
+- `sim/ref/` versus `rtl/reference/`: both files have matching SHA256.
+- `sim/` versus `rtl/sim/`: all seven files match (`diff -qr` exit 0).
 - design notes: both Markdown files match by SHA256.
 - `tb/`: EDAServer-only `tb_pe.sv`; all six shared files match by SHA256.
 - README exists on both sides but differs. EDAServer documents the new
@@ -488,7 +488,7 @@ $ diff -qr src /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/src
 # no output; exit 0
 $ diff -qr tb /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/tb
 Only in /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/tb: tb_pe.sv
-$ diff -qr sim_restored /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/sim
+$ diff -qr sim /tmp/pde_sim_restore_stage1.YLchuvNh/edaserver/rtl/sim
 # no output; exit 0
 ```
 
@@ -549,7 +549,7 @@ Exactly one file edit was required:
 
 | File | Original | New | Reason |
 |---|---|---|---|
-| `sim_restored/Makefile`, `dsm` target | `python3 $(ROOT)/reference/dsm_sweep.py` | `python3 $(ROOT)/matlab/dsm_sweep.py` | EDAServer layout keeps the model in `rtl/reference/`; the local layout keeps the byte-identical file (sha256 `1e56ec5a…`) in `matlab/`. `$(ROOT)` is `..` = repo root here. |
+| `sim/Makefile`, `dsm` target | `python3 $(ROOT)/reference/dsm_sweep.py` | `python3 $(ROOT)/sim/ref/dsm_sweep.py` | EDAServer layout keeps the model in `rtl/reference/`; the local layout keeps the byte-identical file (sha256 `1e56ec5a…`) in `sim/ref/`. `$(ROOT)` is `..` = repo root here. |
 
 Non-edit adaptations:
 
@@ -557,7 +557,7 @@ Non-edit adaptations:
   make variable (the Makefile default `/ssd0/synopsys/synopsys_bashrc` is the
   EDAServer path). No file change needed.
 - `check_golden.py` was **not** modified: its `../matlab` import resolves
-  correctly from `sim_restored/` and was validated by execution.
+  correctly from `sim/` and was validated by execution.
 - No RTL, testbench, golden-model, or tolerance change of any kind. The
   comparison remains exact integer equality per grid point.
 
@@ -587,7 +587,7 @@ A subsequent single-command `make all` run reproduced every PASS
 ```bash
 # enter the tool container
 distrobox enter synopsys-focal
-cd /home/soleil/code/DigitalIC/PDE/pdeMujunjie/sim_restored
+cd /home/soleil/code/DigitalIC/PDE/pdeMujunjie/sim
 
 # full regression (~90 s)
 make SYNOPSYS_ENV=/home/soleil/synopsys/env_synopsys_2024.sh all

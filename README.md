@@ -37,8 +37,8 @@ Additional signed regressions:
                    r_state_ctrl pe_top
     src/pe_array/  pde_memcontrol pde_tcu pde_top
     tb/            tb_pe_smoke tb_pde_top
-    sim/           Makefile check_golden.py
-    matlab/        golden_model.py dsm_sweep.py
+    sim/           Makefile + filelists
+    sim/ref/       golden_model.py dsm_sweep.py check_golden.py
     doc/           design_notes.md / design_notes_zh.md   <-- read this first
 
 ## Key parameters

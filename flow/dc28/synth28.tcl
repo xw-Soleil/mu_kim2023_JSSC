@@ -1,4 +1,7 @@
 # DC synthesis for pde_chip_top_safe on TSMC 28nm HPC+ (tcbn28hpcplusbwp40p140).
+# Phase C: also supports PDE_TOP=pde_chip_pads (nine tphn28hpcpgv18 GPIO pads
+# around pde_chip_top_spi; IO library joins link-only, pad instances are
+# dont_touch, boundary constraints switch to the board-level view).
 #
 # Origin: copied from flow/dc/synth.tcl @ commit 57572a9 (65nm, reset-unmask
 # verified). Do not edit the 65nm original. Diff points vs the origin:
@@ -34,7 +37,15 @@ file mkdir $REPORT_DIR
 file mkdir $RESULT_DIR
 
 set TOP [env_or_default PDE_TOP pde_chip_top_safe]
-set CLOCK_PORT clk
+# Chip-boundary port names differ between the core-only tops and the pad-level
+# top pde_chip_pads (phase C: nine GPIO pads instantiated, all ports inout).
+if {$TOP eq "pde_chip_pads"} {
+  set CLOCK_PORT PAD_CLK
+  set RESET_PORT PAD_RSTN
+} else {
+  set CLOCK_PORT clk
+  set RESET_PORT rst_n
+}
 set CLOCK_NAME core_clk
 # R2 (Stage L): period is env-overridable; default stays the 10 ns baseline.
 # R2 runs set PDE28_CLOCK_PERIOD=6.0 (rationale: round-1 post-route setup
@@ -57,7 +68,21 @@ set TARGET_DB [env_or_default PDE28_TARGET_DB \
 set MIN_DB [env_or_default PDE28_MIN_DB \
   [file join $NLDM_DIR tcbn28hpcplusbwp40p140ffg0p99vm40c.db]]
 
-foreach f [list $TARGET_DB $MIN_DB] {
+# IO pad library (tphn28hpcpgv18), link-only for the pad-level top.  Corner
+# pairing follows flow/IO_SURVEY_2026-08-14.md section 3.5: same -40 C
+# temperature as the core setup/min choices.
+set IO_NLDM_DIR [env_or_default PDE28_IO_NLDM_DIR \
+  [file join $PDK28_ROOT IO tphn28hpcpgv18_170a TSMCHOME digital Front_End timing_power_noise NLDM tphn28hpcpgv18_170a]]
+set IO_TARGET_DB [env_or_default PDE28_IO_TARGET_DB \
+  [file join $IO_NLDM_DIR tphn28hpcpgv18ssg0p81v1p62vm40c.db]]
+set IO_MIN_DB [env_or_default PDE28_IO_MIN_DB \
+  [file join $IO_NLDM_DIR tphn28hpcpgv18ffg0p99v1p98vm40c.db]]
+
+set REQUIRED_DBS [list $TARGET_DB $MIN_DB]
+if {$TOP eq "pde_chip_pads"} {
+  lappend REQUIRED_DBS $IO_TARGET_DB $IO_MIN_DB
+}
+foreach f $REQUIRED_DBS {
   if {![file exists $f]} { error "Missing library: $f" }
 }
 
@@ -76,7 +101,10 @@ set RTL_FILES [list \
   [file join $REPO_ROOT src pe_array pde_tcu.sv] \
   [file join $REPO_ROOT src pe_array pde_core.sv] \
   [file join $REPO_ROOT src pe_array pde_chip_top.sv] \
-  [file join $REPO_ROOT src pe_array pde_chip_top_safe.sv]]
+  [file join $REPO_ROOT src pe_array pde_chip_top_safe.sv] \
+  [file join $REPO_ROOT src pe_array spi_cfg_bridge.sv] \
+  [file join $REPO_ROOT src pe_array pde_chip_top_spi.sv] \
+  [file join $REPO_ROOT src pe_array pde_chip_pads.sv]]
 
 foreach RTL_FILE $RTL_FILES {
   if {![file exists $RTL_FILE]} {
@@ -87,6 +115,11 @@ foreach RTL_FILE $RTL_FILES {
 set_app_var search_path [concat [list $REPO_ROOT $NLDM_DIR] $search_path]
 set_app_var target_library [list $TARGET_DB]
 set_app_var link_library [concat "*" $target_library]
+if {$TOP eq "pde_chip_pads"} {
+  # Pads resolve from the link library only; logic never maps into IO cells.
+  set_app_var search_path [concat [list $IO_NLDM_DIR] $search_path]
+  set_app_var link_library [concat $link_library [list $IO_TARGET_DB]]
+}
 
 # DC ignores library recovery/removal arcs by default (var default: false).
 # Without this, no reset-release check is ever performed regardless of SDC.
@@ -113,6 +146,12 @@ uniquify
 
 # Min-delay (hold/removal) analysis library pairing.
 set_min_library [file tail $TARGET_DB] -min_version [file tail $MIN_DB]
+if {$TOP eq "pde_chip_pads"} {
+  set_min_library [file tail $IO_TARGET_DB] -min_version [file tail $IO_MIN_DB]
+  # Freeze the nine pad instances: no constant propagation into the OEN/REN
+  # ties, no removal of output pads whose C pins are intentionally unloaded.
+  set_dont_touch [get_cells u_pad_*]
+}
 
 redirect -file [file join $REPORT_DIR check_design_precompile.rpt] {
   check_design
@@ -125,14 +164,29 @@ set_clock_uncertainty -setup 0.200 [get_clocks $CLOCK_NAME]
 set_clock_uncertainty -hold 0.050 [get_clocks $CLOCK_NAME]
 set_clock_transition 0.100 [get_clocks $CLOCK_NAME]
 
-set DATA_INPUTS [remove_from_collection [all_inputs] [get_ports {clk rst_n}]]
-if {[sizeof_collection $DATA_INPUTS] > 0} {
-  set_input_delay 1.000 -clock $CLOCK_NAME $DATA_INPUTS
-  set_input_transition 0.100 $DATA_INPUTS
-}
-if {[sizeof_collection [all_outputs]] > 0} {
-  set_output_delay 1.000 -clock $CLOCK_NAME [all_outputs]
-  set_load 0.050 [all_outputs]
+if {$TOP eq "pde_chip_pads"} {
+  # Pad-level boundary (docs/spi_interface_spec.md section 7).  The SPI
+  # inputs are asynchronous by construction -- they land in double-flop
+  # synchronizers inside spi_cfg_bridge and are oversampled at f_SCLK <=
+  # f_core/8 -- so they carry a false path plus a bench-grade slow slew.
+  # Outputs see the bench cable: databook 4 mA at 20 pF is ~2.3 ns.
+  set SPI_INPUTS [get_ports {PAD_SCLK PAD_CSN PAD_MOSI}]
+  set PAD_OUTPUTS [get_ports {PAD_MISO PAD_SCAN_OUT PAD_SCAN_VALID PAD_SCAN_LAST}]
+  set_input_transition 1.000 $SPI_INPUTS
+  set_false_path -from $SPI_INPUTS
+  set_output_delay 1.000 -clock $CLOCK_NAME $PAD_OUTPUTS
+  set_load 20.0 $PAD_OUTPUTS
+} else {
+  set DATA_INPUTS [remove_from_collection [all_inputs] \
+    [get_ports [list $CLOCK_PORT $RESET_PORT]]]
+  if {[sizeof_collection $DATA_INPUTS] > 0} {
+    set_input_delay 1.000 -clock $CLOCK_NAME $DATA_INPUTS
+    set_input_transition 0.100 $DATA_INPUTS
+  }
+  if {[sizeof_collection [all_outputs]] > 0} {
+    set_output_delay 1.000 -clock $CLOCK_NAME [all_outputs]
+    set_load 0.050 [all_outputs]
+  }
 }
 
 # Reset constraints [carried from 65nm Stage 4, process independent]:
@@ -144,11 +198,11 @@ if {[sizeof_collection [all_outputs]] > 0} {
 #  3. The false path covers only the truly asynchronous segment: after the
 #     synchronizer, port paths end at the synchronizer CDN pins; downstream
 #     CDNs launch from rst_sync_q_reg[1]/CP and stay fully checked.
-set_input_delay -max 1.000 -clock $CLOCK_NAME [get_ports rst_n]
-set_input_delay -min 0.200 -clock $CLOCK_NAME [get_ports rst_n]
-set_input_transition 0.100 [get_ports rst_n]
-set_false_path -from [get_ports rst_n]
-set_ideal_network [get_ports clk]
+set_input_delay -max 1.000 -clock $CLOCK_NAME [get_ports $RESET_PORT]
+set_input_delay -min 0.200 -clock $CLOCK_NAME [get_ports $RESET_PORT]
+set_input_transition 0.100 [get_ports $RESET_PORT]
+set_false_path -from [get_ports $RESET_PORT]
+set_ideal_network [get_ports $CLOCK_PORT]
 
 set_max_fanout 32 [current_design]
 # Library default_max_transition at ssg0p9vm40c measured 0.5187 ns; the

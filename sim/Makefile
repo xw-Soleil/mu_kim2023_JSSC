@@ -18,6 +18,9 @@
 #   make chip8     8x8   chip top, serial readout, self-checking
 #   make chip20    20x20 chip top, self-checking (6400-bit exact compare)
 #   make chipsafe  chip top wrapped in the safe-control layer
+#   make spi8      8x8   chip top behind the SPI-lite bridge (+ golden check)
+#   make spi20     20x20 chip top behind the SPI-lite bridge (+ golden check)
+#   make spi8-sweep   VCS only: SCLK-ratio sweep (16/10/8 pass, 6/4 probe)
 #   make chip8-fsdb   VCS only: 8x8 chip top with FSDB dump
 #   make verdi-check  VCS only: batch-verify the FSDB/KDB in Verdi
 #   make dsm       DSM on/off accuracy sweep (behavioural model)
@@ -61,13 +64,14 @@ endif
 IV  := iverilog -g2012
 VVP := vvp
 
-.PHONY: all tools pe top8 top8neg top8mixed top20 chip8 chip20 chipsafe dsm \
+.PHONY: all tools pe top8 top8neg top8mixed top20 chip8 chip20 chipsafe \
+        spi8 spi20 spi8-sweep dsm \
         chip8-fsdb verdi-check need-vcs need-iv clean \
         vcs-all vcs-pe vcs-top8 vcs-top8neg vcs-top8mixed vcs-top20 \
-        vcs-chip8 vcs-chip20 vcs-chipsafe \
+        vcs-chip8 vcs-chip20 vcs-chipsafe vcs-spi8 vcs-spi20 vcs-spi8-sweep \
         iverilog-all iverilog-pe iverilog-top8 iverilog-top8neg \
         iverilog-top8mixed iverilog-top20 iverilog-chip8 iverilog-chip20 \
-        iverilog-chipsafe
+        iverilog-chipsafe iverilog-spi8 iverilog-spi20
 
 all:       $(SIM)-all
 pe:        $(SIM)-pe
@@ -78,6 +82,9 @@ top20:     $(SIM)-top20
 chip8:     $(SIM)-chip8
 chip20:    $(SIM)-chip20
 chipsafe:  $(SIM)-chipsafe
+spi8:      $(SIM)-spi8
+spi20:     $(SIM)-spi20
+spi8-sweep: vcs-spi8-sweep
 
 tools:
 	@echo "SIM      = $(SIM)   (override with SIM=vcs | SIM=iverilog)"
@@ -98,7 +105,7 @@ need-iv:
 # ----------------------------------------------------------------------------
 
 vcs-all: vcs-pe vcs-top8 vcs-top8neg vcs-top8mixed vcs-top20 \
-         vcs-chip8 vcs-chip20 vcs-chipsafe dsm
+         vcs-chip8 vcs-chip20 vcs-chipsafe vcs-spi8 vcs-spi20 dsm
 
 vcs-pe: need-vcs
 	@mkdir -p $(BUILD)/pe
@@ -167,6 +174,32 @@ vcs-chipsafe: need-vcs
 	      -Mdir=$(BUILD)/chipsafe/csrc -o $(BUILD)/chipsafe/simv \
 	      -f chip_safe.f -l $(BUILD)/chipsafe/compile.log
 	cd $(BUILD)/chipsafe && ./simv -l run.log
+
+vcs-spi8: need-vcs
+	@mkdir -p $(BUILD)/spi8
+	$(VCS) $(VCS_FLAGS) -top tb_pde_chip_top_spi \
+	      +define+NROW_P=8 +define+NCOL_P=8 \
+	      -Mdir=$(BUILD)/spi8/csrc -o $(BUILD)/spi8/simv \
+	      -f chip_spi.f -l $(BUILD)/spi8/compile.log
+	cd $(BUILD)/spi8 && ./simv -l run.log
+	python3 ref/check_golden.py $(BUILD)/spi8/u_dyn.txt 8 8 4096
+
+vcs-spi20: need-vcs
+	@mkdir -p $(BUILD)/spi20
+	$(VCS) $(VCS_FLAGS) -top tb_pde_chip_top_spi \
+	      -Mdir=$(BUILD)/spi20/csrc -o $(BUILD)/spi20/simv \
+	      -f chip_spi.f -l $(BUILD)/spi20/compile.log
+	cd $(BUILD)/spi20 && ./simv -l run.log
+	python3 ref/check_golden.py $(BUILD)/spi20/u_dyn.txt 20 20 4096
+
+# SCLK-frequency sweep on the 8x8 build: ratios 16/10/8 must pass (spec floor
+# is f_core/8); 6 and 4 probe the real break point and are informational only.
+vcs-spi8-sweep: vcs-spi8
+	cd $(BUILD)/spi8 && for r in 16 10 8; do \
+	  ./simv +SCLK_RATIO=$$r -l run_r$$r.log || exit 1; done
+	-cd $(BUILD)/spi8 && for r in 6 4; do \
+	  ./simv +SCLK_RATIO=$$r -l run_r$$r.log; done
+	@echo "sweep done: ratios 16/10/8 passed; see run_r6/run_r4 logs for the probe"
 
 chip8-fsdb: need-vcs
 ifndef VERDI_HOME
@@ -243,6 +276,19 @@ iverilog-chipsafe: need-iv
 	@mkdir -p $(BUILD)/chipsafe
 	$(IV) -s tb_pde_chip_top_safe -o $(BUILD)/chipsafe/chipsafe.vvp -f chip_safe.f
 	cd $(BUILD)/chipsafe && $(VVP) chipsafe.vvp
+
+iverilog-spi8: need-iv
+	@mkdir -p $(BUILD)/spi8
+	$(IV) -DNROW_P=8 -DNCOL_P=8 -s tb_pde_chip_top_spi \
+	      -o $(BUILD)/spi8/spi8.vvp -f chip_spi.f
+	cd $(BUILD)/spi8 && $(VVP) spi8.vvp
+	python3 ref/check_golden.py $(BUILD)/spi8/u_dyn.txt 8 8 4096
+
+iverilog-spi20: need-iv
+	@mkdir -p $(BUILD)/spi20
+	$(IV) -s tb_pde_chip_top_spi -o $(BUILD)/spi20/spi20.vvp -f chip_spi.f
+	cd $(BUILD)/spi20 && $(VVP) spi20.vvp
+	python3 ref/check_golden.py $(BUILD)/spi20/u_dyn.txt 20 20 4096
 
 dsm:
 	python3 ref/dsm_sweep.py

@@ -25,7 +25,7 @@
 | scan_valid | out | 读出有效窗(与 scan_out 同拍采样,`pde_chip_top.sv:255-258`) | PDDW04DGZ 配为输出 | — |
 | scan_last | out | 末位单拍脉冲 | PDDW04DGZ 配为输出 | — |
 
-双向 pad 配置约定:输入用法 OEN=禁止驱动、C 端进核;输出用法 OEN=使能驱动、I 端出核。OEN/REN 具体极性以 databook 为准(IO_SURVEY 待决项 D3)。
+双向 pad 配置约定(databook 9.12 真值表实证,2026-08-14 关闭 D3):**OEN 低有效**——输入用法 OEN=1(驱动器三态,PAD→C 进核)、输出用法 OEN=0(PAD=I 出核);**REN 低有效**——输入 pad REN=0 使能上/下拉,输出 pad REN=1 关拉。接线实现见 `src/pe_array/pde_chip_pads.sv`,已经 vendor 行为模型仿真验证(make spi8pads)。
 
 ## 2. 硬性条款(写给台架操作者)
 
@@ -136,4 +136,4 @@ STATUS 位表(`pde_chip_top.sv:179-181` + wrapper 覆盖 `pde_chip_top_safe.sv:1
 
 1. MISO 是否要 CS_N 门控三态(多从共享总线才需要;v1 建议常驱动)
 2. 慢时钟读出的台架换挡时机:本 spec 定为"DONE 之后、READ 命令之前",换挡期间 SPI 静默 ≥8 个新周期
-3. pad 驱动强度(04=4mA 是否够台架线缆负载,IO_SURVEY 按 databook 复核)
+3. ~~pad 驱动强度~~ 已关闭(2026-08-14):databook 实测 4mA 输出 TP ≈1.2ns+0.055ns/pF,20pF 负载 ≈2.3ns,对 MISO ≤20MHz 与慢时钟读出裕量巨大;台架上电条款从 databook 表 2.1 取值——VDD ramp ≥50µs、VDDIO ramp ≥100µs(slew 上限 0.018V/µs,比 RN 的 10µs 更严)

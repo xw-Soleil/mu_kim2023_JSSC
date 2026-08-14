@@ -21,6 +21,8 @@
 #   make spi8      8x8   chip top behind the SPI-lite bridge (+ golden check)
 #   make spi20     20x20 chip top behind the SPI-lite bridge (+ golden check)
 #   make spi8-sweep   VCS only: SCLK-ratio sweep (16/10/8 pass, 6/4 probe)
+#   make spi8pads  VCS only: 8x8 through the GPIO pad ring (vendor pad models
+#                  from IO_VLG; not part of `all` -- needs the external PDK)
 #   make chip8-fsdb   VCS only: 8x8 chip top with FSDB dump
 #   make verdi-check  VCS only: batch-verify the FSDB/KDB in Verdi
 #   make dsm       DSM on/off accuracy sweep (behavioural model)
@@ -65,10 +67,11 @@ IV  := iverilog -g2012
 VVP := vvp
 
 .PHONY: all tools pe top8 top8neg top8mixed top20 chip8 chip20 chipsafe \
-        spi8 spi20 spi8-sweep dsm \
+        spi8 spi20 spi8-sweep spi8pads dsm \
         chip8-fsdb verdi-check need-vcs need-iv clean \
         vcs-all vcs-pe vcs-top8 vcs-top8neg vcs-top8mixed vcs-top20 \
         vcs-chip8 vcs-chip20 vcs-chipsafe vcs-spi8 vcs-spi20 vcs-spi8-sweep \
+        vcs-spi8pads \
         iverilog-all iverilog-pe iverilog-top8 iverilog-top8neg \
         iverilog-top8mixed iverilog-top20 iverilog-chip8 iverilog-chip20 \
         iverilog-chipsafe iverilog-spi8 iverilog-spi20
@@ -85,6 +88,7 @@ chipsafe:  $(SIM)-chipsafe
 spi8:      $(SIM)-spi8
 spi20:     $(SIM)-spi20
 spi8-sweep: vcs-spi8-sweep
+spi8pads:  vcs-spi8pads
 
 tools:
 	@echo "SIM      = $(SIM)   (override with SIM=vcs | SIM=iverilog)"
@@ -191,6 +195,21 @@ vcs-spi20: need-vcs
 	      -f chip_spi.f -l $(BUILD)/spi20/compile.log
 	cd $(BUILD)/spi20 && ./simv -l run.log
 	python3 ref/check_golden.py $(BUILD)/spi20/u_dyn.txt 20 20 4096
+
+# Pad-level 8x8: pde_chip_pads DUT with the vendor behavioural GPIO models.
+# Proves the OEN/REN wiring of the pad ring; kept out of `all` because it
+# depends on the external PDK tree (override IO_VLG for other machines).
+IO_VLG ?= $(HOME)/pdk/tsmc28hpcplus/IO/tphn28hpcpgv18_170a/TSMCHOME/digital/Front_End/verilog/tphn28hpcpgv18_110a/tphn28hpcpgv18.v
+
+vcs-spi8pads: need-vcs
+	@test -f "$(IO_VLG)" || { echo "ERROR: pad models not found; set IO_VLG=<tphn28hpcpgv18.v>"; exit 1; }
+	@mkdir -p $(BUILD)/spi8pads
+	$(VCS) $(VCS_FLAGS) -top tb_pde_chip_top_spi \
+	      +define+NROW_P=8 +define+NCOL_P=8 +define+USE_PADS_TOP \
+	      -Mdir=$(BUILD)/spi8pads/csrc -o $(BUILD)/spi8pads/simv \
+	      -f chip_spi_pads.f $(IO_VLG) -l $(BUILD)/spi8pads/compile.log
+	cd $(BUILD)/spi8pads && ./simv -l run.log
+	python3 ref/check_golden.py $(BUILD)/spi8pads/u_dyn.txt 8 8 4096
 
 # SCLK-frequency sweep on the 8x8 build: ratios 16/10/8 must pass (spec floor
 # is f_core/8); 6 and 4 probe the real break point and are informational only.

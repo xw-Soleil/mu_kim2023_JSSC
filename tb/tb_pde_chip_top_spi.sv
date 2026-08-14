@@ -11,6 +11,8 @@
 //   +SCLK_RATIO=<n>  SCLK period as a multiple of the clk period (default 10,
 //                    spec minimum 8; smaller values are expected to fail and
 //                    are used by the sweep target to locate the break point).
+//   +define+USE_PADS_TOP  swap the DUT for pde_chip_pads (GPIO pad ring
+//                    instantiated, vendor behavioural pad models required).
 `timescale 1ns/1ps
 
 `ifndef NROW_P
@@ -67,6 +69,30 @@ module tb_pde_chip_top_spi;
   integer sclk_ratio;
   real sclk_half_ns;
 
+`ifdef USE_PADS_TOP
+  wire pad_clk = clk;
+  wire pad_rstn = rst_n;
+  wire pad_sclk = sclk;
+  wire pad_csn = cs_n;
+  wire pad_mosi = mosi;
+  wire pad_miso, pad_scano, pad_scanv, pad_scanl;
+  assign miso = pad_miso;
+  assign scan_out = pad_scano;
+  assign scan_valid = pad_scanv;
+  assign scan_last = pad_scanl;
+
+  pde_chip_pads #(
+    .NROW(NROW), .NCOL_LOG(NCOL), .USE_DSM(1'b1),
+    .CONV_ON_SMALL(1'b1), .DYN_PREC(1'b1),
+    .MAX_UPDATES(MAX_UPDATES)
+  ) dut_pads (
+    .PAD_CLK(pad_clk), .PAD_RSTN(pad_rstn),
+    .PAD_SCLK(pad_sclk), .PAD_CSN(pad_csn), .PAD_MOSI(pad_mosi),
+    .PAD_MISO(pad_miso), .PAD_SCAN_OUT(pad_scano),
+    .PAD_SCAN_VALID(pad_scanv), .PAD_SCAN_LAST(pad_scanl)
+  );
+  `define DUT_CORE dut_pads.u_core
+`else
   pde_chip_top_spi #(
     .NROW(NROW), .NCOL_LOG(NCOL), .USE_DSM(1'b1),
     .CONV_ON_SMALL(1'b1), .DYN_PREC(1'b1),
@@ -76,6 +102,8 @@ module tb_pde_chip_top_spi;
     .sclk(sclk), .cs_n(cs_n), .mosi(mosi), .miso(miso),
     .scan_out(scan_out), .scan_valid(scan_valid), .scan_last(scan_last)
   );
+  `define DUT_CORE dut
+`endif
 
   // Reference model: the array core driven directly, as in the other chip TBs.
   logic [16*NCOL-1:0] ref_bn, ref_bs;
@@ -111,11 +139,11 @@ module tb_pde_chip_top_spi;
   integer bus_writes = 0, bus_reads = 0;
   integer exp_writes = 0, exp_reads = 0;
   always @(posedge clk) begin
-    if (dut.cfg_valid) begin
-      if (dut.cfg_write) bus_writes = bus_writes + 1;
-      else               bus_reads = bus_reads + 1;
+    if (`DUT_CORE.cfg_valid) begin
+      if (`DUT_CORE.cfg_write) bus_writes = bus_writes + 1;
+      else                     bus_reads = bus_reads + 1;
     end
-    if (dut.u_spi.bit_cnt_q > 6'd40)
+    if (`DUT_CORE.u_spi.bit_cnt_q > 6'd40)
       fail("bridge bit counter exceeded 40");
   end
 

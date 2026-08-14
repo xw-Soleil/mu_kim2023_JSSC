@@ -17,10 +17,30 @@ if {[file exists $DESIGN_LIB]} {
 
 puts "PDE28: netlist=$NETLIST"
 puts "PDE28: ref_ndm=$REF_NDM"
-create_lib -use_technology_lib $REF_NDM -ref_libs [list $REF_NDM] $DESIGN_LIB
+# Full-chip top: reference the IO pad NDM (timing) and bond pad NDM
+# (physical-only) alongside the std cell NDM. Core-only tops keep the
+# original single-reference library verbatim.
+set REF_LIBS [list $REF_NDM]
+if {$IS_CHIP} {
+  require_directory $IO_NDM "GPIO pad NDM (build_ndm_io.tcl)"
+  require_directory $BOND_NDM "bond pad NDM (build_ndm_bondpad.tcl)"
+  lappend REF_LIBS $IO_NDM $BOND_NDM
+  puts "PDE28: io_ndm=$IO_NDM"
+  puts "PDE28: bond_ndm=$BOND_NDM"
+}
+create_lib -use_technology_lib $REF_NDM -ref_libs $REF_LIBS $DESIGN_LIB
 read_verilog -top $TOP [list $NETLIST]
 current_block $TOP
 link_block
+if {$IS_CHIP} {
+  # Pad instances must survive optimization untouched (the TSMC IO .db also
+  # carries dont_touch, this makes the intent explicit in-flow).
+  set PAD_CELLS [get_cells u_pad_*]
+  if {[sizeof_collection $PAD_CELLS] != 9} {
+    error "Expected 9 pad instances u_pad_*, found [sizeof_collection $PAD_CELLS]"
+  }
+  set_dont_touch $PAD_CELLS
+}
 
 redirect -file [file join $REPORT_DIR s01_link_check.rpt] {
   check_design -checks {netlist unbound}

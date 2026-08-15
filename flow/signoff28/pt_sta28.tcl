@@ -19,19 +19,28 @@ if {![info exists ::env(PDE28_PT_CORNER)]} {
 }
 set ROOT   $::env(PDE28_SIGNOFF_ROOT)
 set CORNER $::env(PDE28_PT_CORNER)
+# Full-chip line (pad-level top, selected by PDE_TOP): link additionally
+# against the GPIO NLDM; the default keeps the core-only top byte-identical.
 set TOP    pde_chip_top_safe
+if {[info exists ::env(PDE_TOP)] && [string trim $::env(PDE_TOP)] ne ""} {
+  set TOP $::env(PDE_TOP)
+}
+set IS_CHIP [expr {$TOP eq "pde_chip_pads"}]
 set INPUT  $ROOT/inputs
 set LIBDIR $ROOT/lib
 set RPT    $ROOT/pt/reports
 file mkdir $RPT
 
+set EXTRA_DBS {}
 switch -exact -- $CORNER {
   WC { set DB   tcbn28hpcplusbwp40p140ssg0p9vm40c.db
        set SPEF $INPUT/$TOP.WC.spef.RC_WORST_-40.spef
-       set AOCVM_FILE tcbn28hpcplusbwp40p140ssg0p9vm40c_setup_P_P_ccs.aocvm }
+       set AOCVM_FILE tcbn28hpcplusbwp40p140ssg0p9vm40c_setup_P_P_ccs.aocvm
+       if {$IS_CHIP} { lappend EXTRA_DBS tphn28hpcpgv18ssg0p81v1p62vm40c.db } }
   BC { set DB   tcbn28hpcplusbwp40p140ffg0p99vm40c.db
        set SPEF $INPUT/$TOP.BC.spef.RC_BEST_-40.spef
-       set AOCVM_FILE tcbn28hpcplusbwp40p140ffg0p99vm40c_hold_P_P_ccs.aocvm }
+       set AOCVM_FILE tcbn28hpcplusbwp40p140ffg0p99vm40c_hold_P_P_ccs.aocvm
+       if {$IS_CHIP} { lappend EXTRA_DBS tphn28hpcpgv18ffg0p99v1p98vm40c.db } }
   default { error "PDE28_PT_CORNER must be WC or BC, got: $CORNER" }
 }
 # R2 (N.3): second pass with SBOCV AOCV tables (TSMC CCS-derived .aocvm,
@@ -41,17 +50,37 @@ switch -exact -- $CORNER {
 set AOCV [expr {[info exists ::env(PDE28_PT_AOCV)] && $::env(PDE28_PT_AOCV) eq "1"}]
 set PFX $CORNER
 if {$AOCV} { set PFX ${CORNER}_aocv }
-foreach f [list $INPUT/$TOP.postroute.v $INPUT/$TOP.sdc $SPEF $LIBDIR/$DB] {
+set req [list $INPUT/$TOP.postroute.v $INPUT/$TOP.sdc $SPEF $LIBDIR/$DB]
+foreach db $EXTRA_DBS { lappend req $LIBDIR/$db }
+foreach f $req {
   if {![file isfile $f]} { error "Required input missing: $f" }
 }
 
 set_host_options -max_cores 8
 set search_path [list . $LIBDIR]
-set link_path   [list * $DB]
+set link_path   [concat [list * $DB] $EXTRA_DBS]
 
 read_verilog $INPUT/$TOP.postroute.v
 current_design $TOP
-link_design
+# Bond pads (PAD50GU, physical-only COVER cells: no .lib exists at all) are
+# the only legitimate black boxes; anything else unresolved is a real
+# library gap and must stop the run.
+if {$IS_CHIP} { set link_create_black_boxes true }
+redirect -variable link_log { link_design }
+puts $link_log
+# LNK-005 = unresolved reference, LNK-043 = black box created; the generic
+# "Removed N unconnected cells and blackboxes" cleanup line must not trip
+# this (first chip run lesson).
+set bb_lines {}
+foreach line [split $link_log "\n"] {
+  if {[regexp {LNK-005|LNK-043} $line]} { lappend bb_lines $line }
+}
+foreach line $bb_lines {
+  if {![string match {*PAD50GU*} $line]} {
+    error "Unexpected black box during link: $line"
+  }
+}
+echo "PDE28_PT black_box_link_lines=[llength $bb_lines] (PAD50GU only)"
 
 # G.3 evidence: PT's recovery/removal gating differs from DC's
 # enable_recovery_removal_arcs. Record the live default before any override,
@@ -65,12 +94,22 @@ set_operating_conditions -analysis_type on_chip_variation
 read_parasitics $SPEF
 read_sdc $INPUT/$TOP.sdc
 
-# The DC-era SDC still declares the clock port ideal. ICC2 timed the design
-# with the routed clock tree propagated (post-CTS state); do the same here.
-# This adds real clock network delay -- more checking, not a relaxation.
-if {[llength [get_ports -quiet clk]] > 0} {
-  remove_ideal_network [get_ports clk]
+# The DC-era SDC still declares the clock source port ideal. ICC2 timed the
+# design with the routed clock tree propagated (post-CTS state); do the same
+# here. Derive the port from the clock definitions instead of a hardcoded
+# name -- the core top clocks on `clk`, the pad top on `PAD_CLK`, and a
+# silently skipped removal here would leave the clock network ideal.
+set ideal_released 0
+foreach_in_collection c [all_clocks] {
+  foreach_in_collection s [get_attribute $c sources] {
+    if {[get_attribute -quiet $s object_class] eq "port"} {
+      remove_ideal_network $s
+      incr ideal_released
+    }
+  }
 }
+if {$ideal_released == 0} { error "No clock source port found to release from ideal network" }
+echo "PDE28_PT ideal_network_released_ports=$ideal_released"
 set_propagated_clock [all_clocks]
 
 if {$AOCV} {

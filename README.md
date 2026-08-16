@@ -64,6 +64,16 @@ MUX sits after the Red/Black bank select.
 starting another independent problem; solution, residue and DSM state are all
 stateful and are intentionally not silently cleared from `S_DONE`.
 
+## Implementation status (TSMC 28nm HPC+)
+
+Three implementation rounds, records under `flow/`:
+
+- R1 (tag `signoff28-full-clean`): core-only top through DC/ICC2 with the first independent PT + Calibre signoff (`flow/SIGNOFF_28NM_2026-08-07.md`).
+- R2: PPA tightening (clock 10 -> 6 ns, utilization 0.55 -> 0.70) plus root-cause fixes (`flow/PPA_28NM_R2_2026-08-08.md`).
+- R3 (tag `fullchip28-signoff`): tapeout-shaped chip -- SPI-style config interface, 21-pad GPIO ring with CUP bond pads on a 685x685 um die, all six ICC2 hard gates zero, and PT/Calibre signoff with every remaining discrepancy root-caused (`flow/R3_FULLCHIP_2026-08-15.md` and the records it links). Dummy fill is intentionally out of scope.
+
+A per-script walkthrough and glossary for the whole line: `docs/flow_primer_zh.md`.
+
 ## Local Git safety
 
 This working repository is local-only and its existing history is not a publication-ready export. Source-management rules are in `AGENTS.md`; Claude Code imports the same rules through `CLAUDE.md`.
@@ -75,10 +85,6 @@ git config core.hooksPath .githooks
 git config --get core.hooksPath
 ```
 
-The hook rejects files over 50 MiB, common PDK/vendor/implementation file types, newly added machine/license/internal-host strings, and obvious credential patterns. A staged change under `flow/` is intentionally blocked until its paths and candidate cell/layer/corner tokens have been shown to the user. After explicit review approval, retry that commit with:
-
-```bash
-PDE_FLOW_DISCLOSURE_REVIEWED=1 git commit
-```
+The hook rejects files over 50 MiB, common PDK/vendor/implementation file types, and obvious credential patterns. Disclosure-class findings (machine/license/internal-host strings) and the per-commit inventory of staged `flow/` paths with candidate cell/layer/corner tokens are printed as non-blocking notices since 2026-08-07 -- review them at commit time; they do not constitute sanitization for any future public release.
 
 Do not use `--no-verify` without explicit approval for the exact commit. `gitleaks` is additionally required before any remote or public-release work; the hook reports when it is unavailable.
